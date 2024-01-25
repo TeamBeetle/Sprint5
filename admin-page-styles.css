@@ -1,0 +1,543 @@
+@font-face
+{
+    font-family: 'Big Noodle Titling';
+    src: url('fonts/big_noodle_titling.ttf');
+}
+*
+{
+    font-family: 'Big Noodle Titling', Impact, Arial Black, sans-serif;
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+html
+{
+    height: 100%;
+    width: 100%;
+    z-index: 1; /* set index to 1 to allow pop ups like sign up form to function */
+    overflow-x: hidden;
+}
+#grc-logo
+{
+    width: 80px;
+}
+.logo-inline h1
+{
+    white-space: nowrap;
+}
+.main-logo
+{
+    width: 100px;
+    margin-right: 10px;
+}
+
+.link-row {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    text-align: center;
+}
+
+.links a
+{
+    color: #ffffff;
+    word-wrap: break-word;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    width: 50px;
+    font-size: 20px;
+}
+
+.links a:hover {
+    color: #dcdcdc;
+}
+
+#nav-bar
+{
+    padding: 5px;
+    background: #2C882B;
+    display: grid;
+    grid-template-columns: 7% 83% 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+#toggleContainer
+{
+    padding: 10px;
+}
+
+.toggle
+{
+    border: 2px solid grey;
+}
+
+.main-display
+{
+    background-color: #006225;
+}
+
+.apps-display {
+    height: 300px;
+    padding: 0;
+    overflow: auto;
+}
+
+td,tr,.reminder-row
+{
+    color: #111;
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+}
+
+.apps tr {
+    height: 100px;
+}
+
+.apps tr td {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.table-title {
+    font-size: 30px;
+    background: #333333;
+    color: white;
+    text-align: center;
+}
+
+
+.apps
+{
+    text-align: center;
+    width: 100%;
+}
+
+.view-info {
+    border: solid green 1px;
+}
+
+.delete-account {
+    border: solid red 1px;
+    margin-right: 10px;
+}
+
+.user-details
+{
+    overflow: auto;
+    height: 300px;
+}
+
+.category-title {
+    font-size: 30px;
+}
+
+.user-details .buttons {
+    display: flex;
+    flex-direction: row;
+    grid-gap: 30px;
+    margin-top: 30px;
+}
+
+.user-details .info-button-message {
+    border: green solid 1px;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.user-details .info-button-delete {
+    border: #ff0000 solid 1px;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.user-details p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.user-details img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.user-details .user-grid {
+    height: 200px;
+    font-size: 20px;
+}
+
+.user-details, table
+{
+    background-color: white;
+    border: 1px solid black;
+}
+
+
+/* All items related to sign-up form*/
+
+/* changes sign up cursor hover to the pointer icon */
+.sign-up {
+    cursor: pointer;
+}
+
+/*
+  CSS for the div container that holds the form element
+ - changes the z index to 2 so its on top of the elements
+ - makes the position absolute so it's stays in same spot on page
+ - gives the container a backdrop filter that makes everything behind blurred
+ - visibility is hidden until sign up form anchor element is pressed
+ - makes the opacity transition duration 0.5 seconds.
+*/
+.signup-form {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    overflow-x: hidden;
+    backdrop-filter: blur(5px);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+/*
+ CSS for the form container itself
+ - width and height are both set below, easily adjustable
+ - used top and left attributes to center it, as well as the margin-right and transform/translate
+ - made the display inside flex and aligned everything center
+*/
+.form-content {
+    background: white;
+    height: 560px;
+    width: 400px;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*
+ - used this div container to seperate the first 3 input elements
+ to avoid affecting the other input elements within the form
+*/
+.form-user-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+}
+
+/*
+ - makes the input box width 100% across the form
+*/
+.form-user-info input {
+    width: 100%;
+}
+
+/*
+ - sets margin top of h1 element to 15px
+*/
+.form-content h1 {
+    margin-top: 15px;
+}
+
+/*
+ - all elements within the form displayed as a column
+ - width set to 80%
+*/
+.form-content form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+/*
+ - input height adjusted to 30px;
+*/
+.form-content input {
+    height: 30px;
+}
+
+/*
+ - div container to evenly space out the checkboxes and labels
+*/
+.form-checkboxes {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    margin: 15px 0 15px 0;
+}
+
+/*
+ - changes the width of the checkboxes
+*/
+.form-checkboxes input {
+    width: 70%;
+}
+
+/*
+ - checkboxes labels centered
+*/
+.form-checkboxes label {
+    align-self: center;
+}
+
+/*
+ - changes the "terms and conditions" text size to 13px
+ - moves it down a little bit using margin-top
+ - width set to 80% of the form container
+*/
+.form-content p:last-of-type {
+    margin-top: 29px;
+    width: 80%;
+    text-align: center;
+    font-size: 13px;
+}
+
+/*
+ CSS for the submit button
+*/
+.form-content button {
+    height: 40px;
+    width: 60%;
+    align-self: center;
+    margin-top: 30px;
+    border: none;
+    background-color: #2eb05d;
+    color: white;
+    border-radius: 5px;
+}
+
+/*
+ CSS for the close form button
+ will be changed later to an image rather than a "p" element
+*/
+.form-close-button {
+    position: relative;
+    left: 95%;
+    width: 30px;
+    height: 29px;
+    border: black solid 1px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: white;
+    bottom: -2%;
+    cursor: pointer;
+}
+
+/*
+ - adjusts the p color and margin
+*/
+.form-close-button p {
+    margin: 0;
+    color: #6b2d2d;
+}
+/* End sign up form css */
+
+/* Beginning of Add Application CSS Form */
+.addapp-form {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    overflow-x: hidden;
+    backdrop-filter: blur(5px);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.app-close-button {
+    position: relative;
+    left: 95%;
+    width: 30px;
+    height: 29px;
+    border: black solid 1px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: white;
+    bottom: -2%;
+    cursor: pointer;
+}
+
+.addapp-form {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    overflow-x: hidden;
+    backdrop-filter: blur(5px);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.addapp-input
+{
+    padding-bottom: 5px;
+}
+.add-app-form input
+{
+    justify-items: center;
+    width: 100%;
+}
+.add-app-flavor-text
+{
+    text-align: center;
+}
+
+/* contact */
+.contact-form{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    overflow-x: hidden;
+    backdrop-filter: blur(5px);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.contact-close-button{
+    position: relative;
+    left: 95%;
+    width: 30px;
+    height: 29px;
+    border: black solid 1px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: white;
+    bottom: -2%;
+    cursor: pointer;
+}
+.form-content-contact {
+    background: white;
+    height: 560px;
+    width: 400px;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+}
+.form-user-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+}
+.contact {
+    cursor: pointer;
+}
+
+
+/* Beginning of Add Application CSS Form */
+.addapp-form {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    overflow-x: hidden;
+    backdrop-filter: blur(5px);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.app-close-button {
+    position: relative;
+    left: 95%;
+    width: 30px;
+    height: 29px;
+    border: black solid 1px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: white;
+    bottom: -2%;
+    cursor: pointer;
+}
+
+
+.spacing {
+    flex: 1;
+}
+
+/* Footer CSS */
+
+footer {
+    margin-top: 200px;
+    background-color: #333333;
+    color: white;
+    padding: 10px;
+    border-top: 10px solid #5c5c5c;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer h1 {
+}
+
+
+footer ul {
+    list-style-type: none;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.welcome-text {
+    grid-row-gap: 40px;
+}
+
+.welcome-text-box {
+}
+
+.footer-resources {
+}
+
+.welcome-text a {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-resources a {
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* end footer css */
