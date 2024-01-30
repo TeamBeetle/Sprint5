@@ -76,14 +76,30 @@
                 <p>X</p>
             </div>
             <div class="form-content">
-                <h1>Add an Application</h1>
-                <form method="post" action="https://schrock.greenriverdev.com/vardump.php">
+                <h1 align="center">Application Announcement</h1>
+                <form method="post" action="https://teambeetle.greenriverdev.com/SPRINT2/vardump.php">
                     <div class="add-app-form">
                         <div class="col-12 addapp-input">
-                            <input placeholder="Employers Name" name="app-title">
+                            <input placeholder="Position Title" name="app-position">
                         </div>
                         <div class="col-12 addapp-input">
-                            <input placeholder="Status of Application" name="app-status">
+                            <input placeholder="Employer Title" name="app-employer">
+                        </div>
+                        <div class="col-12 addapp-input">
+
+                            <div class="form-checkboxes">
+                                <input type="radio" id = "app-intern-status" name="app-status" value = "app-status">
+                                <label for="app-intern-status">Seeking Internship</label>
+                                <input type="radio" id = "app-job-status" name="app-status" value = "app-status">
+                                <label for="app-job-status">Seeking Job</label>
+                            </div>
+                            <input placeholder="Location" name="app-location">
+                        </div>
+                        <div class="col-12 addapp-input">
+                            <textarea placeholder="Additional information" name="app-info" cols="20" rows="3"></textarea>
+                        </div>
+                        <div class="col-12 addapp-input">
+                            <input placeholder="Link to job opportunity" name="app-link">
                         </div>
                         <div class="col-12 addapp-input">
                             <input type="date" placeholder="Date Applied" name="app-date">
@@ -339,8 +355,7 @@
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <!-- test comment -EH
-        Block test ONE MORE TIME :)  -->
+
         <script src="script.js"></script>
     </body>
 </html>
