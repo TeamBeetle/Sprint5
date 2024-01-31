@@ -18,6 +18,34 @@ html
   z-index: 1; /* set index to 1 to allow pop ups like sign up form to function */
   overflow-x: hidden;
 }
+/*new nav styles*/
+
+#background{
+  background: #2C882B;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+#grc-logo{
+
+  width:10%;
+  height:10%;
+
+}
+li{
+  font-size:20pt;
+  padding:10px;
+
+}
+.links{
+  margin-left:5%;
+  padding:10px;
+}
+li:hover{
+  text-decoration: underline white 2px;
+
+}
+/*
 #grc-logo
 {
 	width: 80px;
@@ -55,9 +83,8 @@ html
   background: #2C882B;
   display: grid;
   grid-template-columns: 10% 80% 10%;
-  /*padding: 3px;
-  padding-left: 5%;*/
 }
+*/
 #toggleContainer
 {
 	padding: 10px;
