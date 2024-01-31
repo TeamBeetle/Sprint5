@@ -36,21 +36,20 @@ html
     margin-right: 10px;
 }
 
-.link-row {
-    display: flex;
-    flex-direction: row;
-    width: 20%;
-    text-align: center;
-}
-
 .links a
 {
     color: #ffffff;
-    word-wrap: break-word;
     text-decoration: none;
     letter-spacing: 0.3px;
-    width: 50px;
-    font-size: 20px;
+    font-size: 30px;
+}
+
+.navigation {
+    background-color: #2C882B;
+}
+
+.navigation a {
+    font-size: 150%;
 }
 
 .links a:hover {
