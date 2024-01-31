@@ -60,13 +60,14 @@ addAppAnchor.addEventListener("click", function()
   appForm.style.opacity = "1";
 });
 
+/****************************************************************************\
+                         contact form script
+\****************************************************************************/
 
-
-//contact form script
 let contactAnchor = document.querySelector(".contact");
 let contactForm = document.querySelector(".contact-form");
 let closeContactButton = document.querySelector(".contact-close-button");
-
+let contactSubmitButton = document.querySelector("#contact-submit");
 contactAnchor.addEventListener("click", function()
 {
   contactForm.style.visibility = "visible";
@@ -79,9 +80,69 @@ closeContactButton.addEventListener("click", function()
   contactForm.style.visibility = "hidden";
   contactForm.style.opacity = "0";
 });
-//end contact script
 
-userEmailCheck = document.getElementById("user-email");
+contactSubmitButton.addEventListener("click", function(event)
+{
+  //stop regular behavior
+  event.preventDefault();
+
+  //get the user input
+  let senderName = document.querySelector('#contact-name').value;
+  let senderEmail = document.querySelector('#contact-email').value;
+  let senderMessage = document.querySelector('#contact-message').value;
+
+  let errors = 0;
+
+  errors += validateName(senderName); //1 if error || 0 if none
+  errors += validateEmail(senderEmail); //1 if error || 0 if none
+  errors += validateMessage(senderMessage); //1 if error || 0 is none
+
+  if(errors===0)
+  {
+    document.forms["contact-form"].submit();
+  }
+});
+function validateName(inputName)
+{
+  if(inputName === "")
+  {
+    document.querySelector('#name-error').style.display = "inline";
+    return 1;
+  }
+  document.querySelector('#name-error').style.display = "none";
+  return 0;
+}
+function validateEmail(inputEmail)
+{
+  if(inputEmail.match(/(?:[a-z0-9+!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i))
+  {
+    document.querySelector('#email-error').style.display = "none";
+    return 0;
+  }
+  document.querySelector('#email-error').style.display = "inline";
+  return 1;
+}
+function validateMessage(inputMessage)
+{
+  inputMessage = inputMessage.replace(/\s+/g,'');
+  console.log(inputMessage);
+  if(inputMessage === "" || inputMessage.length > 250)
+  {
+    document.querySelector('#message-error').style.display = "inline";
+    return 1;
+  }
+  else if(inputMessage.match(/[;<>]/i))
+  {
+    document.querySelector('#message-error').style.display = "inline";
+    return 1;
+  }
+  console.log('this ran');
+  document.querySelector('#message-error').style.display = "none";
+  return 0;
+}
+/*************************** end contact script ******************************/
+
+/*userEmailCheck = document.getElementById("user-email");
 
 userEmailCheck.addEventListener("click", emailNotification);
 
@@ -126,6 +187,7 @@ function validateCohort() {
   } else {
     return true;
   }
-}
+}*/
+
 
 

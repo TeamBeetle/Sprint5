@@ -114,14 +114,17 @@
     </div>
     <div class="form-content-contact border">
       <h1>Contact Me Now</h1>
-      <form method="post" 
+      <form name="contact-form" method="post"
        action="https://schrock.greenriverdev.com/vardump.php">
         <div class="form-user-info">
-          <input placeholder="Name" name="user-name">
-          <input placeholder="Email" name="user-email">
+          <input id="contact-name" placeholder="Name" name="user-name">
+          <span id="name-error" class="error">Please enter a name.</span>
+          <input id="contact-email" placeholder="Email" name="user-email">
+          <span id="email-error" class="error">Please enter your Email.</span>
           <textarea name="Message" placeholder="Message" 
-             id="Message"></textarea>
-          <button type="submit">Submit</button>
+             id="contact-message"></textarea>
+          <span id="message-error" class="error">Please avoid < > ; and enter no more than 250 characters.</span>
+          <button id="contact-submit" type="submit">Submit</button>
           <p>***Please allow <strong>several</strong> days for a reply***</p>
         </div>
 

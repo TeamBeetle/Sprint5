@@ -411,7 +411,11 @@ th, .container-title
 .contact {
   cursor: pointer;
 }
-
+span.error
+{
+  color: #f44;
+  display: none;
+}
 
 
 /* Beginning of Add Application CSS Form */
