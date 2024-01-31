@@ -120,7 +120,7 @@ td,tr,.reminder-row
   margin-right: 10px;
   margin-left: 10px;
 }
-th, .container-title
+th, thead, .container-title
 {
 	font-size: 2em;
 	text-align: center;
