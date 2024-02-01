@@ -18,9 +18,9 @@
 <body>
 		<!-- Return button, Team Beetle, Light Toggle -->
  <!-- Nav Bar -->
-        <nav id="background"class="navbar navbar-expand-md  navbar-dark">
+        <nav id="background" class="navbar navbar-expand-md  navbar-dark">
 
-          <img id="grc-logo"class="navbar-brand"  src="images/GRC Logo.png">
+          <img id="grc-logo" class="navbar-brand" src="images/GRC Logo.png" alt="Green River College Logo">
           <button class="navbar-toggler" type="button" data-toggle="collapse"
                   data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -62,8 +62,11 @@
 
        <form method="post" action="vardump.php" onsubmit="return validate()">
          <div class="form-user-info">
+           <label for="user-name">Name</label>
            <input placeholder="Name" name="user-name" id="user-name">
+           <label for="user-email">E-mail</label>
            <input placeholder="Email" name="user-email" id="user-email">
+           <label for="user-cohort-number">Cohort Number</label>
            <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
          </div>
          <div class="form-checkboxes">
@@ -96,13 +99,16 @@
        <form method="post" action="https://schrock.greenriverdev.com/vardump.php">
          <div class="add-app-form">
            <div class="col-12 addapp-input">
-             <input placeholder="Employers Name" name="app-title">
+             <label for="app-title">Employer's Name</label>
+             <input placeholder="Employers Name" name="app-title" id="app-title">
            </div>
            <div class="col-12 addapp-input">
-             <input placeholder="Job Description" name="app-title">
+             <label for="job-description">Job Description URL</label>
+             <input placeholder="Job Description" name="app-title" id="job-description">
            </div>
            <div class="col-12 addapp-input">
-             <input placeholder="Name of Role" name="app-title">
+             <label for="app-role">Role</label>
+             <input placeholder="Name of Role" name="app-title" id="app-role">
            </div>
 
            <div class="col-12 addapp-input">
@@ -141,7 +147,12 @@
                 </div>
            </div>
            <div class="col-12 addapp-input">
-              <input type="date" placeholder="Date Applied" name="app-date">
+              <label for="app-date">Date of Application</label>
+              <input type="date" placeholder="Date Applied" name="app-date" id="app-date">
+           </div>
+           <div class="col-12 addapp-input">
+             <label for="app-follow-date">Follow-up Date</label>
+             <input type="date" placeholder="Date to Follow-up" name="app-follow-date" id="app-follow-date">
            </div>
          </div>
          <button type="submit">Add Application</button>
@@ -164,10 +175,13 @@
       <form name="contact-form" method="post"
        action="https://schrock.greenriverdev.com/vardump.php">
         <div class="form-user-info">
+          <label for="contact-name">Name</label>
           <input id="contact-name" placeholder="Name" name="user-name">
           <span id="name-error" class="error">Please enter a name.</span>
+          <label for="contact-email">Email</label>
           <input id="contact-email" placeholder="Email" name="user-email">
           <span id="email-error" class="error">Please enter your Email.</span>
+          <label for="contact-message">Email Message</label>
           <textarea name="Message" placeholder="Message" 
              id="contact-message"></textarea>
           <span id="message-error" class="error">Please avoid < > ; and enter no more than 250 characters.</span>
@@ -187,9 +201,9 @@
     <div class="appsdisplay">
      
       <table class="apps">
-        <th colspan = "5">
-          Recent Applications
-        </th>
+        <tr id="table-head">
+           <td colspan="5">Recent Applications</td>
+        </tr>
         <tr>
           <td>05/30</td>
           <td>Costco Internship</td>
@@ -277,7 +291,7 @@
       <p>Welcome to the Green River College Software Development Application Tracking Tool (ATT). The purpose of this tool is to provide a centralized place to track your job/internship applications that can be helpful in your application journey!</p>
     </div>
 
-    <img src='images/GRC Logo.png'>
+    <img src='images/GRC Logo.png' alt="Green River College Logo">
 
     <div class="footer-resources">
       <h3>Resources</h3>
