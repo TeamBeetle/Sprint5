@@ -189,5 +189,14 @@ function validateCohort() {
   }
 }*/
 
+let adminLogin = document.querySelector(".admin-login");
+
+adminLogin.addEventListener("click", function(){
+  window.location = "admin-page.html";
+
+});
+
+
+
 
 
