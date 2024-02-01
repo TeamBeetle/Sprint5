@@ -67,11 +67,11 @@
            <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
          </div>
          <div class="form-checkboxes">
-           <input type="checkbox" id = "internship" name="seeking-internship" value = "seeking-internship">
+           <input type="checkbox" id = "internship" name="seeking[]" value = "seeking-internship">
            <label for="internship">Seeking Internship</label>
-           <input type="checkbox" id = "job" name="seeking-internship" value = "seeking-internship">
+           <input type="checkbox" id = "job" name="seeking[]" value = "seeking-internship">
            <label for="job">Seeking Job</label>
-           <input type="checkbox" id = "searching" name="seeking-internship" value = "seeking-internship">
+           <input type="checkbox" id = "searching" name="seeking[]" value = "seeking-internship">
            <label for="searching">Not Actively Searching</label>
          </div>
          <label for="interests">Fields of Interest</label>
@@ -99,7 +99,46 @@
              <input placeholder="Employers Name" name="app-title">
            </div>
            <div class="col-12 addapp-input">
-              <input placeholder="Status of Application" name="app-status">
+             <input placeholder="Job Description" name="app-title">
+           </div>
+           <div class="col-12 addapp-input">
+             <input placeholder="Name of Role" name="app-title">
+           </div>
+
+           <div class="col-12 addapp-input">
+             <div class="row">
+               <div class="col-6">
+             <input type="radio" id="apply" name="apply" value="apply">
+             <label for="apply">Need to Apply</label>
+              </div>
+              <div class="col-6">
+             <input type="radio" id="applied" name="applied" value="applied">
+             <label for="applied">Applied</label>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-6">
+             <input type="radio" id="interviewing" name="interviewing" value="interviewing">
+             <label for="interviewing">Interviewing</label>
+                </div>
+                <div class="col-6">
+             <input type="radio" id="rejected" name="rejected" value="rejected">
+             <label for="rejected">Rejected</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+             <input type="radio" id="accepted" name="accepted" value="accepted">
+             <label for="accepted">Accepted</label>
+              </div>
+                <div class="col-6">
+             <input type="radio" id="expired" name="expired" value="expired">
+             <label for="expired">Expired</label>
+              </div>
+                </div>
            </div>
            <div class="col-12 addapp-input">
               <input type="date" placeholder="Date Applied" name="app-date">
@@ -232,7 +271,7 @@
     </div>
   </div>
 
-  <footer class="">
+  <footer class="footer">
     <div class="welcome-text">
       <h1>Green River College ATT</h1>
       <p>Welcome to the Green River College Software Development Application Tracking Tool (ATT). The purpose of this tool is to provide a centralized place to track your job/internship applications that can be helpful in your application journey!</p>

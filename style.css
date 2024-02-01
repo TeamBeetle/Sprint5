@@ -477,7 +477,7 @@ span.error
 
 /* Footer CSS */
 
-footer {
+.footer {
   background-color: #333333;
   color: white;
   bottom: 0;
@@ -491,7 +491,8 @@ footer {
 
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  height:20%;
+  height:100px;
+  overflow: hidden;
 }
 
 footer img {
