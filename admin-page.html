@@ -11,34 +11,35 @@
 <!-- Page body -->
     <body>
         <!-- Nav Bar -->
-            <nav class="navbar navbar-expand-lg navbar-dark navigation">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/GRC%20Logo.png" width="100" height="50">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon" style="color: aliceblue"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="index.html">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="sign-up nav-link text-white">Sign Up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white add-application">Add Application</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="contact-anchor contact nav-link text-white">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <div id="toggleContainer">
-                    <button type="button" class="btn toggle active-mode btn-light">Light</button>
-                    <button type="button" class="btn toggle btn-dark">Dark</button>
-                </div>
+        <nav id="background"class="navbar navbar-expand-md  navbar-dark">
+
+            <img id="grc-logo"class="navbar-brand"  src="images/GRC Logo.png">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse links" id="collapsibleNavbar">
+
+                <ul class="navbar-nav links">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sign-up" href="#">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link add-application" href="#">Add Applicaion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link contact-anchor contact" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="toggleContainer" class="col-2">
+                <button type="button" class="btn toggle active-mode btn-light">Light</button>
+                <button type="button" class="btn toggle btn-dark">Dark</button>
             </div>
         </nav>
 
