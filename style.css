@@ -148,7 +148,8 @@ td,tr,.reminder-row
   margin-right: 10px;
   margin-left: 10px;
 }
-th, thead, .container-title
+
+#table-head, .container-title
 {
 	font-size: 2em;
 	text-align: center;

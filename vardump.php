@@ -6,7 +6,7 @@ error_reporting(0);
 //to will later redirect to Tyler Email.
 $to = "Everett Hanke <hanke.everett@student.greenriver.edu>,";
 $subject = $_POST['app-position'] . " : ". $_POST['app-employer'];
-$message = "NEW OPPROTUNITIES FOUND AT " . $_POST['app-employer'] . " Looking for a " . $_POST['app-position'] . " This is a " . $_POST['app-status'] . " position. " . "\n"
+$message = "NEW OPPORTUNITIES FOUND AT " . $_POST['app-employer'] . " Looking for a " . $_POST['app-position'] . " This is a " . $_POST['app-status'] . " position. " . "\n"
  . $_POST['app-info'] . " Apply here : " . $_POST['app-link'] . " , " . $_POST['app-date'];
 
 $headers = 'From: ' . $subject . "\r\n" .
