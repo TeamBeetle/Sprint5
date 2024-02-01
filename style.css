@@ -22,7 +22,6 @@ html
 
 #background{
   background: #2C882B;
-  position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
 }
