@@ -27,7 +27,7 @@
                         <a class="nav-link" href="#">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link sign-up" href="#">Sign Up</a>
+                        <a class="nav-link sign-up" href="#">Announcement</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link add-application" href="#">Add Applicaion</a>
@@ -43,39 +43,6 @@
             </div>
         </nav>
 
-        <!-- Sign up form -->
-        <!-- this container will remain hidden until the user clicks the sign-up button. -->
-        <div class="signup-form">
-            <div class="form-close-button">
-                <p>X</p>
-            </div>
-            <div class="form-content">
-                <h1>Sign up for ATT</h1>
-                <p>Create a free account or <a href="#">log in</a></p>
-
-                <form method="post" action="https://teambeetle.greenriverdev.com/SPRINT1/vardump.php" onsubmit="return validate()">
-                    <div class="form-user-info">
-                        <input placeholder="Name" name="user-name" id="user-name">
-                        <input placeholder="Email" name="user-email" id="user-email">
-                        <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
-                    </div>
-                    <div class="form-checkboxes">
-                        <input type="checkbox" id = "internship" name="seeking-internship" value = "seeking-internship">
-                        <label for="internship">Seeking Internship</label>
-                        <input type="checkbox" id = "job" name="seeking-internship" value = "seeking-internship">
-                        <label for="job">Seeking Job</label>
-                        <input type="checkbox" id = "searching" name="seeking-internship" value = "seeking-internship">
-                        <label for="searching">Not Actively Searching</label>
-                    </div>
-                    <label for="interests">Fields of Interest</label>
-                    <input placeholder="Type fields followed by a comma" id="interests" name="field-interests">
-                    <button type="submit">Create account</button>
-                </form>
-
-                <p>By creating an account, you are agreeing to the <a href="https://www.greenriver.edu/conduct/">Terms and Conditions</a></p>
-            </div>
-        </div>
-        <!-- End sign up form html -->
 
 
         <!-- ADD APPLICATION FORM BEGINNING -->

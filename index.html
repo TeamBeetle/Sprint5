@@ -52,13 +52,19 @@
 
   <!-- Sign up form -->
    <!-- this container will remain hidden until the user clicks the sign-up button. -->
-   <div class="signup-form">
+
+
+   <div class="signup-form d-flex align-items-center justify-content-center">
      <div class="form-close-button">
        <p>X</p>
      </div>
-     <div class="form-content">
-       <h1>Sign up for ATT</h1>
-       <p>Create a free account or <a href="#">log in</a></p>
+     <div class="d-flex flex-row  row align-items-center justify-content-center img-form-container">
+       <div class="sign-up-image col-lg-6">
+         <img src="images/code-820275_1920.jpg" alt="computer screen with code">
+       </div>
+       <div class="form-content col-lg-6">
+         <h1>Sign up for ATT</h1>
+         <p>Create a free account or <a href="#">log in</a></p>
 
        <form method="post" action="vardump.php" onsubmit="return validate()">
          <div class="form-user-info">
@@ -78,8 +84,9 @@
          <input placeholder="Type fields followed by a comma" id="interests" name="field-interests">
          <button type="submit">Create account</button>
        </form>
-
-       <p>By creating an account, you are agreeing to the <a href="https://www.greenriver.edu/conduct/">Terms and Conditions</a></p>
+         <p class="terms-conditions">By creating an account, you are agreeing to the <a href="https://www.greenriver.edu/conduct/">Terms and Conditions</a></p>
+         <img src="images/GRC_Logo-Green.png" width="160" height="100" class="grc-form-logo">
+       </div>
      </div>
    </div>
   <!-- End sign up form html -->
@@ -306,7 +313,8 @@
           </div>
         </footer>
 
-<script src="script.js"> </script>
+
+  <script src="script.js"> </script>
 </body>
 
 </html>
