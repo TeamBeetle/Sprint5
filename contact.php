@@ -2,7 +2,6 @@
 error_reporting(0);
 $name = $to = $customerMessage = "";
 $nameErr = $toErr = $customerMessageErr = "";
-
 $nameCheck=0;
 $emailCheck=0;
 $messageCheck=0;
