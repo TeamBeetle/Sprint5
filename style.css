@@ -10,6 +10,11 @@
 body
 {
 	font-size: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 html
 {
@@ -182,7 +187,7 @@ td,tr,.reminder-row
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   z-index: 2;
-  position: absolute;
+  position: fixed;
   top: 0;
   overflow-x: hidden;
   backdrop-filter: blur(5px);
@@ -199,17 +204,13 @@ td,tr,.reminder-row
 */
 .form-content {
   background: white;
-  height: 560px;
-  width: 400px;
+  width: 100%;
+  height: 100%;
   z-index: 2;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 110%;
 }
 
 /*
@@ -234,6 +235,7 @@ td,tr,.reminder-row
  - sets margin top of h1 element to 15px
 */
 .form-content h1 {
+  font-size: 60px;
   margin-top: 15px;
 }
 
@@ -244,7 +246,12 @@ td,tr,.reminder-row
 .form-content form {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
+  height: 70%;
+}
+
+.form-checkboxes label {
+  font-size: 20px;
 }
 
 /*
@@ -278,18 +285,6 @@ td,tr,.reminder-row
 }
 
 /*
- - changes the "terms and conditions" text size to 13px
- - moves it down a little bit using margin-top
- - width set to 80% of the form container
-*/
-.form-content p:last-of-type {
-  margin-top: 29px;
-  width: 80%;
-  text-align: center;
-  font-size: 13px;
-}
-
-/*
  CSS for the submit button
 */
 .form-content button {
@@ -309,7 +304,8 @@ td,tr,.reminder-row
 */
 .form-close-button {
   position: relative;
-  left: 95%;
+  left: 67%;
+  top: -47%;
   width: 30px;
   height: 29px;
   border: black solid 1px;
@@ -329,6 +325,44 @@ td,tr,.reminder-row
   margin: 0;
   color: #6b2d2d;
 }
+
+.sign-up-image {
+  width: 500px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-up-image img {
+  width: 1000px;
+  height: 1000px;
+}
+
+.img-form-container {
+  width: 70%;
+  height: 700px;
+  max-width: 997px;
+}
+
+@media screen and (max-width:991px) {
+  .sign-up-image {
+    border: 1px solid green;
+    height: 20%;
+  }
+}
+
+.grc-form-logo {
+}
+
+.terms-conditions {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  font-size: 13px;
+}
+
 /* End sign up form css */
 
 /* Beginning of Add Application CSS Form */
@@ -475,7 +509,6 @@ span.error
   cursor: pointer;
 }
 
-
 /* Footer CSS */
 
 footer {
@@ -486,6 +519,7 @@ footer {
   border-top: 10px solid #5c5c5c;
   position: relative;
   bottom: 0;
+  z-index: 1;
   width: 100%;
 }
 
@@ -523,10 +557,14 @@ footer p {
 
 .footer-resources a {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
 }
 
 .footer-resources li {
   padding: 0;
   font-size: 16px;
 }
+
+.spacing {
+  flex: 1;
+}
+/* end footer css */
