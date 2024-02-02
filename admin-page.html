@@ -1,337 +1,337 @@
 <!DOCTYPE html>
 <html lang='en' data-bs-theme="light">
 <!-- Meta data -->
-    <head>
-        <meta charset="utf-8" >
-        <meta name="viewport" content="width=device-width">
-        <title>GRC ATT - Admin</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link href="admin-page-styles.css" rel="stylesheet" type="text/css" />
-    </head>
+<head>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width">
+    <title>GRC ATT - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="admin-page-styles.css" rel="stylesheet" type="text/css" />
+</head>
 <!-- Page body -->
-    <body>
-        <!-- Nav Bar -->
-        <nav id="background"class="navbar navbar-expand-md  navbar-dark">
+<body>
+<!-- Nav Bar -->
+<nav id="background"class="navbar navbar-expand-md  navbar-dark">
 
-            <img id="grc-logo"class="navbar-brand"  src="images/GRC Logo.png">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <img id="grc-logo"class="navbar-brand"  src="images/GRC Logo.png">
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
 
-            <div class="collapse navbar-collapse links" id="collapsibleNavbar">
+    <div class="collapse navbar-collapse links" id="collapsibleNavbar">
 
-                <ul class="navbar-nav links">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sign-up" href="#">Announcement</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link add-application" href="#">Add Applicaion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link contact-anchor contact" href="#">Contact</a>
-                    </li>
+        <ul class="navbar-nav links">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link sign-up" href="#">Announcement</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link add-application" href="#">Add Applicaion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link contact-anchor contact" href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <div id="toggleContainer" class="col-2">
+        <button type="button" class="btn toggle active-mode btn-light">Light</button>
+        <button type="button" class="btn toggle btn-dark">Dark</button>
+    </div>
+</nav>
+
+
+
+<!-- ADD APPLICATION FORM BEGINNING -->
+
+<div class="addapp-form">
+    <div class="app-close-button">
+        <p>X</p>
+    </div>
+    <div class="form-content" id="announcement-form">
+        <h1 align="center">Application Announcement</h1>
+        <form method="post" name="announce-application" action="https://teambeetle.greenriverdev.com/SPRINT2/vardump.php" >
+            <div class="add-app-form">
+                <div class="col-12 addapp-input">
+                    <input placeholder="Position Title" name="app-position" id="app-position">
+                </div>
+                <div class="col-12 addapp-input">
+                    <input placeholder="Employer Title" name="app-employer" id="app-employer">
+                </div>
+                <div class="col-12 addapp-input">
+
+                    <div class="form-checkboxes">
+                        <input type="radio" id = "app-intern-status" name="app-status" value = "app-status-intern">
+                        <label for="app-intern-status">Seeking Internship</label>
+                        <input type="radio" id = "app-job-status" name="app-status" value = "app-status-job">
+                        <label for="app-job-status">Seeking Job</label>
+                    </div>
+                    <input placeholder="Location" name="app-location" id="app-location">
+                </div>
+                <div class="col-12 addapp-input">
+                    <textarea placeholder="Additional information" name="app-info" cols="20" rows="3"></textarea>
+                </div>
+                <div class="col-12 addapp-input">
+                    <input placeholder="Link to job opportunity" name="app-link" id="app-link">
+                </div>
+                <div class="col-12 addapp-input">
+                    <input type="date" placeholder="Date Applied" name="app-date" id="app-date">
+                </div>
+            </div>
+            <button type="submit" id="announcement-submit">Add Application</button>
+            <p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
+                <strong>Add Application</strong></p>
+            <p></p>
+        </form>
+    </div>
+</div>
+<!-- END OF APPLICATION FORM -->
+
+
+<!-- Contact Form-->
+
+
+<!--end contact form-->
+
+<!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
+<div class="container-fluid p-4 main-display">
+
+    <div class="row gy-5 gx-5">
+        <div class="col-xl-8">
+            <div class="table-title">USERS</div>
+            <div class="apps-display">
+                <table class="apps">
+                    <tr>
+                        <td class="student-name">John Doe</td>
+                        <td class="student-email">johndoe@gmail.com</td>
+                        <td>
+                            <div class="view-info">
+                                View
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-account">
+                                Delete
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="student-name">Michael Jackson</td>
+                        <td class="student-email">michaeljackson@gmail.com</td>
+                        <td>
+                            <div class="view-info">
+                                View
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-account">
+                                Delete
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="student-name">Jane Doe</td>
+                        <td class="student-email">janedoe@gmail.com</td>
+                        <td>
+                            <div class="view-info">
+                                View
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-account">
+                                Delete
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="student-name">RandomUser12</td>
+                        <td class="student-email">randomlygenerated@gmail.com</td>
+                        <td>
+                            <div class="view-info">
+                                View
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-account">
+                                Delete
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="student-name">2Gud4U</td>
+                        <td class="student-email">excitedtiger2334@gmail.com</td>
+                        <td>
+                            <div class="view-info">
+                                View
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-account">
+                                Delete
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="student-name">John Doe</td>
+                        <td class="student-email">johndoe@gmail.com</td>
+                        <td>
+                            <div class="view-info">
+                                View
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-account">
+                                Delete
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="student-name">Michael Jackson</td>
+                        <td class="student-email">michaeljackson@gmail.com</td>
+                        <td>
+                            <div class="view-info">
+                                View
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-account">
+                                Delete
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="student-name">Jane Doe</td>
+                        <td class="student-email">janedoe@gmail.com</td>
+                        <td>
+                            <div class="view-info">
+                                View
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-account">
+                                Delete
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="student-name">Jane Doe</td>
+                        <td class="student-email">janedoe@gmail.com</td>
+                        <td>
+                            <div class="view-info">
+                                View
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-account">
+                                Delete
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="student-name">Jane Doe</td>
+                        <td class="student-email">janedoe@gmail.com</td>
+                        <td>
+                            <div class="view-info">
+                                View
+                            </div>
+                        </td>
+                        <td>
+                            <div class="delete-account">
+                                Delete
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="col-xl-4">
+            <div class="table-title">USER INFO</div>
+            <div class="user-details p-3">
+                <img class="col-md-6" src="images/user-profile.png" alt="empty-user-icon">
+
+                <div class="row user-grid">
+                    <div class="user-row col-md-6">
+                        <div class="category-title">User-ID: </div>
+                        <p>885123</p>
+                    </div>
+                    <div class="user-row col-md-6">
+                        <div class="category-title">User-name: </div>
+                        <p>John Doe</p>
+                    </div>
+                    <div class="user-row col-md-6">
+                        <div class="category-title">User-email: </div>
+                        <p>johndoe@gmail.com</p>
+                    </div>
+                    <div class="user-row col-md-6">
+                        <div class="category-title">Last-Login Date: </div>
+                        <p>09/09/2024</p>
+                    </div>
+                    <div class="user-row col-md-6">
+                        <div class="category-title">Account Created: </div>
+                        <p>05/16/2024</p>
+                    </div>
+                    <div class="user-row col-md-6">
+                        <div class="category-title">Number of Applications: </div>
+                        <p>23</p>
+                    </div>
+
+                    <div class="buttons col-md-12">
+                        <div class="info-button-message">
+                            MESSAGE
+                        </div>
+
+                        <div class="info-button-delete">
+                            DELETE
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="spacing">
+
+</div>
+
+<footer>
+    <div class="container-fluid">
+        <h1>Green River College Application Tracking Tool</h1>
+        <div class="row welcome-text">
+            <div class="col-xl-3 welcome-text-box p-5">
+                <h3>About</h3>
+                <p>Welcome to the Green River College Software Development Application Tracking Tool (ATT).
+                    The purpose of this tool is to provide a centralized place to track your job/internship applications that can be helpful in your application journey!
+                </p>
+            </div>
+            <div class="col-xl-6 welcome-text-box p-5">
+                <h3>More about the Software Development Department</h3>
+                <p>Affordable tuition, instructors who care, access to tech industry mentors, and project-based learning make our
+                    applied bachelor’s program a popular destination for computing majors throughout the Seattle-Tacoma region.
+                    This degree prepares graduates for high-demand jobs such as software developer, web developer, software developer in test, and quality assurance (QA) analyst.</p>
+                <a href="https://www.greenriver.edu/students/academics/degrees-programs/bachelor-of-applied-science/bachelors-in-software-development/">Learn more here</a>
+            </div>
+
+            <div class="col-xl-3 footer-resources p-5">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="https://www.linkedin.com/jobs">https://www.linkedin.com/jobs</a></li>
+                    <li><a href="https://www.indeed.com/">https://www.indeed.com/</a></li>
+                    <li><a href="https://www.devs.greenrivertech.net/">https://www.devs.greenrivertech.net/</a></li>
                 </ul>
             </div>
-            <div id="toggleContainer" class="col-2">
-                <button type="button" class="btn toggle active-mode btn-light">Light</button>
-                <button type="button" class="btn toggle btn-dark">Dark</button>
-            </div>
-        </nav>
-
-
-
-        <!-- ADD APPLICATION FORM BEGINNING -->
-
-        <div class="addapp-form">
-            <div class="app-close-button">
-                <p>X</p>
-            </div>
-            <div class="form-content" id="announcement-form">
-                <h1 align="center">Application Announcement</h1>
-                <form method="post" name="announce-application" action="https://teambeetle.greenriverdev.com/SPRINT2/vardump.php" >
-                    <div class="add-app-form">
-                        <div class="col-12 addapp-input">
-                            <input placeholder="Position Title" name="app-position" id="app-position">
-                        </div>
-                        <div class="col-12 addapp-input">
-                            <input placeholder="Employer Title" name="app-employer" id="app-employer">
-                        </div>
-                        <div class="col-12 addapp-input">
-
-                            <div class="form-checkboxes">
-                                <input type="radio" id = "app-intern-status" name="app-status" value = "app-status-intern">
-                                <label for="app-intern-status">Seeking Internship</label>
-                                <input type="radio" id = "app-job-status" name="app-status" value = "app-status-job">
-                                <label for="app-job-status">Seeking Job</label>
-                            </div>
-                            <input placeholder="Location" name="app-location" id="app-location">
-                        </div>
-                        <div class="col-12 addapp-input">
-                            <textarea placeholder="Additional information" name="app-info" cols="20" rows="3"></textarea>
-                        </div>
-                        <div class="col-12 addapp-input">
-                            <input placeholder="Link to job opportunity" name="app-link" id="app-link">
-                        </div>
-                        <div class="col-12 addapp-input">
-                            <input type="date" placeholder="Date Applied" name="app-date" id="app-date">
-                        </div>
-                    </div>
-                    <button type="submit" id="announcement-submit">Add Application</button>
-                    <p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
-                        <strong>Add Application</strong></p>
-                    <p></p>
-                </form>
-            </div>
         </div>
-        <!-- END OF APPLICATION FORM -->
+    </div>
+</footer>
 
 
-        <!-- Contact Form-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-
-        <!--end contact form-->
-
-        <!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
-        <div class="container-fluid p-4 main-display">
-
-            <div class="row gy-5 gx-5">
-                <div class="col-xl-8">
-                    <div class="table-title">USERS</div>
-                    <div class="apps-display">
-                        <table class="apps">
-                            <tr>
-                                <td class="student-name">John Doe</td>
-                                <td class="student-email">johndoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Michael Jackson</td>
-                                <td class="student-email">michaeljackson@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Jane Doe</td>
-                                <td class="student-email">janedoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">RandomUser12</td>
-                                <td class="student-email">randomlygenerated@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">2Gud4U</td>
-                                <td class="student-email">excitedtiger2334@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">John Doe</td>
-                                <td class="student-email">johndoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Michael Jackson</td>
-                                <td class="student-email">michaeljackson@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Jane Doe</td>
-                                <td class="student-email">janedoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Jane Doe</td>
-                                <td class="student-email">janedoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Jane Doe</td>
-                                <td class="student-email">janedoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-4">
-                    <div class="table-title">USER INFO</div>
-                    <div class="user-details p-3">
-                        <img class="col-md-6" src="images/user-profile.png" alt="empty-user-icon">
-
-                        <div class="row user-grid">
-                            <div class="user-row col-md-6">
-                                <div class="category-title">User-ID: </div>
-                                <p>885123</p>
-                            </div>
-                            <div class="user-row col-md-6">
-                                <div class="category-title">User-name: </div>
-                                <p>John Doe</p>
-                            </div>
-                            <div class="user-row col-md-6">
-                                <div class="category-title">User-email: </div>
-                                <p>johndoe@gmail.com</p>
-                            </div>
-                            <div class="user-row col-md-6">
-                                <div class="category-title">Last-Login Date: </div>
-                                <p>09/09/2024</p>
-                            </div>
-                            <div class="user-row col-md-6">
-                                <div class="category-title">Account Created: </div>
-                                <p>05/16/2024</p>
-                            </div>
-                            <div class="user-row col-md-6">
-                                <div class="category-title">Number of Applications: </div>
-                                <p>23</p>
-                            </div>
-
-                            <div class="buttons col-md-12">
-                                <div class="info-button-message">
-                                    MESSAGE
-                                </div>
-
-                                <div class="info-button-delete">
-                                    DELETE
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="spacing">
-
-        </div>
-
-        <footer>
-            <div class="container-fluid">
-                <h1>Green River College Application Tracking Tool</h1>
-                <div class="row welcome-text">
-                    <div class="col-xl-3 welcome-text-box p-5">
-                        <h3>About</h3>
-                        <p>Welcome to the Green River College Software Development Application Tracking Tool (ATT).
-                            The purpose of this tool is to provide a centralized place to track your job/internship applications that can be helpful in your application journey!
-                        </p>
-                    </div>
-                    <div class="col-xl-6 welcome-text-box p-5">
-                        <h3>More about the Software Development Department</h3>
-                        <p>Affordable tuition, instructors who care, access to tech industry mentors, and project-based learning make our
-                            applied bachelor’s program a popular destination for computing majors throughout the Seattle-Tacoma region.
-                            This degree prepares graduates for high-demand jobs such as software developer, web developer, software developer in test, and quality assurance (QA) analyst.</p>
-                        <a href="https://www.greenriver.edu/students/academics/degrees-programs/bachelor-of-applied-science/bachelors-in-software-development/">Learn more here</a>
-                    </div>
-
-                    <div class="col-xl-3 footer-resources p-5">
-                        <h3>Resources</h3>
-                        <ul>
-                            <li><a href="https://www.linkedin.com/jobs">https://www.linkedin.com/jobs</a></li>
-                            <li><a href="https://www.indeed.com/">https://www.indeed.com/</a></li>
-                            <li><a href="https://www.devs.greenrivertech.net/">https://www.devs.greenrivertech.net/</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-        <script src="script.js"></script>
-    </body>
+<script src="script.js"></script>
+</body>
 </html>

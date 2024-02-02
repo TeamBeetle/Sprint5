@@ -1,20 +1,20 @@
 @font-face
 {
-	font-family: 'Big Noodle Titling';
-	src: url('fonts/big_noodle_titling.ttf');
+  font-family: 'Big Noodle Titling';
+  src: url('fonts/big_noodle_titling.ttf');
 }
 *
 {
-	font-family: 'Big Noodle Titling', Impact, Arial Black, sans-serif;
+  font-family: 'Big Noodle Titling', Impact, Arial Black, sans-serif;
 }
 body
 {
-	font-size: 100%;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 html
 {
@@ -91,7 +91,7 @@ li:hover{
 */
 #toggleContainer
 {
-	padding: 10px;
+  padding: 10px;
 }
 .toggle
 {
@@ -99,7 +99,7 @@ li:hover{
 }
 #maindisplay
 {
-	background-color: #006225;
+  background-color: #006225;
   display: grid;
   grid-template-columns: 60% 40%;
 }
@@ -119,18 +119,18 @@ table
 }
 td,tr,.reminder-row
 {
-	color: #111;
+  color: #111;
   border-top: solid black 1px;
   border-bottom: solid black 1px;
 }
 .apps, #remindercontainer
 {
   width: 100%;
-	height: 92%;
+  height: 92%;
 }
 .apps
 {
-	text-align:center;
+  text-align:center;
 }
 .appsdisplay
 {
@@ -145,8 +145,8 @@ td,tr,.reminder-row
 }
 #remindercontainer, table
 {
-	background-color: white;
-	border: 1px solid black;
+  background-color: white;
+  border: 1px solid black;
   margin-top: 20px;
   margin-bottom: 10px;
   margin-right: 10px;
@@ -155,16 +155,16 @@ td,tr,.reminder-row
 
 #table-head, .container-title
 {
-	font-size: 2em;
-	text-align: center;
-	color: white;
-	background-color: #333333;
+  font-size: 2em;
+  text-align: center;
+  color: white;
+  background-color: #333333;
 }
 
 #team-beetle
 {
-	width: 100%;
-	padding: 10px;
+  width: 100%;
+  padding: 10px;
 }
 
 /* All items related to sign-up form*/
@@ -423,17 +423,17 @@ td,tr,.reminder-row
 
 /* contact */
 .contact-form{
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    overflow-x: hidden;
-    backdrop-filter: blur(5px);
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.5s;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  overflow-x: hidden;
+  backdrop-filter: blur(5px);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
 }
 .contact-close-button{
   position: relative;
