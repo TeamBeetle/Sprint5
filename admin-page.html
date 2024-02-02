@@ -84,37 +84,37 @@
             <div class="app-close-button">
                 <p>X</p>
             </div>
-            <div class="form-content">
+            <div class="form-content" id="announcement-form">
                 <h1 align="center">Application Announcement</h1>
-                <form method="post" action="https://teambeetle.greenriverdev.com/SPRINT2/vardump.php">
+                <form method="post" name="announce-application" action="https://teambeetle.greenriverdev.com/SPRINT2/vardump.php" >
                     <div class="add-app-form">
                         <div class="col-12 addapp-input">
-                            <input placeholder="Position Title" name="app-position">
+                            <input placeholder="Position Title" name="app-position" id="app-position">
                         </div>
                         <div class="col-12 addapp-input">
-                            <input placeholder="Employer Title" name="app-employer">
+                            <input placeholder="Employer Title" name="app-employer" id="app-employer">
                         </div>
                         <div class="col-12 addapp-input">
 
                             <div class="form-checkboxes">
-                                <input type="radio" id = "app-intern-status" name="app-status" value = "app-status">
+                                <input type="radio" id = "app-intern-status" name="app-status" value = "app-status-intern">
                                 <label for="app-intern-status">Seeking Internship</label>
-                                <input type="radio" id = "app-job-status" name="app-status" value = "app-status">
+                                <input type="radio" id = "app-job-status" name="app-status" value = "app-status-job">
                                 <label for="app-job-status">Seeking Job</label>
                             </div>
-                            <input placeholder="Location" name="app-location">
+                            <input placeholder="Location" name="app-location" id="app-location">
                         </div>
                         <div class="col-12 addapp-input">
                             <textarea placeholder="Additional information" name="app-info" cols="20" rows="3"></textarea>
                         </div>
                         <div class="col-12 addapp-input">
-                            <input placeholder="Link to job opportunity" name="app-link">
+                            <input placeholder="Link to job opportunity" name="app-link" id="app-link">
                         </div>
                         <div class="col-12 addapp-input">
-                            <input type="date" placeholder="Date Applied" name="app-date">
+                            <input type="date" placeholder="Date Applied" name="app-date" id="app-date">
                         </div>
                     </div>
-                    <button type="submit">Add Application</button>
+                    <button type="submit" id="announcement-submit">Add Application</button>
                     <p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
                         <strong>Add Application</strong></p>
                     <p></p>
