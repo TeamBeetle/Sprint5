@@ -155,7 +155,7 @@ if($nameCheck == 0 || $emailCheck == 0 || $cohortCheck == 0 || $checkboxSum < 1)
   </div>
 </nav>  
  <p>Thank you for signing up $userNameCap, we will email you at $userEmail. 
-    Welcome to Cohort $userCohort!</p>
+    Welcome to Cohort $userCohort!!!</p>
 </body>
 </html> 
     ";
