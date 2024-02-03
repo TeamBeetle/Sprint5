@@ -66,18 +66,18 @@
       <h1>Sign up for ATT</h1>
       <p>Create a free account or <a href="#">log in</a></p>
 
-      <form method="post" action="vardump.php" onsubmit="return validate()">
+      <form method="post" action="signup.php" onsubmit="return validate()">
         <div class="form-user-info">
           <input placeholder="Name" name="user-name" id="user-name">
           <input placeholder="Email" name="user-email" id="user-email">
           <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
         </div>
         <div class="form-checkboxes">
-          <input type="checkbox" id = "internship" name="seeking[]" value = "seeking-internship">
+          <input type="checkbox" id = "internship" name="internship" value = "seeking-internship">
           <label for="internship">Seeking Internship</label>
-          <input type="checkbox" id = "job" name="seeking[]" value = "seeking-internship">
+          <input type="checkbox" id = "job" name="job" value = "seeking-internship">
           <label for="job">Seeking Job</label>
-          <input type="checkbox" id = "searching" name="seeking[]" value = "seeking-internship">
+          <input type="checkbox" id = "searching" name="searching" value = "seeking-internship">
           <label for="searching">Not Actively Searching</label>
         </div>
         <label for="interests">Fields of Interest</label>
@@ -169,7 +169,7 @@
   <div class="form-content-contact border">
     <h1>Contact Me Now</h1>
     <form name="contact-form" method="post"
-          action="https://schrock.greenriverdev.com/vardump.php">
+          action="contact.php">
       <div class="form-user-info">
         <input id="contact-name" placeholder="Name" name="user-name">
         <span id="name-error" class="error">Please enter a name.</span>
