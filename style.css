@@ -1,15 +1,20 @@
 @font-face
 {
-	font-family: 'Big Noodle Titling';
-	src: url('fonts/big_noodle_titling.ttf');
+  font-family: 'Big Noodle Titling';
+  src: url('fonts/big_noodle_titling.ttf');
 }
 *
 {
-	font-family: 'Big Noodle Titling', Impact, Arial Black, sans-serif;
+  font-family: 'Big Noodle Titling', Impact, Arial Black, sans-serif;
 }
 body
 {
-	font-size: 100%;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 html
 {
@@ -22,7 +27,6 @@ html
 
 #background{
   background: #2C882B;
-  position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
 }
@@ -87,7 +91,7 @@ li:hover{
 */
 #toggleContainer
 {
-	padding: 10px;
+  padding: 10px;
 }
 .toggle
 {
@@ -95,7 +99,7 @@ li:hover{
 }
 #maindisplay
 {
-	background-color: #006225;
+  background-color: #006225;
   display: grid;
   grid-template-columns: 60% 40%;
 }
@@ -115,18 +119,18 @@ table
 }
 td,tr,.reminder-row
 {
-	color: #111;
+  color: #111;
   border-top: solid black 1px;
   border-bottom: solid black 1px;
 }
 .apps, #remindercontainer
 {
   width: 100%;
-	height: 92%;
+  height: 92%;
 }
 .apps
 {
-	text-align:center;
+  text-align:center;
 }
 .appsdisplay
 {
@@ -141,8 +145,8 @@ td,tr,.reminder-row
 }
 #remindercontainer, table
 {
-	background-color: white;
-	border: 1px solid black;
+  background-color: white;
+  border: 1px solid black;
   margin-top: 20px;
   margin-bottom: 10px;
   margin-right: 10px;
@@ -151,16 +155,16 @@ td,tr,.reminder-row
 
 #table-head, .container-title
 {
-	font-size: 2em;
-	text-align: center;
-	color: white;
-	background-color: #333333;
+  font-size: 2em;
+  text-align: center;
+  color: white;
+  background-color: #333333;
 }
 
 #team-beetle
 {
-	width: 100%;
-	padding: 10px;
+  width: 100%;
+  padding: 10px;
 }
 
 /* All items related to sign-up form*/
@@ -183,7 +187,7 @@ td,tr,.reminder-row
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   z-index: 2;
-  position: absolute;
+  position: fixed;
   top: 0;
   overflow-x: hidden;
   backdrop-filter: blur(5px);
@@ -200,17 +204,13 @@ td,tr,.reminder-row
 */
 .form-content {
   background: white;
-  height: 560px;
-  width: 400px;
+  width: 100%;
+  height: 100%;
   z-index: 2;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 110%;
 }
 
 /*
@@ -235,6 +235,7 @@ td,tr,.reminder-row
  - sets margin top of h1 element to 15px
 */
 .form-content h1 {
+  font-size: 60px;
   margin-top: 15px;
 }
 
@@ -245,7 +246,12 @@ td,tr,.reminder-row
 .form-content form {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
+  height: 70%;
+}
+
+.form-checkboxes label {
+  font-size: 20px;
 }
 
 /*
@@ -279,18 +285,6 @@ td,tr,.reminder-row
 }
 
 /*
- - changes the "terms and conditions" text size to 13px
- - moves it down a little bit using margin-top
- - width set to 80% of the form container
-*/
-.form-content p:last-of-type {
-  margin-top: 29px;
-  width: 80%;
-  text-align: center;
-  font-size: 13px;
-}
-
-/*
  CSS for the submit button
 */
 .form-content button {
@@ -310,7 +304,8 @@ td,tr,.reminder-row
 */
 .form-close-button {
   position: relative;
-  left: 95%;
+  left: 67%;
+  top: -47%;
   width: 30px;
   height: 29px;
   border: black solid 1px;
@@ -330,6 +325,44 @@ td,tr,.reminder-row
   margin: 0;
   color: #6b2d2d;
 }
+
+.sign-up-image {
+  width: 500px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-up-image img {
+  width: 1000px;
+  height: 1000px;
+}
+
+.img-form-container {
+  width: 70%;
+  height: 700px;
+  max-width: 997px;
+}
+
+@media screen and (max-width:991px) {
+  .sign-up-image {
+    border: 1px solid green;
+    height: 20%;
+  }
+}
+
+.grc-form-logo {
+}
+
+.terms-conditions {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  font-size: 13px;
+}
+
 /* End sign up form css */
 
 /* Beginning of Add Application CSS Form */
@@ -390,17 +423,17 @@ td,tr,.reminder-row
 
 /* contact */
 .contact-form{
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    overflow-x: hidden;
-    backdrop-filter: blur(5px);
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.5s;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  overflow-x: hidden;
+  backdrop-filter: blur(5px);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
 }
 .contact-close-button{
   position: relative;
@@ -476,7 +509,6 @@ span.error
   cursor: pointer;
 }
 
-
 /* Footer CSS */
 
 footer {
@@ -487,6 +519,7 @@ footer {
   border-top: 10px solid #5c5c5c;
   position: relative;
   bottom: 0;
+  z-index: 1;
   width: 100%;
 }
 
@@ -524,10 +557,14 @@ footer p {
 
 .footer-resources a {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
 }
 
 .footer-resources li {
   padding: 0;
-  font-size: 17px;
+  font-size: 16px;
 }
+
+.spacing {
+  flex: 1;
+}
+/* end footer css */

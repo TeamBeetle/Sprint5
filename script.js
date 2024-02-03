@@ -197,6 +197,89 @@ adminLogin.addEventListener("click", function(){
 });
 
 
+ /********************************************************************\
+ *                         Add Announcement JS
+ \*******************************************************************/
+let announcementForm = document.querySelector("#announcement-submit");
+announcementForm.addEventListener("click", function (event)
+{
+    event.preventDefault();
+
+    if (  validatePositionAndEmployer() && validateAppStatus() && validateLocation() && validateDate() && validateLink())
+    {
+      document.forms["announce-application"].submit();
+    }
+
+});
+
+function validatePositionAndEmployer()
+{
+  let appPosition = document.getElementById("app-position");
+  let appEmployer = document.getElementById("app-employer");
+  if (appPosition.value === "" || appEmployer.value === "")
+  {
+    alert("Invalid position or employer! Please ensure you have an employer title (usually a company name) and the job position inserted.")
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+function validateAppStatus()
+{
+  let statusIntern = document.getElementById("app-intern-status");
+  let statusJob = document.getElementById("app-job-status");
+  if (statusIntern.checked || statusJob.checked)
+  {
+    alert("Please clarify if this is a job or an internship");
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+function validateLocation()
+{
+  let appLocation = document.getElementById("app-location");
+  if (appLocation.value === "")
+  {
+    alert("Please ensure there is a location on this application. ex. Seattle Washing, Bellevue Washington, Remote");
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+function validateDate()
+{
+  let appDate = document.getElementById("app-date");
+  if (appDate === null)
+  {
+    alert("Please ensure there is a date of this application");
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+function validateLink()
+{
+  let appLink = document.getElementById("app-link");
+  if (appLink.value === "")
+  {
+    alert("Please add an application link");
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+
 
 
 

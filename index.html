@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang='en' data-bs-theme="light">
-  <!-- Meta data -->
+<!-- Meta data -->
 <head>
   <meta charset="utf-8" >
   <meta name="viewport" content="width=device-width">
   <title>User Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-	<link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
   <!--extra for nav-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
@@ -16,279 +16,303 @@
 
 <!-- Page body -->
 <body>
-		<!-- Return button, Team Beetle, Light Toggle -->
- <!-- Nav Bar -->
-        <nav id="background"class="navbar navbar-expand-md  navbar-dark">
+<!-- Return button, Team Beetle, Light Toggle -->
+<!-- Nav Bar -->
+<nav id="background"class="navbar navbar-expand-md  navbar-dark">
 
-          <img id="grc-logo"class="navbar-brand"  src="images/GRC Logo.png">
-          <button class="navbar-toggler" type="button" data-toggle="collapse"
-                  data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-
-          <div class="collapse navbar-collapse links" id="collapsibleNavbar">
-
-            <ul class="navbar-nav links">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link sign-up" href="#">Sign Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link add-application" href="#">Add Applicaion</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link contact-anchor contact" href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
-          <div id="toggleContainer" class="col-2">
-            <button type="button" class="btn toggle active-mode btn-light">Light</button>
-            <button type="button" class="btn toggle btn-dark">Dark</button>
-          </div>
-        </nav>
-
-  <!-- Sign up form -->
-   <!-- this container will remain hidden until the user clicks the sign-up button. -->
-   <div class="signup-form">
-     <div class="form-close-button">
-       <p>X</p>
-     </div>
-     <div class="form-content">
-       <h1>Sign up for ATT</h1>
-       <p>Create a free account or <a href="#">log in</a></p>
-
-       <form method="post" action="vardump.php" onsubmit="return validate()">
-         <div class="form-user-info">
-           <input placeholder="Name" name="user-name" id="user-name">
-           <input placeholder="Email" name="user-email" id="user-email">
-           <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
-         </div>
-         <div class="form-checkboxes">
-           <input type="checkbox" id = "internship" name="seeking[]" value = "seeking-internship">
-           <label for="internship">Seeking Internship</label>
-           <input type="checkbox" id = "job" name="seeking[]" value = "seeking-internship">
-           <label for="job">Seeking Job</label>
-           <input type="checkbox" id = "searching" name="seeking[]" value = "seeking-internship">
-           <label for="searching">Not Actively Searching</label>
-         </div>
-         <label for="interests">Fields of Interest</label>
-         <input placeholder="Type fields followed by a comma" id="interests" name="field-interests">
-         <button type="submit">Create account</button>
-       </form>
-
-       <p>By creating an account, you are agreeing to the <a href="https://www.greenriver.edu/conduct/">Terms and Conditions</a></p>
-     </div>
-   </div>
-  <!-- End sign up form html -->
+  <img id="grc-logo"class="navbar-brand"  src="images/GRC Logo.png">
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
 
-  <!-- ADD APPLICATION FORM BEGINNING -->
+  <div class="collapse navbar-collapse links" id="collapsibleNavbar">
 
-   <div class="addapp-form">
-     <div class="app-close-button">
-       <p>X</p>
-     </div>
-     <div class="form-content">
-       <h1>Add an Application</h1>
-       <form method="post" action="https://schrock.greenriverdev.com/vardump.php">
-         <div class="add-app-form">
-           <div class="col-12 addapp-input">
-             <input placeholder="Employers Name" name="app-title">
-           </div>
-           <div class="col-12 addapp-input">
-             <input placeholder="Job Description" name="app-title">
-           </div>
-           <div class="col-12 addapp-input">
-             <input placeholder="Name of Role" name="app-title">
-           </div>
+    <ul class="navbar-nav links">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link sign-up" href="#">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link add-application" href="#">Add Applicaion</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link contact-anchor contact" href="#">Contact</a>
+      </li>
+    </ul>
+  </div>
+  <div id="toggleContainer" class="col-2">
+    <button type="button" class="btn toggle active-mode btn-light">Light</button>
+    <button type="button" class="btn toggle btn-dark">Dark</button>
+  </div>
+</nav>
 
-           <div class="col-12 addapp-input">
-             <div class="row">
-               <div class="col-6">
-             <input type="radio" id="apply" name="apply" value="apply">
-             <label for="apply">Need to Apply</label>
-              </div>
-              <div class="col-6">
-             <input type="radio" id="applied" name="applied" value="applied">
-             <label for="applied">Applied</label>
-                </div>
-              </div>
+<!-- Sign up form -->
+<!-- this container will remain hidden until the user clicks the sign-up button. -->
 
 
-              <div class="row">
-                <div class="col-6">
-             <input type="radio" id="interviewing" name="interviewing" value="interviewing">
-             <label for="interviewing">Interviewing</label>
-                </div>
-                <div class="col-6">
-             <input type="radio" id="rejected" name="rejected" value="rejected">
-             <label for="rejected">Rejected</label>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-6">
-             <input type="radio" id="accepted" name="accepted" value="accepted">
-             <label for="accepted">Accepted</label>
-              </div>
-                <div class="col-6">
-             <input type="radio" id="expired" name="expired" value="expired">
-             <label for="expired">Expired</label>
-              </div>
-                </div>
-           </div>
-           <div class="col-12 addapp-input">
-              <input type="date" placeholder="Date Applied" name="app-date">
-           </div>
-         </div>
-         <button type="submit">Add Application</button>
-         <p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking  
-         <strong>Add Application</strong></p>
-         <p></p>
-       </form>
-     </div>
-   </div>
-  <!-- END OF APPLICATION FORM -->
-  
-  
-<!-- Contact Form-->
-  <div class="contact-form">
-    <div class="contact-close-button">
-      <p>X</p>
+<div class="signup-form d-flex align-items-center justify-content-center">
+  <div class="form-close-button">
+    <p>X</p>
+  </div>
+  <div class="d-flex flex-row  row align-items-center justify-content-center img-form-container">
+    <div class="sign-up-image col-lg-6">
+      <img src="images/code-820275_1920.jpg" alt="computer screen with code">
     </div>
-    <div class="form-content-contact border">
-      <h1>Contact Me Now</h1>
-      <form name="contact-form" method="post"
-       action="https://schrock.greenriverdev.com/vardump.php">
+    <div class="form-content col-lg-6">
+      <h1>Sign up for ATT</h1>
+      <p>Create a free account or <a href="#">log in</a></p>
+
+      <form method="post" action="vardump.php" onsubmit="return validate()">
         <div class="form-user-info">
-          <input id="contact-name" placeholder="Name" name="user-name">
-          <span id="name-error" class="error">Please enter a name.</span>
-          <input id="contact-email" placeholder="Email" name="user-email">
-          <span id="email-error" class="error">Please enter your Email.</span>
-          <textarea name="Message" placeholder="Message" 
-             id="contact-message"></textarea>
-          <span id="message-error" class="error">Please avoid < > ; and enter no more than 250 characters.</span>
-          <button id="contact-submit" type="submit">Submit</button>
-          <p>***Please allow <strong>several</strong> days for a reply***</p>
+          <input placeholder="Name" name="user-name" id="user-name">
+          <input placeholder="Email" name="user-email" id="user-email">
+          <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
+        </div>
+        <div class="form-checkboxes">
+          <input type="checkbox" id = "internship" name="seeking[]" value = "seeking-internship">
+          <label for="internship">Seeking Internship</label>
+          <input type="checkbox" id = "job" name="seeking[]" value = "seeking-internship">
+          <label for="job">Seeking Job</label>
+          <input type="checkbox" id = "searching" name="seeking[]" value = "seeking-internship">
+          <label for="searching">Not Actively Searching</label>
+        </div>
+        <label for="interests">Fields of Interest</label>
+        <input placeholder="Type fields followed by a comma" id="interests" name="field-interests">
+        <button type="submit">Create account</button>
+      </form>
+      <p class="terms-conditions">By creating an account, you are agreeing to the <a href="https://www.greenriver.edu/conduct/">Terms and Conditions</a></p>
+      <img src="images/GRC_Logo-Green.png" width="160" height="100" class="grc-form-logo">
+    </div>
+  </div>
+</div>
+<!-- End sign up form html -->
+
+
+<!-- ADD APPLICATION FORM BEGINNING -->
+
+<div class="addapp-form">
+  <div class="app-close-button">
+    <p>X</p>
+  </div>
+  <div class="form-content">
+    <h1>Add an Application</h1>
+    <form method="post" action="https://schrock.greenriverdev.com/vardump.php">
+      <div class="add-app-form">
+        <div class="col-12 addapp-input">
+          <input placeholder="Employers Name" name="app-title">
+        </div>
+        <div class="col-12 addapp-input">
+          <input placeholder="Job Description" name="app-title">
+        </div>
+        <div class="col-12 addapp-input">
+          <input placeholder="Name of Role" name="app-title">
         </div>
 
-      </form>
-    </div>
+        <div class="col-12 addapp-input">
+          <div class="row">
+            <div class="col-6">
+              <input type="radio" id="apply" name="apply" value="apply">
+              <label for="apply">Need to Apply</label>
+            </div>
+            <div class="col-6">
+              <input type="radio" id="applied" name="applied" value="applied">
+              <label for="applied">Applied</label>
+            </div>
+          </div>
 
+
+          <div class="row">
+            <div class="col-6">
+              <input type="radio" id="interviewing" name="interviewing" value="interviewing">
+              <label for="interviewing">Interviewing</label>
+            </div>
+            <div class="col-6">
+              <input type="radio" id="rejected" name="rejected" value="rejected">
+              <label for="rejected">Rejected</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <input type="radio" id="accepted" name="accepted" value="accepted">
+              <label for="accepted">Accepted</label>
+            </div>
+            <div class="col-6">
+              <input type="radio" id="expired" name="expired" value="expired">
+              <label for="expired">Expired</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 addapp-input">
+          <input type="date" placeholder="Date Applied" name="app-date">
+        </div>
+      </div>
+      <button type="submit">Add Application</button>
+      <p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
+        <strong>Add Application</strong></p>
+      <p></p>
+    </form>
+  </div>
+</div>
+<!-- END OF APPLICATION FORM -->
+
+
+<!-- Contact Form-->
+<div class="contact-form">
+  <div class="contact-close-button">
+    <p>X</p>
+  </div>
+  <div class="form-content-contact border">
+    <h1>Contact Me Now</h1>
+    <form name="contact-form" method="post"
+          action="https://schrock.greenriverdev.com/vardump.php">
+      <div class="form-user-info">
+        <input id="contact-name" placeholder="Name" name="user-name">
+        <span id="name-error" class="error">Please enter a name.</span>
+        <input id="contact-email" placeholder="Email" name="user-email">
+        <span id="email-error" class="error">Please enter your Email.</span>
+        <textarea name="Message" placeholder="Message"
+                  id="contact-message"></textarea>
+        <span id="message-error" class="error">Please avoid < > ; and enter no more than 250 characters.</span>
+        <button id="contact-submit" type="submit">Submit</button>
+        <p>***Please allow <strong>several</strong> days for a reply***</p>
+      </div>
+
+    </form>
   </div>
 
- <!--end contact form--> 
+</div>
 
-  <!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
-  <div id="maindisplay" class="">
-    <div class="appsdisplay">
-     
-      <table class="apps">
-        <th colspan = "5">
-          Recent Applications
-        </th>
-        <tr>
-          <td>05/30</td>
-          <td>Costco Internship</td>
-          <td>Pending</td>
-          <td>update</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>date</td>
-          <td>title</td>
-          <td>status</td>
-          <td>update</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>date</td>
-          <td>title</td>
-          <td>status</td>
-          <td>update</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>date</td>
-          <td>title</td>
-          <td>status</td>
-          <td>update</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>date</td>
-          <td>title</td>
-          <td>status</td>
-          <td>update</td>
-          <td>delete</td>
-        </tr>
-      </table>
-    </div>
-    
-    <!-- Reminder Container -->
-    <div id="remindercontainer" class="remindercontrol">
-      <div class="container-title">REMINDERS</div>
-      
-      <div class="reminder-row">
-        <p>this is a place holder</p>
-      </div>
-      
-      <div class="reminder-row">
-        <p>this is a place holder</p>
-      </div>
+<!--end contact form-->
 
-      <div class="reminder-row">
-        <p>this is a place holder</p>
-      </div>
-      <div class="reminder-row">
-        <p>this is a place holder</p>
-      </div>
-      <div class="reminder-row">
-        <p>this is a place holder</p>
-      </div>
-      <div class="reminder-row">
-        <p>this is a place holder</p>
-      </div>
-    </div> 
-  </div>
-  
+<!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
+<div id="maindisplay" class="">
+  <div class="appsdisplay">
 
-
-  <div id="bottombuttons">
-    <div>
-    </div>
-
-      <div>
-        <button type="button" class="btn btn-outline-primary">ADD NEW APP</button>
-
-        <button type="button" class="btn btn-outline-success">UPDATE ACCOUNT SETTINGS</button>
-      </div>
-
-    <div>
-    </div>
+    <table class="apps">
+      <th colspan = "5">
+        Recent Applications
+      </th>
+      <tr>
+        <td>05/30</td>
+        <td>Costco Internship</td>
+        <td>Pending</td>
+        <td>update</td>
+        <td>delete</td>
+      </tr>
+      <tr>
+        <td>date</td>
+        <td>title</td>
+        <td>status</td>
+        <td>update</td>
+        <td>delete</td>
+      </tr>
+      <tr>
+        <td>date</td>
+        <td>title</td>
+        <td>status</td>
+        <td>update</td>
+        <td>delete</td>
+      </tr>
+      <tr>
+        <td>date</td>
+        <td>title</td>
+        <td>status</td>
+        <td>update</td>
+        <td>delete</td>
+      </tr>
+      <tr>
+        <td>date</td>
+        <td>title</td>
+        <td>status</td>
+        <td>update</td>
+        <td>delete</td>
+      </tr>
+    </table>
   </div>
 
-  <footer class="footer">
-    <div class="welcome-text">
-      <h1>Green River College ATT</h1>
-      <p>Welcome to the Green River College Software Development Application Tracking Tool (ATT). The purpose of this tool is to provide a centralized place to track your job/internship applications that can be helpful in your application journey!</p>
+  <!-- Reminder Container -->
+  <div id="remindercontainer" class="remindercontrol">
+    <div class="container-title">REMINDERS</div>
+
+    <div class="reminder-row">
+      <p>this is a place holder</p>
     </div>
 
-    <img src='images/GRC Logo.png'>
-
-    <div class="footer-resources">
-      <h3>Resources</h3>
-      <ul>
-        <li><a href="https://www.linkedin.com/jobs">linkedin.com/jobs</a></li>
-        <li><a href="https://www.indeed.com/">indeed.com</a></li>
-        <li><a href="https://www.devs.greenrivertech.net/">devs.greenrivertech.net</a></li>
-        <li><a href="https://www.greenriver.edu/students/academics/degrees-programs/bachelor-of-applied-science/bachelors-in-software-development/">About the Program</a></li>
-      </ul>
+    <div class="reminder-row">
+      <p>this is a place holder</p>
     </div>
-  </footer>
+
+    <div class="reminder-row">
+      <p>this is a place holder</p>
+    </div>
+    <div class="reminder-row">
+      <p>this is a place holder</p>
+    </div>
+    <div class="reminder-row">
+      <p>this is a place holder</p>
+    </div>
+    <div class="reminder-row">
+      <p>this is a place holder</p>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="bottombuttons">
+  <div>
+  </div>
+
+  <div>
+    <button type="button" class="btn btn-outline-primary">ADD NEW APP</button>
+
+    <button type="button" class="btn btn-outline-success">UPDATE ACCOUNT SETTINGS</button>
+    <button type="button" class="btn btn-outline-danger admin-login">ADMIN LOGIN</button>
+  </div>
+
+  <div>
+  </div>
+</div>
+
+<div class="spacing">
+
+</div>
+
+<footer>
+  <div class="container-fluid">
+    <h1>Green River College Application Tracking Tool</h1>
+    <div class="row welcome-text">
+      <div class="col-xl-3 welcome-text-box p-5">
+        <h3>About</h3>
+        <p>Welcome to the Green River College Software Development Application Tracking Tool (ATT).
+          The purpose of this tool is to provide a centralized place to track your job/internship applications that can be helpful in your application journey!
+        </p>
+      </div>
+      <div class="col-xl-6 welcome-text-box p-5">
+        <h3>More about the Software Development Department</h3>
+        <p>Affordable tuition, instructors who care, access to tech industry mentors, and project-based learning make our
+          applied bachelor’s program a popular destination for computing majors throughout the Seattle-Tacoma region.
+          This degree prepares graduates for high-demand jobs such as software developer, web developer, software developer in test, and quality assurance (QA) analyst.</p>
+        <a href="https://www.greenriver.edu/students/academics/degrees-programs/bachelor-of-applied-science/bachelors-in-software-development/">Learn more here</a>
+      </div>
+
+      <div class="col-xl-3 footer-resources p-5">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="https://www.linkedin.com/jobs">https://www.linkedin.com/jobs</a></li>
+          <li><a href="https://www.indeed.com/">https://www.indeed.com/</a></li>
+          <li><a href="https://www.devs.greenrivertech.net/">https://www.devs.greenrivertech.net/</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
 
 <script src="user.js"> </script>
 </body>

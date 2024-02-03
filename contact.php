@@ -2,61 +2,145 @@
 error_reporting(0);
 $name = $to = $customerMessage = "";
 $nameErr = $toErr = $customerMessageErr = "";
+$nameCheck=0;
+$emailCheck=0;
+$messageCheck=0;
 
-//initial check of server to see if request was sent via POST
-//checks if "user-name" is empty if it is it stores an error message into $nameErr
-//if true the value of "user-name" is stored into $name variable
+//check name
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["user-name"])) {
         $nameErr = "Name is required";
-//once "user-name" is not null and saved into $name variable
-//$name is checked again through preconfigured match and validates no special characters
-    } elseif(!preg_match("/^[a-zA-Z-' ]*$/",$name)){
-        $nameErr="Only letters and white space allowed";
-        $name = "";
-    }
-//if no special characters are found "user-name" value is stored in $name
-    else {
+        $nameCheck = 1;
+    } else {
         $name = $_POST["user-name"];
+        $nameCheck = 1;
     }
 
-
-//checks if "user-email" is empty if it is an error message is stored in $toErr
-//if true the value of "user-email" is stored in $to variable
-    if (empty($_POST["user-email"])){
+//check email
+    if (empty($_POST["user-email"])) {
         $toErr = "Email is required";
-//uses php filter_var method to check the value of "user-email" if it fails a new error message is stored
-//in $toErr for improper email format.
-    }elseif(!filter_var($_POST["user-email"], FILTER_VALIDATE_EMAIL)){
-        $toErr = "Invalid email format";
-    }else{
+        $emailCheck = 0;
+    } else {
         $to = $_POST["user-email"];
+        $emailCheck = 1;
     }
-//
-    if(empty($_POST["customerMessage"])){
+//check message
+    if (isset($_POST['customerMessage']) && $_POST['customerMessage'] != "") {
+        $customerMessage = $_POST['customerMessage'];
+        $messageCheck = 1;
+    } else {
         $customerMessageErr = "Message is required";
+    $messageCheck = 0;
+}
+}
+//check if the form was filled out properly and displays error php page
+if($nameCheck + $emailCheck + $messageCheck < 2){
+    echo"
+    <html lang='en'>
+    <head>
+    <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
+    <link href='style.css' rel='stylesheet' type='text/css'/>
+    </head>
+    <body>
+    <nav id='background' class='navbar navbar-expand-md  navbar-dark'>
+
+  <img id='grc-logo' class='navbar-brand'  src='images/GRC Logo.png'>
+  <button class='navbar-toggler' type='button' data-toggle='collapse'
+          data-target='#collapsibleNavbar'>
+    <span class='navbar-toggler-icon'></span>
+  </button>
+
+
+  <div class='collapse navbar-collapse links' id='collapsibleNavbar'>
+
+    <ul class='navbar-nav links'>
+      <li class='nav-item'>
+        <a class='nav-link' href='#'>Dashboard</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link sign-up' href='#'>Sign Up</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link add-application' href='#'>Add Applicaion</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link contact-anchor contact' href='#'>Contact</a>
+      </li>
+    </ul>
+  </div>
+  <div id='toggleContainer' class='col-2'>
+    <button type='button' class='btn toggle active-mode btn-light'>Light</button>
+    <button type='button' class='btn toggle btn-dark'>Dark</button>
+  </div>
+</nav>
+    <p>Please fill out the entire form</p>
+    </body>
+    </html>";
     }else{
-        $customerMessage = $_POST["customerMessage"];
-    }
+    //sends inquire email and displays correct php page
+    $txt = "We have received your inquiry and will reach out shortly";
+    $headers = "from: webmaster@gmail.com" . "\r\n"
+        . "CC: someoneelse@gmail.com";
+
+    $me = "garrett.ballreich@gmail.com";
+
+    $subject1 = "inquiry from " . $name;
+    $subject = "Green River College ATT inquiry";
+//send email to customer
+    mail($to, $subject, $txt, $headers);
+//notify me
+    mail($me, $subject1,$customerMessage);
+    echo"
+     <html lang='en'>
+    <body>
+    <head>
+      <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
+    <link href='style.css' rel='stylesheet' type='text/css'/>
+    </head>
+    <body>
+        <nav id='background' class='navbar navbar-expand-md  navbar-dark'>
+
+  <img id='grc-logo' class='navbar-brand'  src='images/GRC Logo.png'>
+  <button class='navbar-toggler' type='button' data-toggle='collapse'
+          data-target='#collapsibleNavbar'>
+    <span class='navbar-toggler-icon'></span>
+  </button>
+
+
+  <div class='collapse navbar-collapse links' id='collapsibleNavbar'>
+
+    <ul class='navbar-nav links'>
+      <li class='nav-item'>
+        <a class='nav-link' href='#'>Dashboard</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link sign-up' href='#'>Sign Up</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link add-application' href='#'>Add Applicaion</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link contact-anchor contact' href='#'>Contact</a>
+      </li>
+    </ul>
+  </div>
+  <div id='toggleContainer' class='col-2'>
+    <button type='button' class='btn toggle active-mode btn-light'>Light</button>
+    <button type='button' class='btn toggle btn-dark'>Dark</button>
+  </div>
+</nav>
+    
+    
+    
+    <p>Thank you for your inquiry $name, we will respond in <em>Several</em> days.</p>
+    </body>
+    </html>
+    ";
 }
 
-$txt = "We have received your inquiry and will reach out shortly";
-$headers = "from: webmaster@gmail.com" . "\r\n"
-    . "CC: someoneelse@gmail.com";
 
-$me = "garrett.ballreich@gmail.com";
 
-$subject1 = "inquiry from " . $name;
-$subject = "Green River College ATT inquiry";
-//send email to customer
-mail($to, $subject, $txt, $headers);
-//notify me
-mail($me, $subject1,$customerMessage);
 
-?>
 
-<html lang="en">
-<body>
-thank you for your inquiry .<?php echo '$name' ?>. we will respond in <em>SEVERAL</em> days.
-</body>
-</html>
+
+
