@@ -44,7 +44,43 @@
 
         <!-- Sign up form -->
         <!-- this container will remain hidden until the user clicks the sign-up button. -->
-        <div class="signup-form">
+        <div class="signup-form d-flex align-items-center justify-content-center">
+            <div class="form-close-button">
+                <p>X</p>
+            </div>
+            <div class="d-flex flex-row row align-items-center justify-content-center img-form-container">
+                <div class="sign-up-image col-lg-6">
+                    <img src="images/code-820275_1920.jpg" alt="computer screen with code">
+                </div>
+                <div class="form-content col-lg-6">
+                    <h1>Sign up for ATT</h1>
+                    <p>Create a free account or <a href="#">log in</a></p>
+
+                    <form method="post" action="vardump.php" onsubmit="return validate()">
+                        <div class="form-user-info">
+                            <input placeholder="Name" name="user-name" id="user-name">
+                            <input placeholder="Email" name="user-email" id="user-email">
+                            <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
+                        </div>
+                        <div class="form-checkboxes">
+                            <input type="checkbox" id = "internship" name="seeking[]" value = "seeking-internship">
+                            <label for="internship">Seeking Internship</label>
+                            <input type="checkbox" id = "job" name="seeking[]" value = "seeking-internship">
+                            <label for="job">Seeking Job</label>
+                            <input type="checkbox" id = "searching" name="seeking[]" value = "seeking-internship">
+                            <label for="searching">Not Actively Searching</label>
+                        </div>
+                        <label for="interests">Fields of Interest</label>
+                        <input placeholder="Type fields followed by a comma" id="interests" name="field-interests">
+                        <button type="submit">Create account</button>
+                    </form>
+                    <p class="terms-conditions">By creating an account, you are agreeing to the <a href="https://www.greenriver.edu/conduct/">Terms and Conditions</a></p>
+                    <img src="images/GRC_Logo-Green.png" width="160" height="100" class="grc-form-logo">
+                </div>
+            </div>
+        </div>
+        <!-- Old sign-up form -->
+        <!--<div class="signup-form">
             <div class="form-close-button">
                 <p>X</p>
             </div>
@@ -73,12 +109,11 @@
 
                 <p>By creating an account, you are agreeing to the <a href="https://www.greenriver.edu/conduct/">Terms and Conditions</a></p>
             </div>
-        </div>
+        </div>-->
         <!-- End sign up form html -->
 
 
         <!-- ADD APPLICATION FORM BEGINNING -->
-
         <div class="addapp-form">
             <div class="app-close-button">
                 <p>X</p>
@@ -124,7 +159,29 @@
 
 
         <!-- Contact Form-->
+        <div class="contact-form">
+            <div class="contact-close-button">
+                <p>X</p>
+            </div>
+            <div class="form-content-contact border">
+                <h1>Contact Me Now</h1>
+                <form name="contact-form" method="post"
+                      action="https://schrock.greenriverdev.com/vardump.php">
+                    <div class="form-user-info">
+                        <input id="contact-name" placeholder="Name" name="user-name">
+                        <span id="name-error" class="error">Please enter a name.</span>
+                        <input id="contact-email" placeholder="Email" name="user-email">
+                        <span id="email-error" class="error">Please enter your Email.</span>
+                        <textarea name="Message" placeholder="Message"
+                                  id="contact-message"></textarea>
+                        <span id="message-error" class="error">Please avoid < > ; and enter no more than 250 characters.</span>
+                        <button id="contact-submit" type="submit">Submit</button>
+                        <p>***Please allow <strong>several</strong> days for a reply***</p>
+                    </div>
 
+                </form>
+            </div>
+        </div>
 
         <!--end contact form-->
 
@@ -364,6 +421,6 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-        <script src="script.js"></script>
+        <script src="admin.js"></script>
     </body>
 </html>
