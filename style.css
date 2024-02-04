@@ -32,8 +32,7 @@ html
 }
 #grc-logo{
 
-  width:10%;
-  height:10%;
+  width:8%;
 
 }
 li{
@@ -147,10 +146,7 @@ td,tr,.reminder-row
 {
   background-color: white;
   border: 1px solid black;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin: 20px 10px 10px;
 }
 
 #table-head, .container-title
@@ -338,6 +334,10 @@ td,tr,.reminder-row
 .sign-up-image img {
   width: 1000px;
   height: 1000px;
+}
+.grc-form-logo
+{
+  width: 160px;
 }
 
 .img-form-container {

@@ -28,10 +28,7 @@ html
     top: 0;
 }
 #grc-logo{
-
-    width:10%;
-    height:10%;
-
+    width: 160px;
 }
 li{
     font-size:20pt;
@@ -538,6 +535,11 @@ span.error
 .sign-up-image img {
     width: 1000px;
     height: 1000px;
+}
+.grc-form-logo
+{
+    /*width="160" height="100"*/
+    width: 160px;
 }
 
 .img-form-container {
