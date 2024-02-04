@@ -175,16 +175,19 @@
     <p>X</p>
   </div>
   <div class="form-content-contact border">
-    <h1>Contact Me Now</h1>
+    <h1>Contact Us Now</h1>
     <form name="contact-form" method="post"
           action="contact.php">
       <div class="form-user-info">
-        <input id="contact-name" placeholder="Name" name="user-name">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" placeholder="Your Name" name="user-name">
         <span id="name-error" class="error">Please enter a name.</span>
+        <label for="contact-email">Email</label>
         <input id="contact-email" placeholder="Email" name="user-email">
         <span id="email-error" class="error">Please enter your Email.</span>
-        <textarea name="Message" placeholder="Message"
-                  id="contact-message"></textarea>
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="Message" placeholder="Message Us."
+        ></textarea>
         <span id="message-error" class="error">Please avoid < > ; and enter no more than 250 characters.</span>
         <button id="contact-submit" type="submit">Submit</button>
         <p>***Please allow <strong>several</strong> days for a reply***</p>

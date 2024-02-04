@@ -453,8 +453,8 @@ td,tr,.reminder-row
 }
 .form-content-contact {
   background: white;
-  height: 560px;
-  width: 400px;
+  height: 90%;
+  width: 50%;
   z-index: 2;
   position: absolute;
   top: 50%;
@@ -471,6 +471,10 @@ td,tr,.reminder-row
   display: flex;
   flex-direction: column;
   grid-gap: 10px;
+}
+.form-content-contact>form
+{
+  width: 80%;
 }
 .contact {
   cursor: pointer;
