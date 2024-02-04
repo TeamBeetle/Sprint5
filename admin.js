@@ -60,7 +60,6 @@ toggleContainer.addEventListener('click', function(e)
         document.querySelector("body").style.backgroundColor = "white";
         document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
         document.querySelector(".apps").style.backgroundColor = "#fff";
-        document.querySelector(".apps").style.backgroundColor = "#fff";
         document.querySelectorAll(".student-name").forEach((element)=> element.style.color = "#000");
         document.querySelectorAll(".student-email").forEach((element)=> element.style.color = "#000");
         document.querySelectorAll(".view-info").forEach((element)=>
