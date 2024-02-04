@@ -94,61 +94,69 @@
 
 <!-- ADD APPLICATION FORM BEGINNING -->
 
-<div class="addapp-form">
+<div class="add-app-form">
   <div class="app-close-button">
     <p>X</p>
   </div>
-  <div class="form-content">
+  <div id="add-app-content" class="form-content">
     <h1>Add an Application</h1>
     <form method="post" action="https://schrock.greenriverdev.com/vardump.php">
-      <div class="add-app-form">
-        <div class="col-12 addapp-input">
-          <input placeholder="Employers Name" name="app-title">
+      <div class="">
+        <div class="col-12 add-app-input">
+          <label for="app-employer">Employer</label>
+          <input id="app-employer" placeholder="Employers Name" name="app-employer">
         </div>
-        <div class="col-12 addapp-input">
-          <input placeholder="Job Description" name="app-title">
+        <div class="col-12 add-app-input">
+          <label for="app-job-desc">Job Description</label>
+          <input id="app-job-desc" placeholder="Job Description" name="app-job-desc">
         </div>
-        <div class="col-12 addapp-input">
-          <input placeholder="Name of Role" name="app-title">
+        <div class="col-12 add-app-input">
+          <label for="app-role">Role</label>
+          <input id="app-role" placeholder="Name of Role" name="app-role">
         </div>
 
-        <div class="col-12 addapp-input">
+        <div class="col-12 add-app-input">
           <div class="row">
-            <div class="col-6">
-              <input type="radio" id="apply" name="apply" value="apply">
-              <label for="apply">Need to Apply</label>
+            <div class="col-6 row">
+              <input type="radio" id="apply" name="apply" value="apply" class="col-2">
+              <label for="apply" class="col-10">Need to Apply</label>
             </div>
-            <div class="col-6">
-              <input type="radio" id="applied" name="applied" value="applied">
-              <label for="applied">Applied</label>
+            <div class="col-6 row">
+              <input type="radio" id="applied" name="applied" value="applied" class="col-2">
+              <label for="applied" class="col-10">Applied</label>
             </div>
           </div>
 
 
           <div class="row">
-            <div class="col-6">
-              <input type="radio" id="interviewing" name="interviewing" value="interviewing">
-              <label for="interviewing">Interviewing</label>
+            <div class="col-6 row">
+              <input type="radio" id="interviewing" name="interviewing" value="interviewing" class="col-2">
+              <label for="interviewing" class="col-10">Interviewing</label>
             </div>
-            <div class="col-6">
-              <input type="radio" id="rejected" name="rejected" value="rejected">
-              <label for="rejected">Rejected</label>
+            <div class="col-6 row">
+              <input type="radio" id="rejected" name="rejected" value="rejected" class="col-2">
+              <label for="rejected" class="col-10">Rejected</label>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-6">
-              <input type="radio" id="accepted" name="accepted" value="accepted">
-              <label for="accepted">Accepted</label>
+            <div class="col-6 row">
+              <input type="radio" id="accepted" name="accepted" value="accepted" class="col-2">
+              <label for="accepted" class="col-10">Accepted</label>
             </div>
-            <div class="col-6">
-              <input type="radio" id="expired" name="expired" value="expired">
-              <label for="expired">Expired</label>
+            <div class="col-6 row">
+              <input type="radio" id="expired" name="expired" value="expired" class="col-2">
+              <label for="expired" class="col-10">Expired</label>
             </div>
           </div>
         </div>
-        <div class="col-12 addapp-input">
-          <input type="date" placeholder="Date Applied" name="app-date">
+        <div class="col-12 add-app-input">
+          <label for="app-date">Date Applied</label>
+          <input id="app-date" type="date" name="app-date">
+        </div>
+        <div class="col-12 add-app-input">
+          <label for="app-date-follow">Date to follow-up</label>
+          <input id="app-date-follow" type="date" name="app-date-follow">
         </div>
       </div>
       <button type="submit">Add Application</button>

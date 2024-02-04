@@ -59,7 +59,7 @@ closeButton.addEventListener("click", function()
 \****************************************************************************/
 
 let addAppAnchor = document.querySelector(".add-application");
-let appForm = document.querySelector(".addapp-form");
+let appForm = document.querySelector(".add-app-form");
 let closeAppButton = document.querySelector(".app-close-button");
 
 closeAppButton.addEventListener("click", function()

@@ -366,15 +366,15 @@ td,tr,.reminder-row
 /* End sign up form css */
 
 /* Beginning of Add Application CSS Form */
-.addapp-form {
+.add-app-form {
   width: 100%;
-  height: 100%;
+  height: 165%;
   background: rgba(0, 0, 0, 0.7);
   z-index: 2;
   position: absolute;
   top: 0;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: visible;
   backdrop-filter: blur(5px);
   visibility: hidden;
   opacity: 0;
@@ -391,10 +391,25 @@ td,tr,.reminder-row
   justify-content: center;
   border-radius: 3px;
   background-color: white;
-  bottom: -2%;
+  top: 5%;
   cursor: pointer;
 }
-.addapp-input
+#add-app-content{
+  background: white;
+  height: 70%;
+  width: 70%;
+  z-index: 2;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+}
+.add-app-input
 {
   padding-bottom: 5px;
 }
@@ -464,36 +479,6 @@ span.error
 {
   color: #f44;
   display: none;
-}
-
-
-/* Beginning of Add Application CSS Form */
-.addapp-form {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 2;
-  position: absolute;
-  top: 0;
-  overflow-x: hidden;
-  backdrop-filter: blur(5px);
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.5s;
-}
-.app-close-button {
-  position: relative;
-  left: 95%;
-  width: 30px;
-  height: 29px;
-  border: black solid 1px;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-  background-color: white;
-  bottom: -2%;
-  cursor: pointer;
 }
 
 /* Footer CSS */
