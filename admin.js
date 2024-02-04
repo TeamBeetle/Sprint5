@@ -48,6 +48,11 @@ toggleContainer.addEventListener('click', function(e)
             element.style.backgroundColor= "#555";
             element.style.color = "#fff";
         });
+        document.querySelectorAll(".pop-up").forEach((element) =>
+        {
+            element.style.backgroundColor= "#555";
+            element.style.color = "#fff";
+        });
     }
     else
     {
@@ -70,6 +75,11 @@ toggleContainer.addEventListener('click', function(e)
         });
         document.querySelector(".user-details").style.backgroundColor = "#fff";
         document.querySelectorAll(".category").forEach((element) =>
+        {
+            element.style.backgroundColor= "#fff";
+            element.style.color = "#000";
+        });
+        document.querySelectorAll(".pop-up").forEach((element) =>
         {
             element.style.backgroundColor= "#fff";
             element.style.color = "#000";
