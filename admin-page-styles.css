@@ -38,6 +38,10 @@ li{
     padding:10px;
 
 }
+.navbar
+{
+    background-color:  #2C882B;
+}
 .links{
     margin-left:5%;
     padding:10px;
@@ -156,106 +160,6 @@ td,tr,.reminder-row
     background-color: white;
     border: 1px solid black;
 }
-
-/* Beginning of Add Application CSS Form */
-.addapp-form {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    overflow-x: hidden;
-    backdrop-filter: blur(5px);
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.5s;
-}
-.app-close-button {
-    position: relative;
-    left: 95%;
-    width: 30px;
-    height: 29px;
-    border: black solid 1px;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3px;
-    background-color: white;
-    bottom: -2%;
-    cursor: pointer;
-}
-
-.addapp-form {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    overflow-x: hidden;
-    backdrop-filter: blur(5px);
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.5s;
-}
-.addapp-input
-{
-    padding-bottom: 5px;
-}
-.add-app-form input
-{
-    justify-items: center;
-    width: 100%;
-}
-.add-app-flavor-text
-{
-    text-align: center;
-}
-
-/* contact */
-.contact-form{
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    overflow-x: hidden;
-    backdrop-filter: blur(5px);
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.5s;
-}
-.contact-close-button{
-    position: relative;
-    left: 95%;
-    width: 30px;
-    height: 29px;
-    border: black solid 1px;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3px;
-    background-color: white;
-    bottom: -2%;
-    cursor: pointer;
-}
-.form-content-contact {
-    background: white;
-    height: 560px;
-    width: 400px;
-    z-index: 2;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 15px;
-}
 .form-user-info {
     width: 100%;
     display: flex;
@@ -265,39 +169,6 @@ td,tr,.reminder-row
 .contact {
     cursor: pointer;
 }
-
-/*-------------------------------------------------------------------------------------------------------------*/
-/* Beginning of Add Application CSS Form */
-/*-------------------------------------------------------------------------------------------------------------*/
-.addapp-form {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    overflow-x: hidden;
-    backdrop-filter: blur(5px);
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.5s;
-}
-
-.app-close-button {
-    position: relative;
-    left: 95%;
-    width: 30px;
-    height: 29px;
-    border: black solid 1px;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3px;
-    background-color: white;
-    bottom: -2%;
-    cursor: pointer;
-}
-
 
 .spacing {
     flex: 1;
@@ -358,14 +229,11 @@ footer p {
 }
 /* end footer css */
 
-.navbar
-{
-    background-color:  #2C882B;
-}
+/*-------------------------------------------------------------------------------------------------------------*/
 /* Beginning of Add Application CSS Form */
-
-.app-close-button {
-    position: relative;
+/*-------------------------------------------------------------------------------------------------------------*/
+.app-close-button{
+    position: absolute;
     left: 95%;
     width: 30px;
     height: 29px;
@@ -375,13 +243,12 @@ footer p {
     justify-content: center;
     border-radius: 3px;
     background-color: white;
-    bottom: -2%;
+    top: 5%;
     cursor: pointer;
 }
-
-.addapp-form {
-    width: 80%;
-    left: 10%;
+.add-app-form {
+    width: 100%;
+    height: 150%;
     background: rgba(0, 0, 0, 0.7);
     z-index: 2;
     position: absolute;
@@ -393,7 +260,39 @@ footer p {
     opacity: 0;
     transition: 0.5s;
 }
-.addapp-input
+.add-app-input
+{
+    padding-bottom: 5px;
+}
+#add-app-content{
+    background: white;
+    height: 70%;
+    width: 70%;
+    z-index: 2;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+}
+.add-app-form input
+{
+    justify-items: center;
+    width: 100%;
+}
+.add-app-flavor-text
+{
+    text-align: center;
+}
+#app-info
+{
+    width: 100%;
+}
+.add-app-input
 {
     padding-bottom: 5px;
 }
@@ -406,7 +305,6 @@ footer p {
 {
     text-align: center;
 }
-
 /* contact */
 .contact-form{
     width: 100%;
@@ -600,7 +498,7 @@ span.error
  CSS for the close form button
  will be changed later to an image rather than a "p" element
 */
-.form-close-button {
+.form-close-button{
     position: relative;
     left: 67%;
     top: -47%;

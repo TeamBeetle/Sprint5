@@ -112,24 +112,24 @@
             </div>
         </div>-->
         <!-- End sign up form html -->
-
-
         <!-- ADD APPLICATION FORM BEGINNING -->
-        <div class="addapp-form">
+        <div class="add-app-form d-flex align-items-center justify-content-center">
             <div class="app-close-button">
                 <p>X</p>
             </div>
-            <div class="form-content">
+            <div id="add-app-content" class="form-content form-content-app d-flex align-items-center justify-content-center">
                 <h1>Application Announcement</h1>
                 <form method="post" action="https://teambeetle.greenriverdev.com/SPRINT2/vardump.php">
-                    <div class="add-app-form">
-                        <div class="col-12 addapp-input">
-                            <input placeholder="Position Title" name="app-position">
+                    <div>
+                        <div class="col-12 add-app-input">
+                            <label for="app-position">Position</label>
+                            <input id="app-position" placeholder="Position Title" name="app-position">
                         </div>
-                        <div class="col-12 addapp-input">
-                            <input placeholder="Employer Title" name="app-employer">
+                        <div class="col-12 add-app-input">
+                            <label for="app-employer">Employer</label>
+                            <input id="app-employer" placeholder="Employer Title" name="app-employer">
                         </div>
-                        <div class="col-12 addapp-input">
+                        <div class="col-12 add-app-input">
 
                             <div class="form-checkboxes">
                                 <input type="radio" id = "app-intern-status" name="app-status" value = "app-status">
@@ -139,14 +139,13 @@
                             </div>
                             <input placeholder="Location" name="app-location">
                         </div>
-                        <div class="col-12 addapp-input">
-                            <textarea placeholder="Additional information" name="app-info" cols="20" rows="3"></textarea>
+                        <div class="col-12 add-app-input">
+                            <label for="app-info" class="col-12">Notes</label>
+                            <textarea id="app-info" placeholder="Additional information" name="app-info" cols="20" rows="3"></textarea>
                         </div>
-                        <div class="col-12 addapp-input">
-                            <input placeholder="Link to job opportunity" name="app-link">
-                        </div>
-                        <div class="col-12 addapp-input">
-                            <input type="date" placeholder="Date Applied" name="app-date">
+                        <div class="col-12 add-app-input">
+                            <label for="app-link">Job URL</label>
+                            <input id="app-link" placeholder="Link to job opportunity" name="app-link">
                         </div>
                     </div>
                     <button type="submit">Add Application</button>
@@ -157,8 +156,6 @@
             </div>
         </div>
         <!-- END OF APPLICATION FORM -->
-
-
         <!-- Contact Form-->
         <div class="contact-form">
             <div class="contact-close-button">
