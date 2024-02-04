@@ -5,6 +5,10 @@
 const lightButtons = document.querySelectorAll('.toggle');
 const toggleContainer = document.querySelector('#toggleContainer');
 const page = document.querySelector('HTML');
+window.onload = () =>
+{
+    document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
+}
 
 toggleContainer.addEventListener('click', function(e)
 {
@@ -24,11 +28,52 @@ toggleContainer.addEventListener('click', function(e)
     {
         page.attributes[1].value = 'dark';
         document.querySelector("body").style.backgroundColor = "#333";
+        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#222");
+        document.querySelector(".apps").style.backgroundColor = "#555";
+        document.querySelectorAll(".student-name").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll(".student-email").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll(".view-info").forEach((element)=>
+        {
+            element.style.backgroundColor= "#333";
+            element.style.color = "#fff";
+        });
+        document.querySelectorAll(".delete-account").forEach((element)=>
+        {
+            element.style.backgroundColor= "#333";
+            element.style.color = "#fff";
+        });
+        document.querySelector(".user-details").style.backgroundColor = "#555";
+        document.querySelectorAll(".category").forEach((element) =>
+        {
+            element.style.backgroundColor= "#555";
+            element.style.color = "#fff";
+        });
     }
     else
     {
         page.attributes[1].value = 'light';
         document.querySelector("body").style.backgroundColor = "white";
+        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
+        document.querySelector(".apps").style.backgroundColor = "#fff";
+        document.querySelector(".apps").style.backgroundColor = "#fff";
+        document.querySelectorAll(".student-name").forEach((element)=> element.style.color = "#000");
+        document.querySelectorAll(".student-email").forEach((element)=> element.style.color = "#000");
+        document.querySelectorAll(".view-info").forEach((element)=>
+        {
+            element.style.backgroundColor= "#fff";
+            element.style.color = "#000";
+        });
+        document.querySelectorAll(".delete-account").forEach((element)=>
+        {
+            element.style.backgroundColor= "#fff";
+            element.style.color = "#000";
+        });
+        document.querySelector(".user-details").style.backgroundColor = "#fff";
+        document.querySelectorAll(".category").forEach((element) =>
+        {
+            element.style.backgroundColor= "#fff";
+            element.style.color = "#000";
+        });
     }
 });
 /************************ end light-mode script *****************************/

@@ -39,6 +39,10 @@ li{
 {
     background-color:  #2C882B;
 }
+.nav-link
+{
+    color: #fff;
+}
 .links{
     margin-left:5%;
     padding:10px;
