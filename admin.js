@@ -87,26 +87,7 @@ toggleContainer.addEventListener('click', function(e)
 });
 /************************ end light-mode script *****************************/
 
-/****************************************************************************\
- Sign-up form script
-\****************************************************************************/
-// for opening and closing the sign up form
-let signupAnchor = document.querySelector(".sign-up");
-let signupForm = document.querySelector(".signup-form");
-let closeButton = document.querySelector(".form-close-button");
 
-signupAnchor.addEventListener("click", function(){
-    signupForm.style.visibility = "visible";
-    signupForm.style.opacity = "1";
-
-});
-
-closeButton.addEventListener("click", function()
-{
-    signupForm.style.visibility = "hidden";
-    signupForm.style.opacity = "0";
-});
-/*************************** end sign-up script *****************************/
 
 /****************************************************************************\
  Application form script

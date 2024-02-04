@@ -26,10 +26,7 @@
                             <a class="nav-link active" aria-current="page" href="index.html">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="sign-up nav-link">Sign Up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link add-application">Add Application</a>
+                            <a class="nav-link add-application">Make Announcement</a>
                         </li>
                         <li class="nav-item">
                             <a class="contact-anchor contact nav-link">Contact</a>
@@ -43,74 +40,7 @@
             </div>
         </nav>
 
-        <!-- Sign up form -->
-        <!-- this container will remain hidden until the user clicks the sign-up button. -->
-        <div class="signup-form d-flex align-items-center justify-content-center">
-            <div class="form-close-button">
-                <p>X</p>
-            </div>
-            <div class="d-flex flex-row row align-items-center justify-content-center img-form-container">
-                <div class="sign-up-image col-lg-6">
-                    <img src="images/code-820275_1920.jpg" alt="computer screen with code">
-                </div>
-                <div class="pop-up form-content col-lg-6">
-                    <h1>Sign up for ATT</h1>
-                    <p>Create a free account or <a href="#">log in</a></p>
 
-                    <form method="post" action="vardump.php" onsubmit="return validate()">
-                        <div class="form-user-info">
-                            <input placeholder="Name" name="user-name" id="user-name">
-                            <input placeholder="Email" name="user-email" id="user-email">
-                            <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
-                        </div>
-                        <div class="form-checkboxes">
-                            <input type="checkbox" id = "internship" name="seeking[]" value = "seeking-internship">
-                            <label for="internship">Seeking Internship</label>
-                            <input type="checkbox" id = "job" name="seeking[]" value = "seeking-internship">
-                            <label for="job">Seeking Job</label>
-                            <input type="checkbox" id = "searching" name="seeking[]" value = "seeking-internship">
-                            <label for="searching">Not Actively Searching</label>
-                        </div>
-                        <label for="interests">Fields of Interest</label>
-                        <input placeholder="Type fields followed by a comma" id="interests" name="field-interests">
-                        <button type="submit">Create account</button>
-                    </form>
-                    <p class="terms-conditions">By creating an account, you are agreeing to the <a href="https://www.greenriver.edu/conduct/">Terms and Conditions</a></p>
-                    <img src="images/GRC_Logo-Green.png" class="grc-form-logo" alt="Green River College Logo">
-                </div>
-            </div>
-        </div>
-        <!-- Old sign-up form -->
-        <!--<div class="signup-form">
-            <div class="form-close-button">
-                <p>X</p>
-            </div>
-            <div class="form-content">
-                <h1>Sign up for ATT</h1>
-                <p>Create a free account or <a href="#">log in</a></p>
-
-                <form method="post" action="https://teambeetle.greenriverdev.com/SPRINT1/vardump.php" onsubmit="return validate()">
-                    <div class="form-user-info">
-                        <input placeholder="Name" name="user-name" id="user-name">
-                        <input placeholder="Email" name="user-email" id="user-email">
-                        <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
-                    </div>
-                    <div class="form-checkboxes">
-                        <input type="checkbox" id = "internship" name="seeking-internship" value = "seeking-internship">
-                        <label for="internship">Seeking Internship</label>
-                        <input type="checkbox" id = "job" name="seeking-internship" value = "seeking-internship">
-                        <label for="job">Seeking Job</label>
-                        <input type="checkbox" id = "searching" name="seeking-internship" value = "seeking-internship">
-                        <label for="searching">Not Actively Searching</label>
-                    </div>
-                    <label for="interests">Fields of Interest</label>
-                    <input placeholder="Type fields followed by a comma" id="interests" name="field-interests">
-                    <button type="submit">Create account</button>
-                </form>
-
-                <p>By creating an account, you are agreeing to the <a href="https://www.greenriver.edu/conduct/">Terms and Conditions</a></p>
-            </div>
-        </div>-->
         <!-- End sign up form html -->
         <!-- ADD APPLICATION FORM BEGINNING -->
         <div class="add-app-form d-flex align-items-center justify-content-center">
@@ -130,7 +60,6 @@
                             <input id="app-employer" placeholder="Employer Title" name="app-employer">
                         </div>
                         <div class="col-12 add-app-input">
-
                             <div class="form-checkboxes">
                                 <input type="radio" id = "app-intern-status" name="app-status" value = "app-status">
                                 <label for="app-intern-status">Seeking Internship</label>
@@ -178,7 +107,6 @@
                         <button id="contact-submit" type="submit">Submit</button>
                         <p>***Please allow <strong>several</strong> days for a reply***</p>
                     </div>
-
                 </form>
             </div>
         </div>

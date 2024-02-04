@@ -27,6 +27,8 @@ toggleContainer.addEventListener('click', function(e)
     if(page.attributes[1].value === 'light')
     {
         page.attributes[1].value = 'dark';
+        document.querySelectorAll(".reminder-row > p").forEach(element => element.style.color = "white");
+        document.querySelectorAll(".appinfo").forEach(element => element.style.color = "white");
         document.querySelector("body").style.backgroundColor = "#333";
         document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#222");
         document.querySelector(".apps").style.backgroundColor = "#555";
@@ -40,6 +42,8 @@ toggleContainer.addEventListener('click', function(e)
     else
     {
         page.attributes[1].value = 'light';
+        document.querySelectorAll(".reminder-row > p").forEach(element => element.style.color = "black");
+        document.querySelectorAll(".appinfo ").forEach(element => element.style.color = "black");
         document.querySelector("body").style.backgroundColor = "white";
         document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
         document.querySelector(".apps").style.backgroundColor = "#fff";
@@ -178,3 +182,12 @@ function validateMessage(inputMessage)
     return 0;
 }
 /*************************** end contact script *****************************/
+
+/****************************************************************************\
+ Admin login button redirect to admin page minor patch
+ \****************************************************************************/
+let adminButton = document.querySelector(".admin-login");
+adminButton.addEventListener("click", function ()
+{
+    location.href="admin-page.html";
+});

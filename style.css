@@ -366,6 +366,7 @@ th, .container-title
 /* End sign up form css */
 
 /* Beginning of Add Application CSS Form */
+
 .add-app-form {
   width: 100%;
   height: 165%;
@@ -396,8 +397,8 @@ th, .container-title
 }
 #add-app-content{
   background: white;
-  height: 70%;
-  width: 70%;
+  height: 50%;
+  width: 30%;
   z-index: 2;
   position: absolute;
   top: 40%;
@@ -418,9 +419,26 @@ th, .container-title
   justify-items: center;
   width: 100%;
 }
+.add-app-form button {
+  height: 40px;
+  width: 60%;
+  align-self: center;
+  margin-top: 30px;
+  border: none;
+  background-color: #2eb05d;
+  color: white;
+  border-radius: 5px;
+}
 .add-app-flavor-text
 {
   text-align: center;
+}
+.add-app-notes
+{
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
 }
 
 /* contact */
@@ -453,8 +471,8 @@ th, .container-title
 }
 .form-content-contact {
   background: white;
-  height: 90%;
-  width: 50%;
+  height: 50%;
+  width: 30%;
   z-index: 2;
   position: absolute;
   top: 50%;
@@ -483,6 +501,16 @@ span.error
 {
   color: #f44;
   display: none;
+}
+.form-content-contact button {
+  height: 40px;
+  width: 60%;
+  align-self: center;
+  margin-top: 30px;
+  border: none;
+  background-color: #2eb05d;
+  color: white;
+  border-radius: 5px;
 }
 
 /* Footer CSS */

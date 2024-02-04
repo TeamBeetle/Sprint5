@@ -267,8 +267,8 @@ footer p {
 }
 #add-app-content{
     background: white;
-    height: 70%;
-    width: 70%;
+    height: 55%;
+    width: 30%;
     z-index: 2;
     position: absolute;
     top: 40%;
@@ -336,8 +336,8 @@ footer p {
 }
 .form-content-contact {
     background: white;
-    height: 90%;
-    width: 50%;
+    height: 60%;
+    width: 30%;
     z-index: 2;
     position: absolute;
     top: 50%;
