@@ -359,6 +359,16 @@ footer p {
 {
     width: 80%;
 }
+.form-content-contact button {
+    height: 40px;
+    width: 60%;
+    align-self: center;
+    margin-top: 30px;
+    border: none;
+    background-color: #2eb05d;
+    color: white;
+    border-radius: 5px;
+}
 .contact {
     cursor: pointer;
 }
