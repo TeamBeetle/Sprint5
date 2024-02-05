@@ -333,7 +333,15 @@ th, .container-title
   align-items: center;
   justify-content: center;
 }
-
+.full-width
+{
+  width: 100%;
+}
+.center-items
+{
+  text-align: center;
+  align-items: center;
+}
 .sign-up-image img {
   width: 1000px;
   height: 1000px;
