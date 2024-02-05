@@ -103,16 +103,22 @@
                 <form name="contact-form" method="post"
                       action="https://teambeetle.greenriverdev.com/SprintVersionControl/contact.php">
                     <div class="form-user-info">
-                        <label for="contact-name">Name</label>
+                        <label for="contact-name">Name
+                            <span id="name-error" class="error"> Please enter a name.</span>
+                        </label>
                         <input id="contact-name" placeholder="Your Name" name="user-name">
-                        <span id="name-error" class="error">Please enter a name.</span>
-                        <label for="contact-email">Email</label>
+
+                        <label for="contact-email">Email
+                            <span id="email-error" class="error"> Please enter your Email.</span>
+                        </label>
                         <input id="contact-email" placeholder="Email" name="user-email">
-                        <span id="email-error" class="error">Please enter your Email.</span>
-                        <label for="contact-message">Message</label>
+
+                        <label for="contact-message">Message
+                            <span id="message-error" class="error"> Please avoid < > ; and enter no more than 250 characters.</span>
+                        </label>
                         <textarea id="contact-message" name="Message" placeholder="Message Us."
                                   ></textarea>
-                        <span id="message-error" class="error">Please avoid < > ; and enter no more than 250 characters.</span>
+
                         <button id="contact-submit" type="submit">Submit</button>
                         <p>***Please allow <strong>several</strong> days for a reply***</p>
                     </div>
