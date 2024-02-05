@@ -66,7 +66,7 @@
       <h1>Sign up for ATT</h1>
       <p>Create a free account or <a href="#">log in</a></p>
 
-      <form method="post" action="signup.php" onsubmit="return validate()">
+      <form name="signup-form" method="post" action="signup.php" onsubmit="return validate()">
         <div class="form-user-info">
           <input placeholder="Name" name="user-name" id="user-name">
           <input placeholder="Email" name="user-email" id="user-email">
@@ -82,7 +82,7 @@
         </div>
         <label for="interests">Fields of Interest</label>
         <input placeholder="Type fields followed by a comma" id="interests" name="field-interests">
-        <button type="submit">Create account</button>
+        <button id="signup-submit" type="submit">Create account</button>
       </form>
       <p class="terms-conditions">By creating an account, you are agreeing to the <a href="https://www.greenriver.edu/conduct/">Terms and Conditions</a></p>
       <img src="images/GRC_Logo-Green.png" class="grc-form-logo" alt="Green River College Logo">

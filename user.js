@@ -65,6 +65,7 @@ toggleContainer.addEventListener('click', function(e)
 let signupAnchor = document.querySelector(".sign-up");
 let signupForm = document.querySelector(".signup-form");
 let closeButton = document.querySelector(".form-close-button");
+let signupSubmitButtion = document.querySelector("#signup-submit");
 
 signupAnchor.addEventListener("click", function(){
     signupForm.style.visibility = "visible";
@@ -77,6 +78,43 @@ closeButton.addEventListener("click", function()
     signupForm.style.visibility = "hidden";
     signupForm.style.opacity = "0";
 });
+signupSubmitButton.addEventListener("click", function(event)
+{
+    //stop regular behavior
+    event.preventDefault();
+
+    //get the user input
+    let signupName = document.querySelector('#user-name').value;
+    let signupEmail = document.querySelector('#user-email').value;
+    let signupCohort = document.querySelector('#user-cohort-number').value;
+
+    let errors = 0;
+
+    errors += validateEmpty(signupName); //1 if error || 0 if none
+    errors += validateEmpty(signupEmail); //1 if error || 0 if none
+    errors += validateCohort(signupCohort); //1 if error || 0 is none
+
+    if(errors===0)
+    {
+        document.forms["signup-form"].submit();
+    }
+});
+function validateEmpty(inputValue)
+{
+    if(inputValue === "")
+    {
+        return 1;
+    }
+    return 0;
+}
+function validateCohort(inputNumber)
+{
+    if(inputNumber > 100 || inputNumber < 1)
+    {
+        return 1;
+    }
+    return 0;
+}
 /*************************** end sign-up script *****************************/
 
 /****************************************************************************\
