@@ -100,29 +100,32 @@
   </div>
   <div id="add-app-content" class="pop-up form-content">
     <h1>Add an Application</h1>
-    <form method="post" action="addapp.php">
+    <form name="add-app-form" method="post" action="addapp.php">
       <div class="">
         <div class="col-12 add-app-input">
           <label for="app-employer">Employer</label>
           <input id="app-employer" placeholder="Employers Name" name="app-employer">
+          <span id="app-employer-error" class="error">Please enter a name.</span>
         </div>
         <div class="col-12 add-app-input">
           <label for="app-job-desc">Job Description</label>
           <input id="app-job-desc" placeholder="Job Description" name="app-job-desc">
+          <span id="app-job-error" class="error">Please enter a job description.</span>
         </div>
         <div class="col-12 add-app-input">
           <label for="app-role">Role</label>
           <input id="app-role" placeholder="Name of Role" name="app-role">
+          <span id="app-role-error" class="error">Please enter a role description.</span>
         </div>
 
         <div class="col-12 add-app-input">
           <div class="row">
             <div class="col-6 row">
-              <input type="radio" id="apply" name="status" value="apply" class="col-2">
+              <input type="radio" id="apply" name="status" value="apply" class="col-2 status">
               <label for="apply" class="col-10">Need to Apply</label>
             </div>
             <div class="col-6 row">
-              <input type="radio" id="applied" name="status" value="applied" class="col-2">
+              <input type="radio" id="applied" name="status" value="applied" class="col-2 status">
               <label for="applied" class="col-10">Applied</label>
             </div>
           </div>
@@ -130,33 +133,36 @@
 
           <div class="row">
             <div class="col-6 row">
-              <input type="radio" id="interviewing" name="status" value="interviewing" class="col-2">
+              <input type="radio" id="interviewing" name="status" value="interviewing" class="col-2 status">
               <label for="interviewing" class="col-10">Interviewing</label>
             </div>
             <div class="col-6 row">
-              <input type="radio" id="rejected" name="status" value="rejected" class="col-2">
+              <input type="radio" id="rejected" name="status" value="rejected" class="col-2 status">
               <label for="rejected" class="col-10">Rejected</label>
             </div>
           </div>
 
           <div class="row">
             <div class="col-6 row">
-              <input type="radio" id="accepted" name="status" value="accepted" class="col-2">
+              <input type="radio" id="accepted" name="status" value="accepted" class="col-2 status">
               <label for="accepted" class="col-10">Accepted</label>
             </div>
             <div class="col-6 row">
-              <input type="radio" id="expired" name="status" value="expired" class="col-2">
+              <input type="radio" id="expired" name="status" value="expired" class="col-2 status">
               <label for="expired" class="col-10">Expired</label>
             </div>
           </div>
         </div>
+        <span id="app-radio-error" class="error">Please Select One of the Status above.</span>
         <div class="col-12 add-app-input">
           <label for="app-date">Date Applied</label>
           <input id="app-date" type="date" name="app-date">
+          <span id="app-date-error" class="error">Please Select A Date When Applied.</span>
         </div>
         <div class="col-12 add-app-input">
           <label for="app-date-follow">Date to follow-up</label>
           <input id="app-date-follow" type="date" name="app-date-follow">
+          <span id="app-date-follow-error" class="error">Please Select A Follow Up Date</span>
         </div>
         <div class="add-app-notes">
           <div class="col-12">
@@ -167,7 +173,7 @@
           </div>
         </div>
       </div>
-      <button type="submit">Add Application</button>
+      <button type="submit" id="add-app-submit">Add Application</button>
       <p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
         <strong>Add Application</strong></p>
       <p></p>

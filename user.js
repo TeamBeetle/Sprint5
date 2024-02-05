@@ -191,3 +191,119 @@ adminButton.addEventListener("click", function ()
 {
     location.href="admin-page.html";
 });
+/*************************** end admin redirect script *****************************/
+
+/****************************************************************************\
+ Add Application Script
+ \****************************************************************************/
+let addAppSubmission = document.querySelector("#add-app-submit");
+addAppSubmission.addEventListener("click", function (event)
+{
+    //prevents default of submit button until told otherwise
+    event.preventDefault();
+
+    //set up variables for add application that we check
+    let employerName = document.querySelector("#app-employer").value; //should be string
+    let jobDescription = document.querySelector("#app-job-desc").value; //should be string
+    let jobRole = document.querySelector("#app-role").value; //should be string
+    let applicationStatus = document.getElementsByName("status");//radio button
+    let dateApplied = document.querySelector("#app-date").value;
+    let dateFollow = document.querySelector("#app-date-follow").value;
+
+    //Run Validation
+    let error = 0;
+    error += employerNameValid(employerName);
+    error += jobDescriptionValid(jobDescription);
+    error += jobRoleValid(jobRole);
+    error += applicationStatusValidation(applicationStatus);
+    error += dateAppliedValidation(dateApplied);
+    error += dateFollowedValidation(dateFollow);
+
+    if (error === 0)
+    {
+        document.forms["add-app-form"].submit();
+    }
+});
+//validation check for employee name
+function employerNameValid(employerName)
+{
+    if (employerName === "")
+    {
+        document.querySelector('#app-employer-error').style.display = "inline";
+        return 1;
+    }
+
+    else
+    {
+        document.querySelector('#app-employer-error').style.display = "none";
+        return 0;
+    }
+}
+//validation check for description
+function jobDescriptionValid(jobDescription)
+{
+    if (jobDescription === "")
+    {
+        document.querySelector('#app-job-error').style.display = "inline";
+        return 1;
+    }
+    else
+    {
+        document.querySelector('#app-job-error').style.display = "none";
+        return 0;
+    }
+}
+//validation check for job role
+function jobRoleValid(jobRole)
+{
+    if (jobRole === "")
+    {
+        document.querySelector('#app-role-error').style.display = "inline";
+        return 1;
+    }
+    else
+    {
+        document.querySelector('#app-role-error').style.display = "none";
+        return 0;
+    }
+}
+//validation for radio buttons
+function applicationStatusValidation(applicationStatus)
+{
+    for (var i = 0; i < applicationStatus.length; i++)
+    {
+        if (applicationStatus[i].checked)
+        {
+            document.querySelector('#app-radio-error').style.display = "none";
+            return 0;
+        }
+    }
+    document.querySelector('#app-radio-error').style.display = "inline";
+    return 1;
+}
+function dateAppliedValidation(dateApplied)
+{
+    if (dateApplied === "")
+    {
+        document.querySelector('#app-date-error').style.display = "inline";
+        return 1;
+    }
+    else
+    {
+        document.querySelector('#app-date-error').style.display = "none";
+        return 0;
+    }
+}
+function dateFollowedValidation(dateFollowed)
+{
+    if (dateFollowed === "")
+    {
+        document.querySelector('#app-date-follow-error').style.display = "inline";
+        return 1;
+    }
+    else
+    {
+        document.querySelector('#app-date-follow-error').style.display = "none";
+        return 0;
+    }
+}

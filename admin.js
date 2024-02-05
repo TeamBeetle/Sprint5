@@ -96,6 +96,7 @@ toggleContainer.addEventListener('click', function(e)
 let addAppAnchor = document.querySelector(".add-application");
 let appForm = document.querySelector(".add-app-form");
 let closeAppButton = document.querySelector(".app-close-button");
+let appSubmitButton = document.querySelector("#app-announce-button");
 
 closeAppButton.addEventListener("click", function()
 {
@@ -108,6 +109,108 @@ addAppAnchor.addEventListener("click", function()
     appForm.style.visibility = "visible";
     appForm.style.opacity = "1";
 });
+
+appSubmitButton.addEventListener("click", function (event)
+{
+   //stop the defaults from happening until validation is complete
+   event.preventDefault();
+
+   //set error counter
+   let error = 0;
+
+   //declare variables
+   let positionName = document.querySelector("#app-position").value; //string
+   let employerTitle = document.querySelector("#app-employer").value; //string
+   let announceStatus = document.getElementsByName("app-status"); //buttons
+   let appLink = document.querySelector("#app-link").value; //string
+   let recipientEmail = document.querySelector("#app-recipient").value;
+
+   error += positionNameValidation(positionName);
+   error += employerTitleValidation(employerTitle);
+   error += announcementStatusValidation(announceStatus);
+   error += appLinkValidation(appLink);
+   error += recipientEmailValidation(recipientEmail);
+
+   //resume if okay
+    if (error === 0)
+    {
+        document.forms["app-announcement-form"].submit();
+    }
+
+});
+//validate position name
+function positionNameValidation(positionName)
+{
+    if (positionName === "")
+    {
+        document.querySelector('#app-position-error').style.display = "inline";
+        return 1;
+    }
+    else
+    {
+        document.querySelector('#app-position-error').style.display = "none";
+        return 0;
+    }
+}
+//validation employer title
+function employerTitleValidation(employerTitle)
+{
+    if (employerTitle === "")
+    {
+        document.querySelector('#app-employer-error').style.display = "inline";
+        return 1;
+    }
+    else
+    {
+        document.querySelector('#app-employer-error').style.display = "none";
+        return 0;
+    }
+}
+//validate announcement status
+function announcementStatusValidation(announceStatus)
+{
+    for (var i = 0; i < announceStatus.length; i++)
+    {
+        if (announceStatus[i].checked)
+        {
+            document.querySelector('#app-status-error').style.display = "none";
+            return 0;
+        }
+    }
+    document.querySelector('#app-status-error').style.display = "inline";
+    return 1;
+}
+//app link validation
+function appLinkValidation(appLink)
+{
+    var urlR = /^(https?|ftp):\/\/(([a-z\d]([a-z\d-]*[a-z\d])?\.)+[a-z]{2,}|localhost)(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$/i;
+   if ( appLink === "")// && appLink.length > 2)
+   {
+       document.querySelector('#app-link-error').style.display = "inline";
+       return 1;
+   }
+    if (urlR.test(appLink))
+    {
+        document.querySelector('#app-link-error').style.display = "none";
+        return 0;
+    }
+    return 1;
+}
+function recipientEmailValidation(recipientEmail)
+{
+    var email = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if (recipientEmail === "")
+    {
+        document.querySelector('#app-recipient-error').style.display = "inline";
+        return 1;
+    }
+    if (email.test(recipientEmail))
+    {
+        document.querySelector('#app-recipient-error').style.display = "none";
+        return 0;
+    }
+    return 1;
+}
 
 /*********************** end application script *****************************/
 

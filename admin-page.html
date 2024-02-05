@@ -49,15 +49,17 @@
             </div>
             <div id="add-app-content" class="pop-up form-content form-content-app d-flex align-items-center justify-content-center">
                 <h1>Application Announcement</h1>
-                <form method="post" action="https://teambeetle.greenriverdev.com/SPRINT2/vardump.php">
+                <form name="app-announcement-form" method="post" action="https://teambeetle.greenriverdev.com/SPRINT2/vardump.php">
                     <div>
                         <div class="col-12 add-app-input">
                             <label for="app-position">Position</label>
                             <input id="app-position" placeholder="Position Title" name="app-position">
+                            <span id="app-position-error" class="error">Please enter Applications Position.</span>
                         </div>
                         <div class="col-12 add-app-input">
                             <label for="app-employer">Employer</label>
                             <input id="app-employer" placeholder="Employer Title" name="app-employer">
+                            <span id="app-employer-error" class="error">Please enter the Employer.</span>
                         </div>
                         <div class="col-12 add-app-input">
                             <div class="form-checkboxes">
@@ -66,17 +68,24 @@
                                 <input type="radio" id = "app-job-status" name="app-status" value = "app-status">
                                 <label for="app-job-status">Seeking Job</label>
                             </div>
+                            <span id="app-status-error" class="error">Please select a status above.</span>
+                        </div>
+                        <div class="col-12 add-app-input">
+                            <label for="app-link">Job URL</label>
+                            <input id="app-link" placeholder="Link to job opportunity" name="app-link">
+                            <span id="app-link-error" class="error">Please enter a valid link to the application here.</span>
+                        </div>
+                        <div class="col-12 add-app-input">
+                            <label for="app-recipient">Recipient Emails</label>
+                            <input id="app-recipient" placeholder="Enter Recipient" name="app-recipient">
+                            <span id="app-recipient-error" class="error">Please enter a valid email.</span>
                         </div>
                         <div class="col-12 add-app-input">
                             <label for="app-info" class="col-12">Notes</label>
                             <textarea id="app-info" placeholder="Additional information" name="app-info" cols="20" rows="3"></textarea>
                         </div>
-                        <div class="col-12 add-app-input">
-                            <label for="app-link">Job URL</label>
-                            <input id="app-link" placeholder="Link to job opportunity" name="app-link">
-                        </div>
                     </div>
-                    <button type="submit">Add Application</button>
+                    <button type="submit" id="app-announce-button">Add Application</button>
                     <p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
                         <strong>Add Application</strong></p>
                     <p></p>
