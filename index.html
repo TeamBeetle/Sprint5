@@ -63,13 +63,22 @@
       <img src="images/code-820275_1920.jpg" alt="computer screen with code">
     </div>
     <div class="pop-up form-content col-lg-6">
-      <h1>Sign up for ATT</h1>
+      <h2>Sign up for ATT</h2>
       <p>Create a free account or <a href="#">log in</a></p>
 
-      <form name="signup-form" method="post" action="signup.php" onsubmit="return validate()">
+      <form name="signup-form" method="post" action="signup.php">
         <div class="form-user-info">
+          <label for="user-name">Name
+            <span id="signup-name-error" class="error"> Please enter a name.</span>
+          </label>
           <input placeholder="Name" name="user-name" id="user-name">
+          <label for="user-email">Email
+            <span id="signup-email-error" class="error"> Please enter an email.</span>
+          </label>
           <input placeholder="Email" name="user-email" id="user-email">
+          <label for="user-name">Cohort
+            <span id="signup-cohort-error" class="error"> Number between 1-100.</span>
+          </label>
           <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
         </div>
         <div class="form-checkboxes">
@@ -80,7 +89,9 @@
           <input type="checkbox" id = "searching" name="searching" value = "seeking-internship">
           <label for="searching">Not Actively Searching</label>
         </div>
-        <label for="interests">Fields of Interest</label>
+        <label for="interests">Fields of Interest
+          <span id="signup-interest-error" class="error"> Please enter at least one field.</span>
+        </label>
         <input placeholder="Type fields followed by a comma" id="interests" name="field-interests">
         <button id="signup-submit" type="submit">Create account</button>
       </form>

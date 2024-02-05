@@ -156,7 +156,10 @@ th, .container-title
   color: white;
   background-color: #333333;
 }
-
+.inline
+{
+  display: inline;
+}
 #team-beetle
 {
   width: 100%;
