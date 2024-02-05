@@ -7,20 +7,7 @@ $jobDesc = $jobDescCheck = "";
 $appRole = $appRoleCheck = "";
 $appDate = $appDateCheck = "";
 $appDateFollow = $appDateFollowCheck = "";
-
-$radio1 = $radio1Check = "";
-$radio2 = $radio2Check = "";
-$radio3 = $radio3Check = "";
-$radio4 = $radio4Check = "";
-$radio5 = $radio5Check = "";
-$radio6 = $radio6Check = "";
-
-$radioSum = 0;
-
-
-//  $followUPDate = date_create("$appDateFollow");
-//     date_add($followUPDate, date_interval_create_from_date_string("14 days"));
-
+$radioButton=$radioButtonCheck="";
 
 //checks employer name
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -44,47 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $appRoleCheck = 1;
         $appRole = $_POST['app-role'];
     }
-//check radio 1 "need to apply"
-    if (empty($_POST['apply'])) {
-        $radio1Check = 0;
-    } else {
-        $radio1Check = 1;
-        $radio1 = $_POST['apply'];
-    }
-//check radio 2 "applied"
-    if (empty($_POST['applied'])) {
-        $radio2Check = 0;
-    } else {
-        $radio2Check = 1;
-        $radio2 = $_POST['applied'];
-    }
-//check radio 3 "interviewing"
-    if (empty($_POST['interviewing'])) {
-        $radio3Check = 0;
-    } else {
-        $radio3Check = 1;
-        $radio3 = $_POST['interviewing'];
-    }
-//check radio 4 "rejected"
-    if (empty($_POST['rejected'])) {
-        $radio4Check = 0;
-    } else {
-        $radio4Check = 1;
-        $radio4 = $_POST['rejected'];
-    }
-//check radio 5 "accepted"
-    if (empty($_POST['accepted'])) {
-        $radio5Check = 0;
-    } else {
-        $radio5Check = 1;
-        $radio5 = $_POST['accepted'];
-    }
-//check radio 6 "expired"
-    if (empty($_POST ['expired'])) {
-        $radio6Check = 0;
-    } else {
-        $radio6Check = 1;
-        $radio6 = $_POST['expired'];
+//check radio button "status"
+    if(empty($_POST['status'])){
+        $radioButtonCheck=0;
+    }else{
+        $radioButtonCheck=1;
+        $radioButton = $_POST['status'];
     }
 //check date applied
     if (empty($_POST['app-date'])) {
@@ -103,13 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 //print out receipt page
-    //radioSum variable calculates the num of checkboxes
-    $radioSum += $radio1Check += $radio2Check += $radio3Check
-        += $radio4Check += $radio5Check += $radio6Check;
-
-
     if ($employerNameCheck == 0 || $jobDescCheck == 0 || $appRoleCheck == 0 ||
-        $radio1Check == 0 || $radioSum == 0 || $appDateCheck == 0 || $appDateFollowCheck == 0) {
+        $radioButtonCheck == 0 || $appDateCheck == 0 || $appDateFollowCheck == 0) {
         //display "incorrect page"
         echo "
           <html lang='en'>
