@@ -82,7 +82,7 @@ if($nameCheck + $emailCheck + $messageCheck < 2){
     $headers = "from: webmaster@gmail.com" . "\r\n"
         . "CC: someoneelse@gmail.com";
 
-    $me = "garrett.ballreich@gmail.com";
+    $me = "garrett.ballreich@gmail.com, tschrock@greenriver.edu";
 
     $subject1 = "inquiry from " . $name;
     $subject = "Green River College ATT inquiry";
