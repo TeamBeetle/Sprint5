@@ -248,7 +248,7 @@ function validateMessage(inputMessage)
 let adminButton = document.querySelector(".admin-login");
 adminButton.addEventListener("click", function ()
 {
-    location.href="admin-page.html";
+    location.href="admin-page.php";
 });
 /*************************** end admin redirect script *****************************/
 
