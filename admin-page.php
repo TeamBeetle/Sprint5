@@ -214,8 +214,222 @@
             </div>
         </div>
 
+        <div id="bottombuttons">
+            <div>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-outline-primary">ADD NEW APP</button>
+
+                <button type="button" class="btn btn-outline-success">UPDATE ACCOUNT SETTINGS</button>
+                <button type="button" class="btn btn-outline-info admin-login">ADMIN LOGIN</button>
+            </div>
+
+            <div>
+            </div>
+        </div>
+
         <div class="spacing">
 
+        </div>
+
+        <!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
+        <div class="container-fluid main-display">
+
+            <div class="row gx-5 main-container">
+                <div class="col-xl-8 m-0">
+                    <div class="table-title">USERS</div>
+                    <div class="user-display">
+                        <table class="users">
+                            <tr>
+                                <td class="student-name">John Doe</td>
+                                <td class="student-email">johndoe@gmail.com</td>
+                                <td>
+                                    <div class="view-info">
+                                        View
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="delete-account">
+                                        Delete
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="student-name">Michael Jackson</td>
+                                <td class="student-email">michaeljackson@gmail.com</td>
+                                <td>
+                                    <div class="view-info">
+                                        View
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="delete-account">
+                                        Delete
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="student-name">Jane Doe</td>
+                                <td class="student-email">janedoe@gmail.com</td>
+                                <td>
+                                    <div class="view-info">
+                                        View
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="delete-account">
+                                        Delete
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="student-name">RandomUser12</td>
+                                <td class="student-email">randomlygenerated@gmail.com</td>
+                                <td>
+                                    <div class="view-info">
+                                        View
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="delete-account">
+                                        Delete
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="student-name">2Gud4U</td>
+                                <td class="student-email">excitedtiger2334@gmail.com</td>
+                                <td>
+                                    <div class="view-info">
+                                        View
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="delete-account">
+                                        Delete
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="student-name">John Doe</td>
+                                <td class="student-email">johndoe@gmail.com</td>
+                                <td>
+                                    <div class="view-info">
+                                        View
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="delete-account">
+                                        Delete
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="student-name">Michael Jackson</td>
+                                <td class="student-email">michaeljackson@gmail.com</td>
+                                <td>
+                                    <div class="view-info">
+                                        View
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="delete-account">
+                                        Delete
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="student-name">Jane Doe</td>
+                                <td class="student-email">janedoe@gmail.com</td>
+                                <td>
+                                    <div class="view-info">
+                                        View
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="delete-account">
+                                        Delete
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="student-name">Jane Doe</td>
+                                <td class="student-email">janedoe@gmail.com</td>
+                                <td>
+                                    <div class="view-info">
+                                        View
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="delete-account">
+                                        Delete
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="student-name">Jane Doe</td>
+                                <td class="student-email">janedoe@gmail.com</td>
+                                <td>
+                                    <div class="view-info">
+                                        View
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="delete-account">
+                                        Delete
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-4 m-0">
+                    <div class="table-title">USER INFO</div>
+                    <div class="user-details p-3">
+                        <img class="col-md-6" src="images/user-profile.png" alt="empty-user-icon">
+
+                        <div class="row user-grid">
+                            <div class="user-row col-md-6">
+                                <div class="category category-title">User-ID: </div>
+                                <p class="category category-value">885123</p>
+                            </div>
+                            <div class="user-row col-md-6">
+                                <div class="category category-title">User-name: </div>
+                                <p class="category category-value">John Doe</p>
+                            </div>
+                            <div class="user-row col-md-6">
+                                <div class="category category-title">User-email: </div>
+                                <p class="category category-value">johndoe@gmail.com</p>
+                            </div>
+                            <div class="user-row col-md-6">
+                                <div class="category category-title">Last-Login Date: </div>
+                                <p class="category category-value">09/09/2024</p>
+                            </div>
+                            <div class="user-row col-md-6">
+                                <div class="category category-title">Account Created: </div>
+                                <p class="category category-value">05/16/2024</p>
+                            </div>
+                            <div class="user-row col-md-6">
+                                <div class="category category-title">Number of Applications: </div>
+                                <p class="category category-value">23</p>
+                            </div>
+
+                            <div class="buttons col-md-12">
+                                <div class="info-button-message">
+                                    MESSAGE
+                                </div>
+
+                                <div class="info-button-delete">
+                                    DELETE
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <footer>
