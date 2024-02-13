@@ -86,8 +86,8 @@
                         </div>
                     </div>
                     <button type="submit" id="app-announce-button">Add Application</button>
-                    <p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
-                        <strong>Add Application</strong></p>
+                    <!--<p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
+                        <strong>Add Application</strong></p>-->
                     <p></p>
                 </form>
             </div>
@@ -120,7 +120,7 @@
                                   ></textarea>
 
                         <button id="contact-submit" type="submit">Submit</button>
-                        <p>***Please allow <strong>several</strong> days for a reply***</p>
+                        <!--<p>***Please allow <strong>several</strong> days for a reply***</p>-->
                     </div>
                 </form>
             </div>
