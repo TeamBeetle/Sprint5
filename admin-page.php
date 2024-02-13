@@ -52,12 +52,12 @@
                 <form name="app-announcement-form" method="post" action="https://teambeetle.greenriverdev.com/SprintVersionControl/vardump.php">
                     <div>
                         <div class="col-12 add-app-input">
-                            <label for="app-position">Position</label>
+                            <label for="app-position">Position*</label>
                             <input id="app-position" placeholder="Position Title" name="app-position">
                             <span id="app-position-error" class="error">Please enter Applications Position.</span>
                         </div>
                         <div class="col-12 add-app-input">
-                            <label for="app-employer">Employer</label>
+                            <label for="app-employer">Employer*</label>
                             <input id="app-employer" placeholder="Employer Title" name="app-employer">
                             <span id="app-employer-error" class="error">Please enter the Employer.</span>
                         </div>
@@ -103,12 +103,12 @@
                 <form name="contact-form" method="post"
                       action="https://teambeetle.greenriverdev.com/SprintVersionControl/contact.php">
                     <div class="form-user-info">
-                        <label for="contact-name">Name
+                        <label for="contact-name">Name*
                             <span id="name-error" class="error"> Please enter a name.</span>
                         </label>
                         <input id="contact-name" placeholder="Your Name" name="user-name">
 
-                        <label for="contact-email">Email
+                        <label for="contact-email">Email*
                             <span id="email-error" class="error"> Please enter your Email.</span>
                         </label>
                         <input id="contact-email" placeholder="Email" name="user-email">
