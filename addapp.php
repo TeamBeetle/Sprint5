@@ -100,6 +100,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          ";
     } else {
         //display "correct page"
+
+        //connect to db
+        require '/home/teambeet/dbConnect.php';
+        //define insert query
+        $sql = "INSERT INTO application_data (`aid`,`employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`)
+                VALUES (NULL,?,?,?,?,?,?,?)";
+
+        $stmt = mysqli_prepare($cnxn, $sql);
+        mysqli_stmt_bind_param($stmt, $employerName,$jobDesc,$appRole,$radioButton,$appDate,$appDateFollow);
+        $result = mysqli_stmt_execute($stmt);
+
+
         echo "
          <html lang='en'>
            <head>
