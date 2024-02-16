@@ -31,6 +31,9 @@
                         <li class="nav-item">
                             <a class="contact-anchor contact nav-link">Contact</a>
                         </li>
+                        <li class="Account-settings">
+                            <a class="contact-anchor contact nav-link">Update Account Settings</a>
+                        </li>
                     </ul>
                 </div>
                 <div id="toggleContainer">
@@ -148,41 +151,33 @@
                     <th colspan = "5">
                         Recent Applications
                     </th>
-                    <tr>
-                        <td class="appinfo">05/30</td>
-                        <td class="appinfo">Costco Internship</td>
-                        <td class="appinfo">Pending</td>
-                        <td class="appinfo">update</td>
-                        <td class="appinfo">delete</td>
-                    </tr>
-                    <tr>
-                        <td class="appinfo">date</td>
-                        <td class="appinfo">title</td>
-                        <td class="appinfo">status</td>
-                        <td class="appinfo">update</td>
-                        <td class="appinfo">delete</td>
-                    </tr>
-                    <tr>
-                        <td class="appinfo">date</td>
-                        <td class="appinfo">title</td>
-                        <td class="appinfo">status</td>
-                        <td class="appinfo">update</td>
-                        <td class="appinfo">delete</td>
-                    </tr>
-                    <tr>
-                        <td class="appinfo">date</td>
-                        <td class="appinfo">title</td>
-                        <td class="appinfo">status</td>
-                        <td class="appinfo">update</td>
-                        <td class="appinfo">delete</td>
-                    </tr>
-                    <tr>
-                        <td class="appinfo">date</td>
-                        <td class="appinfo">title</td>
-                        <td class="appinfo">status</td>
-                        <td class="appinfo">update</td>
-                        <td class="appinfo">delete</td>
-                    </tr>
+                    <?php
+                    require '/home/teambeet/dbConnect.php';
+                    $sql = "SELECT * FROM application_data ORDER BY date_applied DESC";
+                    $result = @mysqli_query($cnxn, $sql);
+                    //for($i = 0; $i < 5; $i++) //remove 4 loop later and add sliding scroll wheel
+                    //{
+                        while ($row = mysqli_fetch_assoc($result)) //while loop this instead of if and stop the for loop for all results -Everett
+                        {
+                        $aid = $row['aid'];
+                        $employer = $row['employer_name'];
+                        $jobDesc = $row['job_description'];
+                        $role = $row['role'];
+                        $status = $row['status'];
+                        $dateApplied = $row['date_applied'];
+                        $dateFollowUp = $row['date_followup'];
+                        $notes = $row['notes'];
+                        echo "
+                                 <tr>
+                                        <td class='appinfo'>$dateApplied</td>
+                                        <td class='appinfo'>$employer $jobDesc</td>
+                                        <td class='appinfo'>$status</td>
+                                        <td class='appinfo'>update</td>
+                                        <td class='appinfo'>delete</td>
+                                 </tr>";
+                    }
+                    //}
+                    ?>
                 </table>
             </div>
 
@@ -215,6 +210,7 @@
 
 
 
+        <!--
         <div id="bottombuttons">
             <div>
             </div>
@@ -228,7 +224,7 @@
 
             <div>
             </div>
-        </div>
+        </div> -->
 
         <div class="spacing">
 

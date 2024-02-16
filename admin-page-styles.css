@@ -64,6 +64,11 @@ table
 {
     text-align:center;
 }
+.apps tr
+{
+    height: 100px;
+    width: 100%;
+}
 
 .users {
     text-align: center;
@@ -74,7 +79,9 @@ table
 .appsdisplay
 {
     padding-right: 3%;
+    overflow: auto;
     padding-left: 3%;
+    height: 300px;
 }
 
 #announcementcontainer
