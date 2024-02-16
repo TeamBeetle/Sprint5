@@ -295,3 +295,67 @@ function validateMessage(inputMessage)
     return 0;
 }
 /*************************** end contact script *****************************/
+
+/****************************************************************************\
+ delete button script
+ \****************************************************************************/
+
+let deleteAccountElements = document.querySelectorAll(".delete-account");
+let deleteAccountOverlay = document.querySelector(".delete-account-overlay");
+let userInfoContainerDelete = document.querySelector(".info-button-delete");
+let cancelButton = document.querySelector(".cancel-button");
+let deleteButton = document.querySelector(".delete-button");
+
+let buttonContainer = document.querySelector(".delete-buttons");
+
+deleteButton.addEventListener("click", function() {
+    let confirmation = document.querySelector(".delete-confirmation");
+    deleteButton.textContent = "CONFIRM";
+    deleteButton.classList.add('delete-confirmation');
+    confirmation.addEventListener('click', function() {
+      document.location.href = 'softdelete.php';
+    });
+
+    cancelButton.addEventListener("click", function() {
+        deleteButton.textContent = "DELETE";
+        deleteButton.classList.remove('delete-confirmation');
+    })
+
+})
+
+userInfoContainerDelete.style.cursor = "pointer";
+
+
+for (let i = 0; i < deleteAccountElements.length; i++) {
+    deleteAccountElements[i].addEventListener("click", function()
+    {
+        deleteAccountOverlay.style.visibility = "visible";
+        deleteAccountOverlay.style.opacity = "1";
+    });
+}
+
+userInfoContainerDelete.addEventListener("click", function()
+{
+    deleteAccountOverlay.style.visibility = "visible";
+    deleteAccountOverlay.style.opacity = "1";
+});
+
+cancelButton.addEventListener("click", function() {
+    deleteAccountOverlay.style.visibility = "hidden";
+    deleteAccountOverlay.style.opacity = "0";
+})
+
+
+let user_rows = document.querySelectorAll('.table-user-info');
+
+user_rows.forEach(function(row) {
+    let deleteButton = row.querySelector('.delete-account');
+    let studentID = row.querySelector('.student-email');
+    deleteButton.addEventListener('click', function() {
+        let inputText = studentID.textContent;
+        console.log(inputText);
+    });
+});
+/****************************************************************************\
+ end delete button script
+ \****************************************************************************/
