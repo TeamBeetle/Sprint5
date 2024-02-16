@@ -52,12 +52,12 @@
                 <form name="app-announcement-form" method="post" action="https://teambeetle.greenriverdev.com/SprintVersionControl/vardump.php">
                     <div>
                         <div class="col-12 add-app-input">
-                            <label for="app-position">Position*</label>
+                            <label for="app-position">Position</label>
                             <input id="app-position" placeholder="Position Title" name="app-position">
                             <span id="app-position-error" class="error">Please enter Applications Position.</span>
                         </div>
                         <div class="col-12 add-app-input">
-                            <label for="app-employer">Employer*</label>
+                            <label for="app-employer">Employer</label>
                             <input id="app-employer" placeholder="Employer Title" name="app-employer">
                             <span id="app-employer-error" class="error">Please enter the Employer.</span>
                         </div>
@@ -86,8 +86,8 @@
                         </div>
                     </div>
                     <button type="submit" id="app-announce-button">Add Application</button>
-                    <!--<p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
-                        <strong>Add Application</strong></p>-->
+                    <p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
+                        <strong>Add Application</strong></p>
                     <p></p>
                 </form>
             </div>
@@ -103,12 +103,12 @@
                 <form name="contact-form" method="post"
                       action="https://teambeetle.greenriverdev.com/SprintVersionControl/contact.php">
                     <div class="form-user-info">
-                        <label for="contact-name">Name*
+                        <label for="contact-name">Name
                             <span id="name-error" class="error"> Please enter a name.</span>
                         </label>
                         <input id="contact-name" placeholder="Your Name" name="user-name">
 
-                        <label for="contact-email">Email*
+                        <label for="contact-email">Email
                             <span id="email-error" class="error"> Please enter your Email.</span>
                         </label>
                         <input id="contact-email" placeholder="Email" name="user-email">
@@ -120,13 +120,119 @@
                                   ></textarea>
 
                         <button id="contact-submit" type="submit">Submit</button>
-                        <!--<p>***Please allow <strong>several</strong> days for a reply***</p>-->
+                        <p>***Please allow <strong>several</strong> days for a reply***</p>
                     </div>
                 </form>
             </div>
         </div>
 
         <!--end contact form-->
+        
+        <div class="delete-account-overlay d-flex align-items-center justify-content-center">
+            <div class="delete-container">
+                <h2>Account Deletion</h2>
+                <h3>Are you sure you want to delete this account?</h3>
+                <p class="delete-description text-center">This action is permanent and will result in the account being removed from the database and all records</p>
+                <div class="delete-buttons">
+                    <button class="delete-button">DELETE</button>
+                    <button class="cancel-button">CANCEL</button>
+                </div>
+            </div>
+        </div>
+        
+         <!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
+        <div id="maindisplay" class="">
+            <div class="appsdisplay">
+
+                <table class="apps">
+                    <th colspan = "5">
+                        Recent Applications
+                    </th>
+                    <tr>
+                        <td class="appinfo">05/30</td>
+                        <td class="appinfo">Costco Internship</td>
+                        <td class="appinfo">Pending</td>
+                        <td class="appinfo">update</td>
+                        <td class="appinfo">delete</td>
+                    </tr>
+                    <tr>
+                        <td class="appinfo">date</td>
+                        <td class="appinfo">title</td>
+                        <td class="appinfo">status</td>
+                        <td class="appinfo">update</td>
+                        <td class="appinfo">delete</td>
+                    </tr>
+                    <tr>
+                        <td class="appinfo">date</td>
+                        <td class="appinfo">title</td>
+                        <td class="appinfo">status</td>
+                        <td class="appinfo">update</td>
+                        <td class="appinfo">delete</td>
+                    </tr>
+                    <tr>
+                        <td class="appinfo">date</td>
+                        <td class="appinfo">title</td>
+                        <td class="appinfo">status</td>
+                        <td class="appinfo">update</td>
+                        <td class="appinfo">delete</td>
+                    </tr>
+                    <tr>
+                        <td class="appinfo">date</td>
+                        <td class="appinfo">title</td>
+                        <td class="appinfo">status</td>
+                        <td class="appinfo">update</td>
+                        <td class="appinfo">delete</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Reminder Container -->
+            <div id="announcementcontainer" class="announcmentcontrol">
+                <div class="container-title">RECENT ANNOUNCEMENTS</div>
+
+                <div class="announcement-row">
+                    <p>New internship position at Microsoft</p>
+                </div>
+
+                <div class="announcement-row">
+                    <p>Monthly Password Security Reminder</p>
+                </div>
+
+                <div class="announcement-row">
+                    <p>New internship position at Google Available</p>
+                </div>
+                <div class="announcement-row">
+                    <p>this is a place holder</p>
+                </div>
+                <div class="announcement-row">
+                    <p>this is a place holder</p>
+                </div>
+                <div class="announcement-row">
+                    <p>this is a place holder</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="bottombuttons">
+            <div>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-outline-primary">ADD NEW APP</button>
+
+                <button type="button" class="btn btn-outline-success">UPDATE ACCOUNT SETTINGS</button>
+                <button type="button" class="btn btn-outline-info admin-login">ADMIN LOGIN</button>
+            </div>
+
+            <div>
+            </div>
+        </div>
+
+        <div class="spacing">
+
+        </div>
 
         <!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
         <div class="container-fluid p-4 main-display">
@@ -134,8 +240,8 @@
             <div class="row gy-5 gx-5">
                 <div class="col-xl-8">
                     <div class="table-title">USERS</div>
-                    <div class="apps-display">
-                        <table class="apps">
+                    <div class="user-display">
+                        <table class="users">
                             <?php
                             require '/home/teambeet/dbConnect.php';
                             $sql = "SELECT * FROM student";
@@ -147,9 +253,9 @@
                                 $last = $row['last'];
                                 $birthdate = $row['birthdate'];
                                 echo "
-                                       <tr>
+                                       <tr class='table-user-info'>
                                             <td class='student-name'>$first $last</td>
-                                            <td class='student-email'>SID: $sid</td>
+                                            <td class='student-email'>$sid</td>
                                         <td>
                                             <div class='view-info'>
                                                 View
@@ -214,222 +320,8 @@
             </div>
         </div>
 
-        <div id="bottombuttons">
-            <div>
-            </div>
-
-            <div>
-                <button type="button" class="btn btn-outline-primary">ADD NEW APP</button>
-
-                <button type="button" class="btn btn-outline-success">UPDATE ACCOUNT SETTINGS</button>
-                <button type="button" class="btn btn-outline-info admin-login">ADMIN LOGIN</button>
-            </div>
-
-            <div>
-            </div>
-        </div>
-
         <div class="spacing">
 
-        </div>
-
-        <!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
-        <div class="container-fluid main-display">
-
-            <div class="row gx-5 main-container">
-                <div class="col-xl-8 m-0">
-                    <div class="table-title">USERS</div>
-                    <div class="user-display">
-                        <table class="users">
-                            <tr>
-                                <td class="student-name">John Doe</td>
-                                <td class="student-email">johndoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Michael Jackson</td>
-                                <td class="student-email">michaeljackson@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Jane Doe</td>
-                                <td class="student-email">janedoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">RandomUser12</td>
-                                <td class="student-email">randomlygenerated@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">2Gud4U</td>
-                                <td class="student-email">excitedtiger2334@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">John Doe</td>
-                                <td class="student-email">johndoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Michael Jackson</td>
-                                <td class="student-email">michaeljackson@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Jane Doe</td>
-                                <td class="student-email">janedoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Jane Doe</td>
-                                <td class="student-email">janedoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="student-name">Jane Doe</td>
-                                <td class="student-email">janedoe@gmail.com</td>
-                                <td>
-                                    <div class="view-info">
-                                        View
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="delete-account">
-                                        Delete
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-4 m-0">
-                    <div class="table-title">USER INFO</div>
-                    <div class="user-details p-3">
-                        <img class="col-md-6" src="images/user-profile.png" alt="empty-user-icon">
-
-                        <div class="row user-grid">
-                            <div class="user-row col-md-6">
-                                <div class="category category-title">User-ID: </div>
-                                <p class="category category-value">885123</p>
-                            </div>
-                            <div class="user-row col-md-6">
-                                <div class="category category-title">User-name: </div>
-                                <p class="category category-value">John Doe</p>
-                            </div>
-                            <div class="user-row col-md-6">
-                                <div class="category category-title">User-email: </div>
-                                <p class="category category-value">johndoe@gmail.com</p>
-                            </div>
-                            <div class="user-row col-md-6">
-                                <div class="category category-title">Last-Login Date: </div>
-                                <p class="category category-value">09/09/2024</p>
-                            </div>
-                            <div class="user-row col-md-6">
-                                <div class="category category-title">Account Created: </div>
-                                <p class="category category-value">05/16/2024</p>
-                            </div>
-                            <div class="user-row col-md-6">
-                                <div class="category category-title">Number of Applications: </div>
-                                <p class="category category-value">23</p>
-                            </div>
-
-                            <div class="buttons col-md-12">
-                                <div class="info-button-message">
-                                    MESSAGE
-                                </div>
-
-                                <div class="info-button-delete">
-                                    DELETE
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <footer>
