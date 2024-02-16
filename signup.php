@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 //validate internship checkbox
     if(empty($_POST['internship'])){
-        $$InterncheckBoxCount = 0;
+        $InterncheckBoxCount = 0;
     }else{
         $seekingInternship="Seeking an Internship";
         $InterncheckBoxCount = 1;
@@ -117,6 +117,19 @@ if($nameCheck == 0 || $emailCheck == 0 || $cohortCheck == 0 || $checkboxSum < 1)
     ";
 }else{
 //displays "complete" form page
+    //connect to db
+    require '/home/teambeet/dbConnect.php';
+    //define insert query
+    $sql = "INSERT INTO user_data (`uid`,`user_name`, `user_email`, `user_cohort`, `user_seeking_internship`,
+                       `user_seeking_job`, `user_not_seeking`, `user_interest`)
+                VALUES (NULL,?,?,?,?,?,?,?)";
+
+    $stmt = mysqli_prepare($cnxn, $sql);
+    mysqli_stmt_bind_param($stmt, $userName,$userEmail,$userCohort,$seekingInternship,
+        $seekingJob,$notSearching,$userInerest);
+    $result = mysqli_stmt_execute($stmt);
+
+
     echo"
     <html lang='en'>
     <head>
