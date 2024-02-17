@@ -52,7 +52,7 @@
             </div>
             <div id="add-app-content" class="pop-up form-content form-content-app d-flex align-items-center justify-content-center">
                 <h1>Application Announcement</h1>
-                <form name="app-announcement-form" method="post" action="https://teambeetle.greenriverdev.com/SPRINT3/vardump.php">
+                <form name="app-announcement-form" method="post" action="vardump.php">
                     <div>
                         <div class="col-12 add-app-input">
                             <label for="app-position">Position</label>
@@ -104,7 +104,7 @@
             <div class="pop-up form-content-contact border">
                 <h1>Contact Us Now</h1>
                 <form name="contact-form" method="post"
-                      action="https://teambeetle.greenriverdev.com/SprintVersionControl/contact.php">
+                      action="contact.php">
                     <div class="form-user-info">
                         <label for="contact-name">Name
                             <span id="name-error" class="error"> Please enter a name.</span>
@@ -184,27 +184,28 @@
             <!-- Reminder Container -->
             <div id="announcementcontainer" class="announcmentcontrol">
                 <div class="container-title">RECENT ANNOUNCEMENTS</div>
-
-                <div class="announcement-row">
-                    <p>New internship position at Microsoft</p>
-                </div>
-
-                <div class="announcement-row">
-                    <p>Monthly Password Security Reminder</p>
-                </div>
-
-                <div class="announcement-row">
-                    <p>New internship position at Google Available</p>
-                </div>
-                <div class="announcement-row">
-                    <p>this is a place holder</p>
-                </div>
-                <div class="announcement-row">
-                    <p>this is a place holder</p>
-                </div>
-                <div class="announcement-row">
-                    <p>this is a place holder</p>
-                </div>
+                <?php
+                require '/home/teambeet/dbConnect.php';
+                $sql = "SELECT * FROM announcement_data ORDER BY aid DESC";
+                $result = @mysqli_query($cnxn, $sql);
+                //for($i = 0; $i < 5; $i++) //remove 4 loop later and add sliding scroll wheel
+                //{
+                while ($row = mysqli_fetch_assoc($result)) //while loop this instead of if and stop the for loop for all results -Everett
+                {
+                    $aid = $row['aid'];
+                    $position = $row['position'];
+                    $employer = $row['employer'];
+                    $seeking = $row['seeking'];
+                    $url = $row['url'];
+                    $notes = $row['notes'];
+                    echo "
+                    <div class='announcement-row'>
+                        <p>New $position position at $employer : $notes. Apply here: $url</p>
+                    </div>
+                    ";
+                }
+                //}
+                ?>
             </div>
         </div>
 
