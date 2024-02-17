@@ -122,7 +122,7 @@ if($nameCheck == 0 || $emailCheck == 0 || $cohortCheck == 0 || $checkboxSum < 1)
     //define insert query
     $sql = "INSERT INTO `user_data` (`uid`, `user_name`, `user_email`, `user_cohort`, `user_seeking_internship`,
                        `user_seeking_job`, `user_not_seeking`, `user_interest`)
-                VALUES (NULL,'','','','','','','')";
+                VALUES (NULL,'','','','','','','');";
 
     $stmt = mysqli_prepare($cnxn, $sql);
     mysqli_stmt_bind_param($stmt,"ssssss",$userName,$userEmail,$userCohort,$seekingInternship,
