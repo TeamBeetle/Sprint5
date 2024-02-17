@@ -8,6 +8,7 @@ $appRole = $appRoleCheck = "";
 $appDate = $appDateCheck = "";
 $appDateFollow = $appDateFollowCheck = "";
 $radioButton=$radioButtonCheck="";
+$notes = $_POST['Additional Notes Here'];
 
 //checks employer name
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -104,14 +105,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //connect to db
         require '/home/teambeet/dbConnect.php';
         //define insert query
-        $sql = "INSERT INTO application_data (`aid`,`employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`)
-                VALUES (NULL,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO `application_data` (`aid`, `employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`) VALUES (NULL, '', '', '', '', '', '', '')";
+
+        //quick test
+        /*
+        $emp = $_POST['app-employer'];
+        $pos = $_POST['app-job-desc'];
+        $rol = $_POST['app-role'];
+        $rad = $_POST['status'];
+        $date = $_POST['app-date'];
+        $dateF = $_POST['app-date-follow'];
+        */
 
         $stmt = mysqli_prepare($cnxn, $sql);
-        mysqli_stmt_bind_param($stmt, $employerName,$jobDesc,$appRole,$radioButton,$appDate,$appDateFollow);
+        //mysqli_stmt_bind_param($stmt, "ssssss" ,$emp,$pos, $rol, $rad, $date, $dateF, $notes);
+
+        mysqli_stmt_bind_param($stmt, "ssssss" ,$employerName,$jobDesc, $appRole, $radioButton, $appDate, $appDateFollow, $notes);
         $result = mysqli_stmt_execute($stmt);
 
-
+    if(result)
+    {
         echo "
          <html lang='en'>
            <head>
@@ -146,9 +159,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              <button type='button' class='btn toggle btn-dark'>Dark</button>
             </div>
           </nav>
-        <p>Thank you for your entry of: $employerName, $jobDesc, and $appRole</p>
+          <!-- in the <p> I added the radio button appdate and follow date and notes for debugging purposes. we can remove this later ~Everett -->
+        <p>Thank you for your entry of: $employerName, $jobDesc, and $appRole, $radioButton with a start date of $appDate with a follow up $appDateFollow. $notes</p>
         </body>
         </html>
         ";
+    }
+    else
+    {
+        //log the error but this seems to be redundant due to the checks we make at the top of this php file -E
+        echo "Error: " . mysqli_error($cnxn);
+    }
+    //close the mysqli
+      mysqli_close($cnxn);
     }
 }
