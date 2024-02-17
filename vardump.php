@@ -60,6 +60,21 @@ if (mail($to, $subject,$message, $headers))
     <p>Email Forwarded to $to about oportunity of $subject with entailed message: $message</p>
     </body>
     </html>";
+    //connect to db
+    require '/home/teambeet/dbConnect.php';
+    $position = $_POST['app-position'];
+    $employer = $_POST['app-employer'];
+    $seeking = $_POST['app-status'];
+    $url = $_POST['app-link'];
+    $notes = $_POST['app-info'];
+    //define insert query
+    // Define insert query with placeholders
+    $sql = "INSERT INTO `announcement_data` (`aid`, `position`, `employer`, `seeking`, `url`, `notes`) VALUES (NULL, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($cnxn, $sql);
+
+    mysqli_stmt_bind_param($stmt, "sssss", $position, $employer, $seeking, $url, $notes);
+
+    $result = mysqli_stmt_execute($stmt);
 }
 else
 {

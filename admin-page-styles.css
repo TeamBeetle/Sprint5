@@ -76,7 +76,7 @@ table
     margin: 0;
 }
 
-.appsdisplay
+.appsdisplay > table > tr
 {
     padding-right: 3%;
     overflow: auto;
