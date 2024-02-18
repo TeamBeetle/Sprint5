@@ -32,12 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userEmail = $_POST['user-email'];
     }
 //validates cohort
+
     if(empty($_POST['user-cohort'])){
         $cohortCheck = 0;
     }else{
         $cohortCheck = 1;
         $userCohort = $_POST['user-cohort'];
     }
+
 //validate internship checkbox
     if(empty($_POST['internship'])){
         $InterncheckBoxCount = 0;
@@ -120,12 +122,10 @@ if($nameCheck == 0 || $emailCheck == 0 || $cohortCheck == 0 || $checkboxSum < 1)
     //connect to db
     require '/home/teambeet/dbConnect.php';
     //define insert query
-    $sql = "INSERT INTO `user_data` (`uid`, `user_name`, `user_email`, `user_cohort`, `user_seeking_internship`,
-                       `user_seeking_job`, `user_not_seeking`, `user_interest`)
-                VALUES (NULL,'','','','','','','');";
+    $sql = "INSERT INTO `user_data` (`uid`, `user_name`, `user_email`, `user_cohort`, `user_seeking_intership`, `user_seeking_job`, `user_not_seeking`, `user_interest`) VALUES (NULL, '', '', '', '', '', '', '')";
 
     $stmt = mysqli_prepare($cnxn, $sql);
-    mysqli_stmt_bind_param($stmt,"ssssss",$userName,$userEmail,$userCohort,$seekingInternship,
+    mysqli_stmt_bind_param($stmt,"ssssssss",$userName,$userEmail ,$userCohort,$seekingInternship,
         $seekingJob,$notSearching,$userInerest);
     $result = mysqli_stmt_execute($stmt);
 
@@ -175,6 +175,7 @@ if($result){
     ";
 }else {
     echo "Error: " . mysqli_error($cnxn);
+    echo "<p>$userCohort</p>";
 }
     mysqli_close($cnxn);
 }

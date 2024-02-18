@@ -30,28 +30,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $appRoleCheck = 0;
     } else {
         $appRoleCheck = 1;
-        $appRole = $_POST['app-role'];
+        $appRole = strval($_POST['app-role']);
     }
 //check radio button "status"
     if(empty($_POST['status'])){
         $radioButtonCheck=0;
     }else{
         $radioButtonCheck=1;
-        $radioButton = $_POST['status'];
+        $radioButton = strval($_POST['status']);
     }
 //check date applied
     if (empty($_POST['app-date'])) {
         $appDateCheck = 0;
     } else {
         $appDateCheck = 1;
-        $appDate = $_POST['app-date'];
+        $appDate = strval($_POST['app-date']);
     }
 //check follow-up date
     if (empty($_POST['app-date-follow'])) {
         $appDateFollowCheck = 0;
     } else {
         $appDateFollowCheck = 1;
-        $appDateFollow = $_POST['app-date-follow'];
+        $appDateFollow = strval($_POST['app-date-follow']);
     }
 
 
