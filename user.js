@@ -276,6 +276,7 @@ applicationTable.addEventListener('click', function(e)
         document.getElementById(`update-${recentApplications[tableIndex]['status']}`).checked = true;
         document.getElementById("update-app-date").value = recentApplications[tableIndex]['appDate'];
         document.getElementById("update-app-date-follow").value = recentApplications[tableIndex]['followDate'];
+        document.getElementById("update-app-notes").value = recentApplications[tableIndex]['notes'];
         updateAppForm.style.visibility = "visible";
         updateAppForm.style.opacity = "1";
 
