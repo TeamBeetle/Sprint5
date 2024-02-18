@@ -279,7 +279,6 @@ applicationTable.addEventListener('click', function(e)
         document.getElementById("update-app-notes").value = recentApplications[tableIndex]['notes'];
         updateAppForm.style.visibility = "visible";
         updateAppForm.style.opacity = "1";
-
     }
 });
 
