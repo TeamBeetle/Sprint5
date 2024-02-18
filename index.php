@@ -235,49 +235,55 @@
 
 <!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
 <div id="maindisplay" class="">
-  <div class="appsdisplay">
+    <div class="appsdisplay">
 
-    <table class="apps">
-      <th colspan = "5">
-        Recent Applications
-      </th>
+        <table id="apps-table" class="apps">
+            <th colspan = "5">
+                Recent Applications
+            </th>
+            <?php
+            require '/home/teambeet/dbConnect.php';
+            echo "<script> let tempApplications = {}; </script>";
+            $sql = "SELECT * FROM application_data ORDER BY date_applied DESC";
+            $result = @mysqli_query($cnxn, $sql);
+            //for($i = 0; $i < 5; $i++) //remove 4 loop later and add sliding scroll wheel
+            //{
+            while ($row = mysqli_fetch_assoc($result)) //while loop this instead of if and stop the for loop for all results -Everett
+            {
+                $aid = $row['aid'];
+                $user = $row['user'];
+                $employer = $row['employer_name'];
+                $jobDesc = $row['job_description'];
+                $role = $row['role'];
+                $status = $row['status'];
+                $dateApplied = $row['date_applied'];
+                $dateFollowUp = $row['date_followup'];
+                $notes = $row['notes'];
+                echo "
+      <script>tempApplications[`recentApplication_$aid`] = {
+          id: `$aid`,
+          user: `$user`,
+          employer: `$employer`,
+          job: `$jobDesc`,
+          role: `$role`,
+          status: `$status`,
+          appDate: `$dateApplied`,
+          followDate: `$dateFollowUp`,
+          notes: `$notes`
+      };</script>
       <tr>
-        <td class="appinfo">05/30</td>
-        <td class="appinfo">Costco Internship</td>
-        <td class="appinfo">Pending</td>
-        <td class="appinfo">update</td>
-        <td class="appinfo">delete</td>
-      </tr>
-      <tr>
-        <td class="appinfo">date</td>
-        <td class="appinfo">title</td>
-        <td class="appinfo">status</td>
-        <td class="appinfo">update</td>
-        <td class="appinfo">delete</td>
-      </tr>
-      <tr>
-        <td class="appinfo">date</td>
-        <td class="appinfo">title</td>
-        <td class="appinfo">status</td>
-        <td class="appinfo">update</td>
-        <td class="appinfo">delete</td>
-      </tr>
-      <tr>
-        <td class="appinfo">date</td>
-        <td class="appinfo">title</td>
-        <td class="appinfo">status</td>
-        <td class="appinfo">update</td>
-        <td class="appinfo">delete</td>
-      </tr>
-      <tr>
-        <td class="appinfo">date</td>
-        <td class="appinfo">title</td>
-        <td class="appinfo">status</td>
-        <td class="appinfo">update</td>
-        <td class="appinfo">delete</td>
-      </tr>
-    </table>
-  </div>
+          <td class='appinfo'>$dateApplied</td>
+          <td class='appinfo'>$employer $jobDesc</td>
+          <td class='appinfo'>$status</td>
+          <td id='recentApplication_$aid' class='appinfo button view'>view</td>
+          <td class='appinfo'>delete</td>
+      </tr>";
+            }
+            echo "<script>const recentApplications= tempApplications</script>";
+            //}
+            ?>
+        </table>
+    </div>
 
   <!-- Reminder Container -->
   <div id="remindercontainer" class="remindercontrol">
