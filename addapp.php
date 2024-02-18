@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //connect to db
         require '/home/teambeet/dbConnect.php';
         //define insert query
-        $sql = "INSERT INTO `application_data` (`aid`, `employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`) VALUES (NULL, '', '', '', '', '', '', '')";
+        $sql = "INSERT INTO `application_data` (`aid`, `employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
 
         //quick test
         /*
