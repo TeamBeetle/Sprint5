@@ -201,6 +201,7 @@
         <p>X</p>
     </div>
     <div id="update-app-content" class="pop-up form-content">
+        <input id="update-id" name="update-id" class="hidden" type="number">
         <h1>Update an Application</h1>
         <form name="update-app-form" method="post" action="updateapp.php">
             <div class="">

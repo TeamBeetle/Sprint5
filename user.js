@@ -270,6 +270,7 @@ applicationTable.addEventListener('click', function(e)
     if(e.target.classList.contains('update'))
     {
         let tableIndex = e.target.id;
+        document.getElementById("update-id").value = parseInt(recentApplications[tableIndex]['id']);
         document.getElementById("update-app-employer").value = recentApplications[tableIndex]['employer'];
         document.getElementById("update-app-job-desc").value = recentApplications[tableIndex]['job'];
         document.getElementById("update-app-role").value = recentApplications[tableIndex]['role'];
@@ -279,6 +280,7 @@ applicationTable.addEventListener('click', function(e)
         document.getElementById("update-app-notes").value = recentApplications[tableIndex]['notes'];
         updateAppForm.style.visibility = "visible";
         updateAppForm.style.opacity = "1";
+
     }
 });
 
@@ -310,9 +312,10 @@ updateAppSubmission.addEventListener("click", function (event)
     error += dateAppliedValidation(dateApplied, appliedError);
     error += dateFollowedValidation(dateFollow, followError);
 
+
     if (error === 0)
     {
-        document.forms["add-app-form"].submit();
+        document.forms["update-app-form"].submit();
     }
 });
 
