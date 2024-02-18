@@ -1,6 +1,6 @@
 /****************************************************************************\
  Light-mode toggle script
-\****************************************************************************/
+ \****************************************************************************/
 
 const lightButtons = document.querySelectorAll('.toggle');
 const toggleContainer = document.querySelector('#toggleContainer');
@@ -60,7 +60,7 @@ toggleContainer.addEventListener('click', function(e)
 
 /****************************************************************************\
  Sign-up form script
-\****************************************************************************/
+ \****************************************************************************/
 // for opening and closing the sign up form
 let signupAnchor = document.querySelector(".sign-up");
 let signupForm = document.querySelector(".signup-form");
@@ -139,7 +139,7 @@ function validateCohort(inputNumber)
 
 /****************************************************************************\
  Application form script
-\****************************************************************************/
+ \****************************************************************************/
 
 let addAppAnchor = document.querySelector(".add-application");
 let appForm = document.querySelector(".add-app-form");
@@ -161,7 +161,7 @@ addAppAnchor.addEventListener("click", function()
 
 /****************************************************************************\
  contact form script
-\****************************************************************************/
+ \****************************************************************************/
 
 let contactAnchor = document.querySelector(".contact");
 let contactForm = document.querySelector(".contact-form");
@@ -251,7 +251,72 @@ adminButton.addEventListener("click", function ()
     location.href="admin-page.php";
 });
 /*************************** end admin redirect script *****************************/
+/****************************************************************************\
+ Update Application Script
+ \****************************************************************************/
+let updateAppSubmission = document.querySelector("#update-app-submit");
+const applicationTable = document.querySelector("#apps-table");
+let updateAppForm = document.querySelector(".update-app-form");
+let closeUpdateAppButton = document.querySelector(".update-app-close-button");
 
+closeUpdateAppButton.addEventListener("click", function()
+{
+    updateAppForm.style.visibility = "hidden";
+    updateAppForm.style.opacity = "0";
+});
+
+applicationTable.addEventListener('click', function(e)
+{
+    if(e.target.classList.contains('update'))
+    {
+        let tableIndex = e.target.id;
+        document.getElementById("update-app-employer").value = recentApplications[tableIndex]['employer'];
+        document.getElementById("update-app-job-desc").value = recentApplications[tableIndex]['job'];
+        document.getElementById("update-app-role").value = recentApplications[tableIndex]['role'];
+        document.getElementById(`update-${recentApplications[tableIndex]['status']}`).checked = true;
+        document.getElementById("update-app-date").value = recentApplications[tableIndex]['appDate'];
+        document.getElementById("update-app-date-follow").value = recentApplications[tableIndex]['followDate'];
+        updateAppForm.style.visibility = "visible";
+        updateAppForm.style.opacity = "1";
+
+    }
+});
+
+updateAppSubmission.addEventListener("click", function (event)
+{
+    //prevents default of submit button until told otherwise
+    event.preventDefault();
+
+    //set up variables for add application that we check
+    let employerName = document.querySelector("#update-app-employer").value; //should be string
+    let jobDescription = document.querySelector("#update-app-job-desc").value; //should be string
+    let jobRole = document.querySelector("#update-app-role").value; //should be string
+    let applicationStatus = document.getElementsByName("update-status");//radio button
+    let dateApplied = document.querySelector("#update-app-date").value;
+    let dateFollow = document.querySelector("#update-app-date-follow").value;
+    let employerError = document.querySelector('#update-app-employer-error');
+    let jobError = document.querySelector('#update-app-job-error');
+    let roleError = document.querySelector('#update-app-role-error');
+    let statusError = document.querySelector('#update-app-radio-error');
+    let appliedError = document.querySelector('#update-app-date-error');
+    let followError = document.querySelector('#update-app-date-follow-error');
+
+    //Run Validation
+    let error = 0;
+    error += employerNameValid(employerName, employerError);
+    error += jobDescriptionValid(jobDescription, jobError);
+    error += jobRoleValid(jobRole, roleError);
+    error += applicationStatusValidation(applicationStatus, statusError);
+    error += dateAppliedValidation(dateApplied, appliedError);
+    error += dateFollowedValidation(dateFollow, followError);
+
+    if (error === 0)
+    {
+        document.forms["add-app-form"].submit();
+    }
+});
+
+/*************************** end update application script *****************************/
 /****************************************************************************\
  Add Application Script
  \****************************************************************************/
