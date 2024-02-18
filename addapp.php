@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
               <link href='style.css' rel='stylesheet' type='text/css'/>
            </head>
-           <body>
+           <body class='receiptPageBody'>
            <nav id='background' class='navbar navbar-expand-md  navbar-dark'>
               <img id='grc-logo' class='navbar-brand'  src='images/GRC Logo.png'>
             <button class='navbar-toggler' type='button' data-toggle='collapse'
@@ -93,8 +93,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              <button type='button' class='btn toggle btn-dark'>Dark</button>
             </div>
           </nav>
-        <p>Please fill out: employer's name, job description, role,
-         1 radio button, date applied and date to follow up.</p>
+          
+          <div class='receiptPage'>
+          <h1>ERROR!</h1>
+          <p>Please fill out: employer's name, job description, role,
+             1 radio button, date applied and date to follow up.</p>
+         </div>
          </body>
     </html>
          
@@ -131,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
               <link href='style.css' rel='stylesheet' type='text/css'/>
            </head>
-           <body>
+           <body class='receiptPageBody'>
            <nav id='background' class='navbar navbar-expand-md  navbar-dark'>
               <img id='grc-logo' class='navbar-brand'  src='images/GRC Logo.png'>
             <button class='navbar-toggler' type='button' data-toggle='collapse'
@@ -160,7 +164,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
           </nav>
           <!-- in the <p> I added the radio button appdate and follow date and notes for debugging purposes. we can remove this later ~Everett -->
-        <p>Thank you for your entry of: $employerName, $jobDesc, and $appRole, $radioButton with a start date of $appDate with a follow up $appDateFollow. $notes</p>
+          <div class='receiptPage'>
+          <h1>SUCCESS!</h1>
+        <p>Thank you for your entry of: $employerName, $jobDesc, and $appRole, $radioButton 
+        with a start date of $appDate with a follow-up $appDateFollow. $notes</p>
+        
+        <table id='receiptPageTable'>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Employer Name</td>
+      <td class='receiptPageData'>$employerName</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Job Description</td>
+      <td class='receiptPageData'>$jobDesc</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Job Role</td>
+      <td class='receiptPageData'>$appRole</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Status</td>
+      <td class='receiptPageData'>$radioButton</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Date Applied</td>
+      <td class='receiptPageData'>$appDate</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Follow-UP Date</td>
+      <td class='receiptPageData'>$appDateFollow</td>
+    </tr>
+  </table>   
+        </div>
         </body>
         </html>
         ";

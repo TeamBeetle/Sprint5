@@ -669,3 +669,26 @@ footer p {
   flex: 1;
 }
 /* end footer css */
+/* styles for receipt page*/
+.receiptPageBody{
+  background-color:#006225;
+}
+.receiptPage{
+  border: solid black 2px;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+.receiptPageRow, .receiptPageData{
+  text-align: left;
+  padding: 8px;
+}
+#receiptPageTable{
+  border: solid black 1px;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+.receiptPageRow:nth-child(even) {
+  background-color: #dddddd;
+}

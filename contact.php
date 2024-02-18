@@ -41,7 +41,7 @@ if($nameCheck + $emailCheck + $messageCheck < 2){
     <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
     <link href='style.css' rel='stylesheet' type='text/css'/>
     </head>
-    <body>
+    <body class='receiptPageBody'>
     <nav id='background' class='navbar navbar-expand-md  navbar-dark'>
 
   <img id='grc-logo' class='navbar-brand'  src='images/GRC Logo.png'>
@@ -73,7 +73,10 @@ if($nameCheck + $emailCheck + $messageCheck < 2){
     <button type='button' class='btn toggle btn-dark'>Dark</button>
   </div>
 </nav>
+    <div class='receiptPage'>
+    <h1>ERROR!</h1>
     <p>Please fill out the entire form</p>
+    </div>
     </body>
     </html>";
     }else{
@@ -92,7 +95,7 @@ if($nameCheck + $emailCheck + $messageCheck < 2){
     mail($me, $subject1,$customerMessage);
     echo"
      <html lang='en'>
-    <body>
+    <body class='receiptPageBody'>
     <head>
       <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
     <link href='style.css' rel='stylesheet' type='text/css'/>
@@ -131,8 +134,10 @@ if($nameCheck + $emailCheck + $messageCheck < 2){
 </nav>
     
     
-    
+    <div class='receiptPage'>
+    <h1>SUCCESS!</h1>
     <p>Thank you for your inquiry $name, we will respond in <em>Several</em> days.</p>
+    </div>
     </body>
     </html>
     ";

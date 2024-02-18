@@ -83,7 +83,7 @@ if($nameCheck == 0 || $emailCheck == 0 || $cohortCheck == 0 || $checkboxSum < 1)
     <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
     <link href='style.css' rel='stylesheet' type='text/css'/>
     </head>
-    <body>
+    <body class='receiptPageBody'>
     <nav id='background' class='navbar navbar-expand-md  navbar-dark'>
 
   <img id='grc-logo' class='navbar-brand'  src='images/GRC Logo.png'>
@@ -113,7 +113,10 @@ if($nameCheck == 0 || $emailCheck == 0 || $cohortCheck == 0 || $checkboxSum < 1)
     <button type='button' class='btn toggle btn-dark'>Dark</button>
   </div>
 </nav>
+     <div class='receiptPage'>
+     <h1>ERROR!</h1>
     <p>Please enter your name, email address, cohort number, and at least 1 checkbox must be selected.</p>
+    </div>
     </body>
     </html>
     ";
@@ -137,7 +140,7 @@ if($result){
     <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
     <link href='style.css' rel='stylesheet' type='text/css'/>
     </head>
-    <body>
+    <body class='receiptPageBody'>
     <nav id='background' class='navbar navbar-expand-md  navbar-dark'>
 
   <img id='grc-logo' class='navbar-brand'  src='images/GRC Logo.png'>
@@ -168,8 +171,43 @@ if($result){
     <button type='button' class='btn toggle btn-dark'>Dark</button>
   </div>
 </nav>  
+<div class='receiptPage'>
+<h1>SUCCESS!</h1>
  <p>Thank you for signing up $userNameCap, we will email you at $userEmail. 
     Welcome to Cohort $userCohort!!!</p>
+ 
+   <table id='receiptPageTable'>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Name</td>
+      <td class='receiptPageData'>$userName</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Email</td>
+      <td class='receiptPageData'>$userEmail</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Cohort Number</td>
+      <td class='receiptPageData'>$userCohort</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Seeking1</td>
+      <td class='receiptPageData'>$seekingInternship</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Seeking2</td>
+      <td class='receiptPageData'>$seekingJob</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Seeking3</td>
+      <td class='receiptPageData'>$notSearching</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Fields of interest</td>
+      <td class='receiptPageData'>$userInerest</td>
+    </tr>
+  </table>
+   
+ </div>
 </body>
 </html> 
     ";
