@@ -1,6 +1,6 @@
 /****************************************************************************\
  Light-mode toggle script
-\****************************************************************************/
+ \****************************************************************************/
 
 const lightButtons = document.querySelectorAll('.toggle');
 const toggleContainer = document.querySelector('#toggleContainer');
@@ -8,7 +8,7 @@ const page = document.querySelector('HTML');
 window.onload = () =>
 {
     document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
-}
+};
 
 toggleContainer.addEventListener('click', function(e)
 {
@@ -86,12 +86,42 @@ toggleContainer.addEventListener('click', function(e)
     }
 });
 /************************ end light-mode script *****************************/
+/****************************************************************************\
+ Application Review script
+ \****************************************************************************/
+const applicationTable = document.querySelector("#apps-table");
+let appReviewForm = document.querySelector(".review-app-form");
+let closeReviewButton = document.querySelector(".review-app-close-button");
+applicationTable.addEventListener('click', function(e)
+{
+    if(e.target.classList.contains('button'))
+    {
+        let tableIndex = e.target.id;
+        document.getElementById("app-review-user").textContent = recentApplications[tableIndex]['user'];
+        document.getElementById("app-review-employer").textContent = recentApplications[tableIndex]['employer'];
+        document.getElementById("app-review-job-desc").textContent = recentApplications[tableIndex]['job'];
+        document.getElementById("app-review-role").textContent = recentApplications[tableIndex]['role'];
+        document.getElementById("app-review-status").textContent = recentApplications[tableIndex]['status'];
+        document.getElementById("app-review-date-applied").textContent = recentApplications[tableIndex]['appDate'];
+        document.getElementById("app-review-date-follow").textContent = recentApplications[tableIndex]['followDate'];
+        appReviewForm.style.visibility = "visible";
+        appReviewForm.style.opacity = "1";
 
+    }
+});
+
+closeReviewButton.addEventListener("click", function()
+{
+    appReviewForm.style.visibility = "hidden";
+    appReviewForm.style.opacity = "0";
+});
+
+/************************ end app review script *****************************/
 
 
 /****************************************************************************\
  Application form script
-\****************************************************************************/
+ \****************************************************************************/
 
 let addAppAnchor = document.querySelector(".add-application");
 let appForm = document.querySelector(".add-app-form");
@@ -112,26 +142,26 @@ addAppAnchor.addEventListener("click", function()
 
 appSubmitButton.addEventListener("click", function (event)
 {
-   //stop the defaults from happening until validation is complete
-   event.preventDefault();
+    //stop the defaults from happening until validation is complete
+    event.preventDefault();
 
-   //set error counter
-   let error = 0;
+    //set error counter
+    let error = 0;
 
-   //declare variables
-   let positionName = document.querySelector("#app-position").value; //string
-   let employerTitle = document.querySelector("#app-employer").value; //string
-   let announceStatus = document.getElementsByName("app-status"); //buttons
-   let appLink = document.querySelector("#app-link").value; //string
-   let recipientEmail = document.querySelector("#app-recipient").value;
+    //declare variables
+    let positionName = document.querySelector("#app-position").value; //string
+    let employerTitle = document.querySelector("#app-employer").value; //string
+    let announceStatus = document.getElementsByName("app-status"); //buttons
+    let appLink = document.querySelector("#app-link").value; //string
+    let recipientEmail = document.querySelector("#app-recipient").value;
 
-   error += positionNameValidation(positionName);
-   error += employerTitleValidation(employerTitle);
-   error += announcementStatusValidation(announceStatus);
-   error += appLinkValidation(appLink);
-   error += recipientEmailValidation(recipientEmail);
+    error += positionNameValidation(positionName);
+    error += employerTitleValidation(employerTitle);
+    error += announcementStatusValidation(announceStatus);
+    error += appLinkValidation(appLink);
+    error += recipientEmailValidation(recipientEmail);
 
-   //resume if okay
+    //resume if okay
     if (error === 0)
     {
         document.forms["app-announcement-form"].submit();
@@ -184,11 +214,11 @@ function announcementStatusValidation(announceStatus)
 function appLinkValidation(appLink)
 {
     var urlR = /^(https?|ftp):\/\/(([a-z\d]([a-z\d-]*[a-z\d])?\.)+[a-z]{2,}|localhost)(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$/i;
-   if ( appLink === "")// && appLink.length > 2)
-   {
-       document.querySelector('#app-link-error').style.display = "inline";
-       return 1;
-   }
+    if ( appLink === "")// && appLink.length > 2)
+    {
+        document.querySelector('#app-link-error').style.display = "inline";
+        return 1;
+    }
     if (urlR.test(appLink))
     {
         document.querySelector('#app-link-error').style.display = "none";
@@ -216,7 +246,7 @@ function recipientEmailValidation(recipientEmail)
 
 /****************************************************************************\
  contact form script
-\****************************************************************************/
+ \****************************************************************************/
 
 let contactAnchor = document.querySelector(".contact");
 let contactForm = document.querySelector(".contact-form");
@@ -313,7 +343,7 @@ deleteButton.addEventListener("click", function() {
     deleteButton.textContent = "CONFIRM";
     deleteButton.classList.add('delete-confirmation');
     confirmation.addEventListener('click', function() {
-      document.location.href = 'softdelete.php';
+        document.location.href = 'softdelete.php';
     });
 
     cancelButton.addEventListener("click", function() {

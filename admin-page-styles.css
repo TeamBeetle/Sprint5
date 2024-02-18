@@ -309,6 +309,53 @@ footer p {
 /* end footer css */
 
 /*-------------------------------------------------------------------------------------------------------------*/
+/* Beginning of Review Application CSS Form */
+/*-------------------------------------------------------------------------------------------------------------*/
+.review-app-close-button{
+    position: absolute;
+    left: 95%;
+    width: 30px;
+    height: 29px;
+    border: black solid 1px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: white;
+    top: 5%;
+    cursor: pointer;
+}
+.review-app-form {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+    backdrop-filter: blur(5px);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#review-app-content{
+    background: white;
+    height: 55%;
+    width: 30%;
+    z-index: 2;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
 /* Beginning of Add Application CSS Form */
 /*-------------------------------------------------------------------------------------------------------------*/
 .app-close-button{
