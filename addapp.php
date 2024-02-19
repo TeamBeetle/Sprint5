@@ -111,16 +111,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //define insert query
         $sql = "INSERT INTO `application_data` (`aid`, `user`, `employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
         //gather notes + sanitizing notes
-        $notes = isset($_POST['Additional Notes Here']) ? $_POST['Additional Notes Here'] : '';
-        $notes = mysqli_real_escape_string($cnxn, $notes);
-
+        if(isset($_POST['Additional Notes Here']))
+        {
+            $notes = isset($_POST['Additional Notes Here']) ? $_POST['Additional Notes Here'] : '';
+            $notes = mysqli_real_escape_string($cnxn, $notes);
+        }
+        else
+        {
+            $notes = "null";
+        }
         //convert $appDate and $appDateFollow to be proper for sql
         $appDate = date('Y-m-d', strtotime($appDate));
         $appDateFollow = date('Y-m-d', strtotime($appDateFollow));
 
         $stmt = mysqli_prepare($cnxn, $sql);
 
-        mysqli_stmt_bind_param($stmt ,"",$employerName,$jobDesc, $appRole,
+        mysqli_stmt_bind_param($stmt,'sssssss',$employerName,$jobDesc, $appRole,
             $radioButton, $appDate, $appDateFollow, $notes);
         $result = mysqli_stmt_execute($stmt);
 
