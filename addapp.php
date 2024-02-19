@@ -8,7 +8,7 @@ $appRole = $appRoleCheck = "";
 $appDate = $appDateCheck = "";
 $appDateFollow = $appDateFollowCheck = "";
 $radioButton=$radioButtonCheck="";
-$notes = $_POST['Additional Notes Here'];
+
 
 //checks employer name
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -109,22 +109,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //connect to db
         require '/home/teambeet/dbConnect.php';
         //define insert query
-        $sql = "INSERT INTO `application_data` (`aid`, `employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `application_data` (`aid`, `user`, `employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
+        //gather notes + sanitizing notes
+        $notes = isset($_POST['Additional Notes Here']) ? $_POST['Additional Notes Here'] : '';
+        $notes = mysqli_real_escape_string($cnxn, $notes);
 
-        //quick test
-        /*
-        $emp = $_POST['app-employer'];
-        $pos = $_POST['app-job-desc'];
-        $rol = $_POST['app-role'];
-        $rad = $_POST['status'];
-        $date = $_POST['app-date'];
-        $dateF = $_POST['app-date-follow'];
-        */
+        //convert $appDate and $appDateFollow to be proper for sql
+        $appDate = date('Y-m-d', strtotime($appDate));
+        $appDateFollow = date('Y-m-d', strtotime($appDateFollow));
 
         $stmt = mysqli_prepare($cnxn, $sql);
-        //mysqli_stmt_bind_param($stmt, "ssssss" ,$emp,$pos, $rol, $rad, $date, $dateF, $notes);
 
-        mysqli_stmt_bind_param($stmt, "ssssss" ,$employerName,$jobDesc, $appRole, $radioButton, $appDate, $appDateFollow, $notes);
+        mysqli_stmt_bind_param($stmt ,"sssssss",$employerName,$jobDesc, $appRole, $radioButton, $appDate, $appDateFollow, $notes);
         $result = mysqli_stmt_execute($stmt);
 
     if(result)
@@ -203,7 +199,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else
     {
         //log the error but this seems to be redundant due to the checks we make at the top of this php file -E
-        echo "Error: " . mysqli_error($cnxn);
+        echo "<p>Error: " . mysqli_error($cnxn) . "</p>";
+        echo "<p> Connection Error: " . mysqli_connect_error() . "</p>";
     }
     //close the mysqli
       mysqli_close($cnxn);
