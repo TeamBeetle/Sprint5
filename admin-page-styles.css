@@ -76,10 +76,11 @@ table
     margin: 0;
 }
 
-.appsdisplay > table > tr
+.appsdisplay
 {
     padding-right: 3%;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding-left: 3%;
     height: 300px;
 }

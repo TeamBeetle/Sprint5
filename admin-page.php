@@ -7,7 +7,7 @@
     <title>GRC ATT - Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link href="admin-page-styles.css?v=1" rel="stylesheet" type="text/css" />
+    <link href="admin-page-styles.css?v=5" rel="stylesheet" type="text/css" />
 </head>
 <!-- Page body -->
 <body>
@@ -161,7 +161,6 @@
 <!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
 <div id="maindisplay" class="">
     <div class="appsdisplay">
-
         <table id="apps-table" class="apps">
             <th colspan = "5">
                 Recent Applications
@@ -270,18 +269,27 @@
                 <table class="users">
                     <?php
                     require '/home/teambeet/dbConnect.php';
-                    $sql = "SELECT * FROM student";
+                    $sql = "SELECT * FROM user_data";
                     $result = @mysqli_query($cnxn, $sql);
                     while ($row = mysqli_fetch_assoc($result))
                     {
-                        $sid = $row['sid'];
-                        $first = $row['first'];
-                        $last = $row['last'];
-                        $birthdate = $row['birthdate'];
+                        $uid = $row['uid'];
+                        $name = $row['user_name'];
+                        $email = $row['user_email'];
+                        $cohort = $row['user_cohort'];
+                        $user_seeking_internship = $row['user_seeking_internship'];
+                        $user_seeking_job = $row['user_seeking_job'];
+                        $user_not_seeking = $row['user_not_seeking'];
+                        $user_interest = $row['user_interest'];
+
+
                         echo "
                                        <tr class='table-user-info'>
-                                            <td class='student-name'>$first $last</td>
-                                            <td class='student-email'>$sid</td>
+                                            <td class='student-email'>$uid</td>
+                                            <td class='student-name'>$name </td>
+                                            <td class='student-email'>$email</td>
+                                            <td class='student-email'>$cohort</td>
+
                                         <td>
                                             <div class='view-info'>
                                                 View
@@ -383,6 +391,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-<script src="admin.js?v=5"></script>
+<script src="admin.js?v=14"></script>
 </body>
 </html>

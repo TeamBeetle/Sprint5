@@ -30,6 +30,11 @@ toggleContainer.addEventListener('click', function(e)
         document.querySelector("body").style.backgroundColor = "#333";
         document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#222");
         document.querySelector(".apps").style.backgroundColor = "#555";
+        document.querySelectorAll("tr").forEach((element)=> element.style.color = "#000");
+        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.backgroundColor = "#555");
+        document.querySelectorAll("td").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll(".table-user-info").forEach((element)=> element.style.backgroundColor = "#555");
         document.querySelectorAll(".student-name").forEach((element)=> element.style.color = "#fff");
         document.querySelectorAll(".student-email").forEach((element)=> element.style.color = "#fff");
         document.querySelectorAll(".view-info").forEach((element)=>
@@ -60,6 +65,11 @@ toggleContainer.addEventListener('click', function(e)
         document.querySelector("body").style.backgroundColor = "white";
         document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
         document.querySelector(".apps").style.backgroundColor = "#fff";
+        document.querySelectorAll("tr").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.color = "#000");
+        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.backgroundColor = "#fff");
+        document.querySelectorAll("td").forEach((element)=> element.style.color = "#000");
+        document.querySelectorAll(".table-user-info").forEach((element)=> element.style.backgroundColor = "#fff");
         document.querySelectorAll(".student-name").forEach((element)=> element.style.color = "#000");
         document.querySelectorAll(".student-email").forEach((element)=> element.style.color = "#000");
         document.querySelectorAll(".view-info").forEach((element)=>
