@@ -164,7 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
           </nav>
           <!-- in the <p> I added the radio button appdate and follow date and notes for debugging purposes. we can remove this later ~Everett -->
-          <div class='receiptPage'>
+          <div class='receiptPage center-items'>
           <h1>SUCCESS!</h1>
         <p>Thank you for your entry of: $employerName, $jobDesc, and $appRole, $radioButton 
         with a start date of $appDate with a follow-up $appDateFollow. $notes</p>

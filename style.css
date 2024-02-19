@@ -674,6 +674,7 @@ footer p {
   background-color:#006225;
 }
 .receiptPage{
+  background-color: white;
   border: solid black 2px;
   margin: auto;
   width: 60%;
