@@ -272,7 +272,7 @@
                         <label for="update-app-notes">Additional Notes</label>
                     </div>
                     <div class="col-12">
-                        <textarea id="update-app-notes" name="Additional Notes Here" rows="2" cols="30"></textarea>
+                        <textarea id="update-app-notes" name="updateNotes" rows="2" cols="30"></textarea>
                     </div>
                 </div>
             </div>

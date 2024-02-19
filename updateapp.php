@@ -1,22 +1,15 @@
 <?php
 
 error_reporting(0);
-
-$employerName = "";
-$employerNameCheck = 0;
-$jobDesc = "";
-$jobDescCheck = 0;
-$appRole = "";
-$appRoleCheck = 0;
-$appDate = "";
-$appDateCheck = 0;
-$appDateFollow = "";
-$appDateFollowCheck = 0;
-$radioButton = "";
-$radioButtonCheck = 0;
-$notes = $_POST['Additional Notes Here'];
 $id = $_POST['id'];
+$employerName = $employerNameCheck = 0;
+$jobDesc = $jobDescCheck = 0;
+$appRole = $appRoleCheck = 0;
+$appDate = $appDateCheck = 0;
+$appDateFollow = $appDateFollowCheck = 0;
+$radioButton=$radioButtonCheck=0;
 
+//echo "<h1>" . $_POST['app-employer'] .$_POST['app-job-desc'] . $_POST['app-role'] . $_POST['update-status'] . $_POST['app-date'] .$_POST['app-date-follow'] . $_POST['updateNotes'] ."</h1>";
 //checks employer name
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST['app-employer'])) {
@@ -40,11 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $appRole = $_POST['app-role'];
     }
 //check radio button "status"
-    if (empty($_POST['status'])) {
-        $radioButtonCheck = 0;
-    } else {
-        $radioButtonCheck = 1;
-        $radioButton = $_POST['status'];
+    if(empty($_POST['update-status'])){
+        $radioButtonCheck=0;
+    }else{
+        $radioButtonCheck=1;
+        $radioButton = $_POST['update-status'];
     }
 //check date applied
     if (empty($_POST['app-date'])) {
@@ -60,6 +53,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $appDateFollowCheck = 1;
         $appDateFollow = $_POST['app-date-follow'];
     }
+    //check for notes
+    if(!empty($_POST['updateNotes']))
+    {
+        $notes = $_POST['updateNotes'];
+    }
+    else
+    {
+        $notes = "";
+    }
 
 
 //print out receipt page
@@ -72,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
               <link href='style.css' rel='stylesheet' type='text/css'/>
            </head>
-           <body>
+           <body class='receiptPageBody'>
            <nav id='background' class='navbar navbar-expand-md  navbar-dark'>
               <img id='grc-logo' class='navbar-brand'  src='images/GRC Logo.png'>
             <button class='navbar-toggler' type='button' data-toggle='collapse'
@@ -82,17 +84,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              <div class='collapse navbar-collapse links' id='collapsibleNavbar'>
              <ul class='navbar-nav links'>
              <li class='nav-item'>
-             <a class='nav-link' href='#'>Dashboard</a>
+             <a class='nav-link' href='index.php'>Dashboard</a>
              </li>
-             <li class='nav-item'>
-             <a class='nav-link sign-up' href='#'>Sign Up</a>
-             </li>
-             <li class='nav-item'>
-             <a class='nav-link add-application' href='#'>Add Applicaion</a>
-            </li>
-            <li class='nav-item'>
-            <a class='nav-link contact-anchor contact' href='#'>Contact</a>
-            </li>
+             
             </ul>
             </div>
              <div id='toggleContainer' class='col-2'>
@@ -100,8 +94,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              <button type='button' class='btn toggle btn-dark'>Dark</button>
             </div>
           </nav>
-        <p>Please fill out: employer's name, job description, role,
-         1 radio button, date applied and date to follow up.</p>
+          
+          <div class='receiptPage'>
+          <h1>ERROR!</h1>
+          <p>Please fill out: employer's name, job description, role,
+             1 radio button, date applied and date to follow up.</p>
+         </div>
          </body>
     </html>
          
@@ -112,32 +110,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //connect to db
         require '/home/teambeet/dbConnect.php';
         //define insert query
-        $sql = "UPDATE application_data SET employer_name = ?, job_description = ?, role = ?, status = ?, date_applied = ?, date_followup = ?, notes = ?   WHERE application_data.aid = ? ";
+        $sql = "UPDATE `application_data` SET `employer_name` = ?, `job_description` = ?, `role` = ?, `status` = ?, `date_applied` = ?, `date_followup` = ?, `notes` = ? WHERE `application_data.aid` = ?";
+        //gather notes + sanitizing notes
+        //$notes = isset($_POST['Additional Notes Here']) ? $_POST['Additional Notes Here'] : '';
+        //$notes = mysqli_real_escape_string($cnxn, $notes);
 
-        //quick test
-        /*
-        $emp = $_POST['app-employer'];
-        $pos = $_POST['app-job-desc'];
-        $rol = $_POST['app-role'];
-        $rad = $_POST['status'];
-        $date = $_POST['app-date'];
-        $dateF = $_POST['app-date-follow'];
-        */
+
+        //convert $appDate and $appDateFollow to be proper for sql
+        $appDate = date('Y-m-d', strtotime($appDate));
+        $appDateFollow = date('Y-m-d', strtotime($appDateFollow));
 
         $stmt = mysqli_prepare($cnxn, $sql);
-        //mysqli_stmt_bind_param($stmt, "ssssss" ,$emp,$pos, $rol, $rad, $date, $dateF, $notes);
 
-        mysqli_stmt_bind_param($stmt, "sssssss", $employerName, $jobDesc, $appRole, $radioButton, $appDate, $appDateFollow, $notes, $id);
+        mysqli_stmt_bind_param($stmt,'sssssssi',$employerName,$jobDesc, $appRole,
+            $radioButton, $appDate, $appDateFollow, $notes, $id);
         $result = mysqli_stmt_execute($stmt);
 
-        if (result) {
+        if(result)
+        {
             echo "
          <html lang='en'>
            <head>
               <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
               <link href='style.css' rel='stylesheet' type='text/css'/>
            </head>
-           <body>
+           <body class='receiptPageBody'>
            <nav id='background' class='navbar navbar-expand-md  navbar-dark'>
               <img id='grc-logo' class='navbar-brand'  src='images/GRC Logo.png'>
             <button class='navbar-toggler' type='button' data-toggle='collapse'
@@ -147,17 +144,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              <div class='collapse navbar-collapse links' id='collapsibleNavbar'>
              <ul class='navbar-nav links'>
              <li class='nav-item'>
-             <a class='nav-link' href='#'>Dashboard</a>
+             <a class='nav-link' href='index.php'>Dashboard</a>
              </li>
-             <li class='nav-item'>
-             <a class='nav-link sign-up' href='#'>Sign Up</a>
-             </li>
-             <li class='nav-item'>
-             <a class='nav-link add-application' href='#'>Add Applicaion</a>
-            </li>
-            <li class='nav-item'>
-            <a class='nav-link contact-anchor contact' href='#'>Contact</a>
-            </li>
             </ul>
             </div>
              <div id='toggleContainer' class='col-2'>
@@ -166,13 +154,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
           </nav>
           <!-- in the <p> I added the radio button appdate and follow date and notes for debugging purposes. we can remove this later ~Everett -->
-        <p>Thank you for your entry of: $employerName, $jobDesc, and $appRole, $radioButton with a start date of $appDate with a follow up $appDateFollow. $notes</p>
+          <div class='receiptPage center-items'>
+          <h1>SUCCESS!</h1>
+        <p>Thank you for your entry of: $employerName, $jobDesc, and $appRole, $radioButton 
+        with a start date of $appDate with a follow-up $appDateFollow. $notes</p>
+        
+        <table id='receiptPageTable'>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Employer Name</td>
+      <td class='receiptPageData'>$employerName</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Job Description</td>
+      <td class='receiptPageData'>$jobDesc</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Job Role</td>
+      <td class='receiptPageData'>$appRole</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Status</td>
+      <td class='receiptPageData'>$radioButton</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Date Applied</td>
+      <td class='receiptPageData'>$appDate</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Follow-UP Date</td>
+      <td class='receiptPageData'>$appDateFollow</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Notes</td>
+      <td class='receiptPageData'>$notes</td>
+    </tr>
+  </table>   
+        </div>
         </body>
         </html>
         ";
-        } else {
+        }
+        else
+        {
             //log the error but this seems to be redundant due to the checks we make at the top of this php file -E
-            echo "Error: " . mysqli_error($cnxn);
+            echo "<p>Error: " . mysqli_error($cnxn) . "</p>";
+            echo "<p> Connection Error: " . mysqli_connect_error() . "</p>";
         }
         //close the mysqli
         mysqli_close($cnxn);
