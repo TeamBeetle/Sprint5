@@ -55,17 +55,9 @@ if($nameCheck + $emailCheck + $messageCheck < 2){
 
     <ul class='navbar-nav links'>
       <li class='nav-item'>
-        <a class='nav-link' href='#'>Dashboard</a>
+        <a class='nav-link' href='index.php'>Dashboard</a>
       </li>
-      <li class='nav-item'>
-        <a class='nav-link sign-up' href='#'>Sign Up</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link add-application' href='#'>Add Applicaion</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link contact-anchor contact' href='#'>Contact</a>
-      </li>
+     
     </ul>
   </div>
   <div id='toggleContainer' class='col-2'>
@@ -114,17 +106,9 @@ if($nameCheck + $emailCheck + $messageCheck < 2){
 
     <ul class='navbar-nav links'>
       <li class='nav-item'>
-        <a class='nav-link' href='#'>Dashboard</a>
+        <a class='nav-link' href='index.php'>Dashboard</a>
       </li>
-      <li class='nav-item'>
-        <a class='nav-link sign-up' href='#'>Sign Up</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link add-application' href='#'>Add Applicaion</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link contact-anchor contact' href='#'>Contact</a>
-      </li>
+      
     </ul>
   </div>
   <div id='toggleContainer' class='col-2'>
