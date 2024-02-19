@@ -53,6 +53,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $appDateFollowCheck = 1;
         $appDateFollow = $_POST['app-date-follow'];
     }
+    //check for notes
+    if(!empty($_POST['appNotes']))
+    {
+        $notes = $_POST['appNotes'];
+    }
+    else
+    {
+        $notes = "";
+    }
 
 
 //print out receipt page
@@ -104,8 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO `application_data` (`aid`, `user`, `employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`) VALUES (NULL, 'Default User' , ?, ?, ?, ?, ?, ?, ?)";
         //gather notes + sanitizing notes
 
-        $notes = isset($_POST['Additional Notes Here']) ? $_POST['Additional Notes Here'] : '';
-        $notes = mysqli_real_escape_string($cnxn, $notes);
+        //$notes = isset($_POST['Additional Notes Here']) ? $_POST['Additional Notes Here'] : '';
+        //$notes = mysqli_real_escape_string($cnxn, $notes);
 
 
         //convert $appDate and $appDateFollow to be proper for sql
