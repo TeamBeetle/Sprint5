@@ -2,12 +2,12 @@
 
 error_reporting(0);
 
-$employerName = $employerNameCheck = "";
-$jobDesc = $jobDescCheck = "";
-$appRole = $appRoleCheck = "";
-$appDate = $appDateCheck = "";
-$appDateFollow = $appDateFollowCheck = "";
-$radioButton=$radioButtonCheck="";
+$employerName = $employerNameCheck = 0;
+$jobDesc = $jobDescCheck = 0;
+$appRole = $appRoleCheck = 0;
+$appDate = $appDateCheck = 0;
+$appDateFollow = $appDateFollowCheck = 0;
+$radioButton=$radioButtonCheck=0;
 
 
 //checks employer name
@@ -101,17 +101,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //connect to db
         require '/home/teambeet/dbConnect.php';
         //define insert query
-        $sql = "INSERT INTO `application_data` (`aid`, `user`, `employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `application_data` (`aid`, `user`, `employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`) VALUES (NULL, 'Default User' , ?, ?, ?, ?, ?, ?, ?)";
         //gather notes + sanitizing notes
-        if(isset($_POST['Additional Notes Here']))
-        {
-            $notes = isset($_POST['Additional Notes Here']) ? $_POST['Additional Notes Here'] : '';
-            $notes = mysqli_real_escape_string($cnxn, $notes);
-        }
-        else
-        {
-            $notes = "null";
-        }
+
+        $notes = isset($_POST['Additional Notes Here']) ? $_POST['Additional Notes Here'] : '';
+        $notes = mysqli_real_escape_string($cnxn, $notes);
+
+
         //convert $appDate and $appDateFollow to be proper for sql
         $appDate = date('Y-m-d', strtotime($appDate));
         $appDateFollow = date('Y-m-d', strtotime($appDateFollow));
@@ -119,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = mysqli_prepare($cnxn, $sql);
 
         mysqli_stmt_bind_param($stmt,'sssssss',$employerName,$jobDesc, $appRole,
-            $radioButton, $appDate, $appDateFollow/*,$notes*/);
+            $radioButton, $appDate, $appDateFollow, $notes);
         $result = mysqli_stmt_execute($stmt);
 
     if(result)
