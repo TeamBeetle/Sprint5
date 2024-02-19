@@ -127,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = mysqli_prepare($cnxn, $sql);
 
         mysqli_stmt_bind_param($stmt,'sssssss',$employerName,$jobDesc, $appRole,
-            $radioButton, $appDate, $appDateFollow, $notes);
+            $radioButton, $appDate, $appDateFollow/*,$notes*/);
         $result = mysqli_stmt_execute($stmt);
 
     if(result)
@@ -196,6 +196,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <tr class='receiptPageRow'>
       <td class='receiptPageData'>Follow-UP Date</td>
       <td class='receiptPageData'>$appDateFollow</td>
+    </tr>
+    <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Notes</td>
+      <td class='receiptPageData'>$notes</td>
     </tr>
   </table>   
         </div>
