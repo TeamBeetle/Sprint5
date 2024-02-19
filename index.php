@@ -201,9 +201,10 @@
         <p>X</p>
     </div>
     <div id="update-app-content" class="pop-up form-content">
-        <input id="update-id" name="update-id" class="hidden" type="number">
+
         <h1>Update an Application</h1>
         <form name="update-app-form" method="post" action="updateapp.php">
+
             <div class="">
                 <div class="col-12 update-app-input">
                     <label for="update-app-employer">Employer*</label>
@@ -276,6 +277,7 @@
                     </div>
                 </div>
             </div>
+            <input id="update-id" name="update-id" class="hidden" type="number">
             <button type="submit" id="update-app-submit">Update Application</button>
             <!--<p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
               <strong>Add Application</strong></p>-->

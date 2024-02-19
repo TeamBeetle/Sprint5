@@ -1,7 +1,7 @@
 <?php
 
 error_reporting(0);
-$id = $_POST['id'];
+$id = $_POST['update-id'];
 $employerName = $employerNameCheck = 0;
 $jobDesc = $jobDescCheck = 0;
 $appRole = $appRoleCheck = 0;
@@ -9,7 +9,7 @@ $appDate = $appDateCheck = 0;
 $appDateFollow = $appDateFollowCheck = 0;
 $radioButton=$radioButtonCheck=0;
 
-//echo "<h1>" . $_POST['app-employer'] .$_POST['app-job-desc'] . $_POST['app-role'] . $_POST['update-status'] . $_POST['app-date'] .$_POST['app-date-follow'] . $_POST['updateNotes'] ."</h1>";
+echo "<h1>" . $_POST['app-employer'] .$_POST['app-job-desc'] . $_POST['app-role'] . $_POST['update-status'] . $_POST['app-date'] .$_POST['app-date-follow'] . $_POST['updateNotes'] . $id = $_POST['update-id'] . "</h1>";
 //checks employer name
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST['app-employer'])) {
@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //connect to db
         require '/home/teambeet/dbConnect.php';
         //define insert query
-        $sql = "UPDATE `application_data` SET `employer_name` = ?, `job_description` = ?, `role` = ?, `status` = ?, `date_applied` = ?, `date_followup` = ?, `notes` = ? WHERE `application_data.aid` = ?";
+        $sql = "UPDATE `application_data` SET `employer_name` = ?, `job_description` = ?, `role` = ?, `status` = ?, `date_applied` = ?, `date_followup` = ?, `notes` = ? WHERE application_data.aid = ?";
         //gather notes + sanitizing notes
         //$notes = isset($_POST['Additional Notes Here']) ? $_POST['Additional Notes Here'] : '';
         //$notes = mysqli_real_escape_string($cnxn, $notes);
