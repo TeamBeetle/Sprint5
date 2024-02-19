@@ -108,7 +108,7 @@ if($nameCheck + $emailCheck + $messageCheck < 2){
       <li class='nav-item'>
         <a class='nav-link' href='index.php'>Dashboard</a>
       </li>
-      
+   
     </ul>
   </div>
   <div id='toggleContainer' class='col-2'>
