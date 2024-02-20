@@ -9,7 +9,7 @@ $appDate = $appDateCheck = 0;
 $appDateFollow = $appDateFollowCheck = 0;
 $radioButton=$radioButtonCheck=0;
 
-echo "<h1>" . $_POST['app-employer'] .$_POST['app-job-desc'] . $_POST['app-role'] . $_POST['update-status'] . $_POST['app-date'] .$_POST['app-date-follow'] . $_POST['updateNotes'] . $id = $_POST['update-id'] . "</h1>";
+//echo "<h1>" . $_POST['app-employer'] .$_POST['app-job-desc'] . $_POST['app-role'] . $_POST['update-status'] . $_POST['app-date'] .$_POST['app-date-follow'] . $_POST['updateNotes'] . $id = $_POST['update-id'] . "</h1>";
 //checks employer name
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST['app-employer'])) {
