@@ -116,7 +116,6 @@ applicationTable.addEventListener('click', function(e)
         document.getElementById("app-review-date-follow").textContent = recentApplications[tableIndex]['followDate'];
         appReviewForm.style.visibility = "visible";
         appReviewForm.style.opacity = "1";
-
     }
 });
 
@@ -234,7 +233,11 @@ function appLinkValidation(appLink)
         document.querySelector('#app-link-error').style.display = "none";
         return 0;
     }
-    return 1;
+    else
+    {
+        document.querySelector('#app-link-error').style.display = "inline";
+        return 1;
+    }
 }
 function recipientEmailValidation(recipientEmail)
 {
@@ -249,7 +252,11 @@ function recipientEmailValidation(recipientEmail)
         document.querySelector('#app-recipient-error').style.display = "none";
         return 0;
     }
-    return 1;
+    else
+    {
+        document.querySelector('#app-recipient-error').style.display = "inline";
+        return 1;
+    }
 }
 
 /*********************** end application script *****************************/

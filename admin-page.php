@@ -104,8 +104,8 @@
                 </div>
             </div>
             <button type="submit" id="app-announce-button">Add Application</button>
-            <p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
-                <strong>Add Application</strong></p>
+            <!--<p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
+                <strong>Add Application</strong></p>-->
             <p></p>
         </form>
     </div>
