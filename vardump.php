@@ -2,9 +2,14 @@
 <!-- APPLICATION ANNOUNCEMENT PHP -->
 <?php
 error_reporting(0);
-
+require '/home/teambeet/dbConnect.php';
 //to will later redirect to Tyler Email.
-$to = "Everett Hanke <hanke.everett@student.greenriver.edu>, " . $_POST['app-recipient'];
+$to = "";
+$user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `user_data`");
+while ($row = mysqli_fetch_assoc($user_email_query))
+{
+    $to .= $row["user_email"].", ";
+}
 $subject = $_POST['app-position'] . " : ". $_POST['app-employer'];
 $message = "NEW OPPORTUNITIES FOUND AT " . $_POST['app-employer'] . " Looking for a " . $_POST['app-position'] . " This is a " . $_POST['app-status'] . " position. " . "\n"
  . $_POST['app-info'] . " Apply here : " . $_POST['app-link'] . " , " . $_POST['app-date'];
@@ -58,9 +63,9 @@ if (mail($to, $subject,$message, $headers))
     
     
     <p>Email Forwarded to $to about oportunity of $subject with entailed message: $message</p>
-";
+</body>
+    </html>";
     //connect to db
-    require '/home/teambeet/dbConnect.php';
     $position = $_POST['app-position'];
     $employer = $_POST['app-employer'];
     $seeking = $_POST['app-status'];
@@ -74,21 +79,10 @@ if (mail($to, $subject,$message, $headers))
     mysqli_stmt_bind_param($stmt, "sssss", $position, $employer, $seeking, $url, $notes);
 
     $result = mysqli_stmt_execute($stmt);
-
-    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `user_data`");
-    $user_emails = mysqli_stmt_execute($user_email_query);
-    echo "<p>";
-    while ($row = mysqli_fetch_assoc($user_emails))
-    {
-        echo $row['user_email'];
-    }
-    echo "</p>    
-</body>
-    </html>";
 }
 else
 {
-    echo "<h> Message Failed to Deliver </h>";
+    echo "<h1> Message Failed to Deliver: $to</h1>";
 }
 
 
