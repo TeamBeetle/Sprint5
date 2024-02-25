@@ -66,7 +66,7 @@
         <p>X</p>
     </div>
     <div id="add-app-content" class="pop-up form-content form-content-app d-flex align-items-center justify-content-center">
-        <h1>Application Announcement</h1>
+        <h1>Create Announcement</h1>
         <form name="app-announcement-form" method="post" action="vardump.php">
             <div>
                 <div class="col-12 add-app-input">
@@ -103,7 +103,7 @@
                     <textarea id="app-info" placeholder="Additional information" name="app-info" cols="20" rows="3"></textarea>
                 </div>
             </div>
-            <button type="submit" id="app-announce-button">Add Application</button>
+            <button type="submit" id="app-announce-button">Add Announcement</button>
             <!--<p class="add-app-flavor-text">Be sure that all Applicant information is correct before clicking
                 <strong>Add Application</strong></p>-->
             <p></p>
