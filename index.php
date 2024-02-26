@@ -379,7 +379,67 @@
     <!-- Reminder Container -->
     <div id="remindercontainer" class="remindercontrol">
         <div class="container-title">REMINDERS</div>
+        <?php
+            require '/home/teambeet/dbConnect.php';
+            //create initial script which instantiates an array and a variable for today's date.
+            echo "<script> let tempAnnouncements = []; const date = new Date(); const miliToDay = 86400000; </script>";
+            $sql1 = "SELECT * FROM application_data WHERE user = 'Default User' ORDER BY date_followup DESC";
+            $result1 = @mysqli_query($cnxn, $sql1);
+            //run while loop for application data
+            while($row = mysqli_fetch_assoc($result1))
+            {
+                $aid = $row['aid'];
+                $user = $row['user'];
+                $employer = $row['employer_name'];
+                $jobDesc = $row['job_description'];
+                $role = $row['role'];
+                $status = $row['status'];
+                $dateApplied = $row['date_applied'];
+                $dateFollowUp = $row['date_followup'];
+                $notes = $row['notes'];
 
+                //per loop in while loop we fill out the array given above.
+            echo "
+                <script> tempAnnouncements.push({
+                description: '$employer + $jobDesc + $role + $status + $notes + $dateFollowUp',
+                dateOut: (new Date('$dateFollowUp').getTime() - date.getTime())/miliToDay 
+                })
+                console.log(new Date('$dateFollowUp').getDay());
+                console.log(date.getDay());
+                console.log(date.getTime());
+                </script>";
+
+            } //end of while loop
+
+
+            //BEGINNING OF LOOP 2 ELECTRIC BOOGALOO :)
+            $sql2 = "SELECT * FROM announcement_data ORDER BY aid DESC";
+            $result1 = @mysqli_query($cnxn, $sql1);
+
+        while($row = mysqli_fetch_assoc($result1))
+        {
+            //time of upload needs to be not NAN at the moment. must convert
+            $timeOfUpload = $row['TimeOfUpload'];
+            $aid = $row['position'];
+            $position = $row['position'];
+            $employer = $row['employer'];
+            $seeking = $row['seeking'];
+            $url = $row['url'];
+            $notes = $row['notes'];
+
+            //per loop in while loop we fill out the array given above.
+            echo "
+                <script> tempAnnouncements.push({
+                description: '$employer + $position + $seeking + $url + $notes',
+                dateOut: (new Date('$timeOfUpload').getTime() - date.getTime())/miliToDay 
+                })
+                console.log('Time of Upload' + new Date('$timeOfUpload').getDay());
+                console.log(date.getDay());
+                console.log(date.getTime())
+                </script>";
+
+        } //end of while loop
+            ?>
         <div class="reminder-row">
             <p>this is a place holder</p>
         </div>

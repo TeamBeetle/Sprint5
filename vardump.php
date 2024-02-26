@@ -28,7 +28,7 @@ if (mail($to, $subject,$message, $headers))
     $notes = $_POST['app-info'];
     //define insert query
     // Define insert query with placeholders
-    $sql = "INSERT INTO `announcement_data` (`aid`, `position`, `employer`, `seeking`, `url`, `notes`) VALUES (NULL, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO `announcement_data` (`TimeOfUpload`,`aid`, `position`, `employer`, `seeking`, `url`, `notes`) VALUES (CURRENT_DATE(), NULL, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($cnxn, $sql);
 
     mysqli_stmt_bind_param($stmt, "sssss", $position, $employer, $seeking, $url, $notes);
