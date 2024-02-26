@@ -347,62 +347,70 @@ function validateMessage(inputMessage)
  delete button script
  \****************************************************************************/
 
-let deleteAccountElements = document.querySelectorAll(".delete-account");
-let deleteAccountOverlay = document.querySelector(".delete-account-overlay");
-let userInfoContainerDelete = document.querySelector(".info-button-delete");
-let cancelButton = document.querySelector(".cancel-button");
-let deleteButton = document.querySelector(".delete-button");
+let userID = '';
 
-let buttonContainer = document.querySelector(".delete-buttons");
-
-deleteButton.addEventListener("click", function() {
-    let confirmation = document.querySelector(".delete-confirmation");
-    deleteButton.textContent = "CONFIRM";
-    deleteButton.classList.add('delete-confirmation');
-    confirmation.addEventListener('click', function() {
-        document.location.href = 'softdelete.php';
-    });
-
-    cancelButton.addEventListener("click", function() {
-        deleteButton.textContent = "DELETE";
-        deleteButton.classList.remove('delete-confirmation');
-    })
-
-})
-
-userInfoContainerDelete.style.cursor = "pointer";
-
-
-for (let i = 0; i < deleteAccountElements.length; i++) {
-    deleteAccountElements[i].addEventListener("click", function()
-    {
-        deleteAccountOverlay.style.visibility = "visible";
-        deleteAccountOverlay.style.opacity = "1";
-    });
+function deleteUser(userId) {
+    userID = userId;
+    deleteInput.value = userID;
 }
 
-userInfoContainerDelete.addEventListener("click", function()
-{
-    deleteAccountOverlay.style.visibility = "visible";
-    deleteAccountOverlay.style.opacity = "1";
-});
-
-cancelButton.addEventListener("click", function() {
-    deleteAccountOverlay.style.visibility = "hidden";
-    deleteAccountOverlay.style.opacity = "0";
-})
+let deleteButton = document.querySelectorAll('.delete-account');
+let deleteConfirmationOverlay = document.querySelector('.delete-account-overlay');
+let deleteInput = document.querySelector('#delete-input');
+let cancelButton = document.querySelector('.cancel-button');
 
 
-let user_rows = document.querySelectorAll('.table-user-info');
-
-user_rows.forEach(function(row) {
-    let deleteButton = row.querySelector('.delete-account');
-    let studentID = row.querySelector('.student-email');
-    deleteButton.addEventListener('click', function() {
-        let inputText = studentID.textContent;
-        console.log(inputText);
+for (let i = 0; i < deleteButton.length; i++) {
+    deleteButton[i].addEventListener('click', function() {
+        deleteConfirmationOverlay.style.visibility = 'visible';
+        deleteConfirmationOverlay.style.opacity = '1';
     });
+
+
+}
+
+
+
+
+
+cancelButton.addEventListener('click', function() {
+    deleteConfirmationOverlay.style.visibility = 'hidden';
+    deleteConfirmationOverlay.style.opacity = '0';
 });
+
+
+
+
 /****************************************************************************\
  end delete button script
+ \****************************************************************************/
+
+
+
+/****************************************************************************\
+ view user info button script
+ \****************************************************************************/
+let userTableRows = document.querySelectorAll('.table-user-info');
+
+userTableRows.forEach(function(row) {
+    let viewInfoButton = row.querySelector('.view-info');
+
+    let userId = row.querySelector('.student-id').innerText;
+    let userName = row.querySelector('.student-name').innerText;
+    let userEmail = row.querySelector('.student-email').innerText;
+
+    let userIdInfo = document.querySelector('.category-user-id');
+    let userNameInfo = document.querySelector('.category-user-name');
+    let userEmailInfo = document.querySelector('.category-user-email');
+
+
+    viewInfoButton.addEventListener('click', function() {
+        userIdInfo.innerText = userId;
+        userNameInfo.innerText = userName;
+        userEmailInfo.innerText = userEmail;
+    });
+});
+
+/****************************************************************************\
+ END view user info button script
  \****************************************************************************/

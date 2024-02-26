@@ -269,7 +269,7 @@
                 <table class="users">
                     <?php
                     require '/home/teambeet/dbConnect.php';
-                    $sql = "SELECT * FROM user_data";
+                    $sql = "SELECT * FROM user_data ORDER BY uid DESC";
                     $result = @mysqli_query($cnxn, $sql);
                     while ($row = mysqli_fetch_assoc($result))
                     {
@@ -285,19 +285,19 @@
 
                         echo "
                                        <tr class='table-user-info'>
-                                            <td class='student-email'>$uid</td>
+                                            <td class='student-id'>$uid</td>
                                             <td class='student-name'>$name </td>
                                             <td class='student-email'>$email</td>
-                                            <td class='student-email'>$cohort</td>
+                                            <td class='student-cohort'>$cohort</td>
 
                                         <td>
                                             <div class='view-info'>
-                                                View
+                                                <button>View</button>
                                             </div>
                                         </td>
                                          <td>
                                             <div class='delete-account'>
-                                                Delete
+                                                <button class='delete-button' type='button' onClick='deleteUser($uid)'>Delete</button>
                                             </div>
                                          </td>
                                     </tr>";
@@ -316,27 +316,27 @@
                 <div class="row user-grid">
                     <div class="user-row col-md-6">
                         <div class="category category-title">User-ID: </div>
-                        <p class="category category-value">885123</p>
+                        <p class="category category-value category-user-id">[NULL]</p>
                     </div>
                     <div class="user-row col-md-6">
                         <div class="category category-title">User-name: </div>
-                        <p class="category category-value">John Doe</p>
+                        <p class="category category-value category-user-name">[NULL]</p>
                     </div>
                     <div class="user-row col-md-6">
                         <div class="category category-title">User-email: </div>
-                        <p class="category category-value">johndoe@gmail.com</p>
+                        <p class="category category-value category-user-email">[NULL]</p>
                     </div>
                     <div class="user-row col-md-6">
                         <div class="category category-title">Last-Login Date: </div>
-                        <p class="category category-value">09/09/2024</p>
+                        <p class="category category-value">[NULL]</p>
                     </div>
                     <div class="user-row col-md-6">
                         <div class="category category-title">Account Created: </div>
-                        <p class="category category-value">05/16/2024</p>
+                        <p class="category category-value">[NULL]</p>
                     </div>
                     <div class="user-row col-md-6">
                         <div class="category category-title">Number of Applications: </div>
-                        <p class="category category-value">23</p>
+                        <p class="category category-value">[NULL]</p>
                     </div>
 
                     <div class="buttons col-md-12">

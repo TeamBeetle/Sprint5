@@ -186,12 +186,11 @@ td,tr,.announcement-row
 }
 
 .view-info {
-    border: solid green 1px;
+    cursor: pointer;
 }
 
 .delete-account {
-    border: solid red 1px;
-    margin-right: 10px;
+    cursor: pointer;
 }
 
 .user-details
@@ -252,6 +251,7 @@ td,tr,.announcement-row
 
 .spacing {
     margin: 30px;
+    flex: 1;
 }
 
 /* Footer CSS */
@@ -707,6 +707,8 @@ span.error
 
 /* End sign up form css */
 
+/* delete button styles */
+
 .delete-account-overlay {
     width: 100%;
     height: 100%;
@@ -754,10 +756,6 @@ span.error
     grid-gap: 20px;
 }
 
-.delete-account {
-    cursor: pointer;
-}
-
 .delete-container button {
     width: 40%;
     height: 40%;
@@ -771,4 +769,26 @@ span.error
 .delete-button {
     color: #ab0000;
     border: solid #ab0000 2px;
+}
+
+.delete-buttons form {
+    width: 40%;
+    height: 40%;
+}
+
+.delete-buttons button[type="submit"] {
+    display:flex;
+    height: 100%;
+    width: 100%;
+    justify-content:center;
+    align-items:center;
+}
+/* Delete button end styles */
+
+/* delete message for softdelete.php page */
+.delete-message {
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
