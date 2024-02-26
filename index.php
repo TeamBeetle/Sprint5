@@ -403,7 +403,7 @@
                 <script> tempAnnouncements.push({
                 description: '$employer + $jobDesc + $role + $status + $notes + $dateFollowUp',
                 dateOut: (new Date('$dateFollowUp').getTime() - date.getTime())/miliToDay 
-                })
+                });
                 console.log(new Date('$dateFollowUp').getDay());
                 console.log(date.getDay());
                 console.log(date.getTime());
@@ -432,10 +432,10 @@
                 <script> tempAnnouncements.push({
                 description: '$employer + $position + $seeking + $url + $notes',
                 dateOut: (new Date('$timeOfUpload').getTime() - date.getTime())/miliToDay 
-                })
+                });
                 console.log('Time of Upload' + new Date('$timeOfUpload').getDay());
                 console.log(date.getDay());
-                console.log(date.getTime())
+                console.log(date.getTime());
                 </script>";
 
         } //end of while loop
