@@ -404,9 +404,6 @@
                 description: '$employer + $jobDesc + $role + $status + $notes + $dateFollowUp',
                 dateOut: (new Date('$dateFollowUp').getTime() - date.getTime())/miliToDay 
                 });
-                console.log(new Date('$dateFollowUp').getDay());
-                console.log(date.getDay());
-                console.log(date.getTime());
                 </script>";
 
             } //end of while loop
@@ -414,9 +411,9 @@
 
             //BEGINNING OF LOOP 2 ELECTRIC BOOGALOO :)
             $sql2 = "SELECT * FROM announcement_data ORDER BY aid DESC";
-            $result1 = @mysqli_query($cnxn, $sql1);
+            $result2 = @mysqli_query($cnxn, $sql2);
 
-        while($row = mysqli_fetch_assoc($result1))
+        while($row = mysqli_fetch_assoc($result2))
         {
             //time of upload needs to be not NAN at the moment. must convert
             $timeOfUpload = $row['TimeOfUpload'];
@@ -433,12 +430,13 @@
                 description: '$employer + $position + $seeking + $url + $notes',
                 dateOut: (new Date('$timeOfUpload').getTime() - date.getTime())/miliToDay 
                 });
-                console.log('Time of Upload' + new Date('$timeOfUpload').getDay());
-                console.log(date.getDay());
-                console.log(date.getTime());
                 </script>";
 
         } //end of while loop
+            echo "<script> tempAnnouncements.sort(function(a,b) {return a.dateOut - b.dateOut}); 
+    
+            </script>";
+
             ?>
         <div class="reminder-row">
             <p>this is a place holder</p>
