@@ -433,31 +433,22 @@
                 </script>";
 
         } //end of while loop
-            echo "<script> tempAnnouncements.sort(function(a,b) {return a.dateOut - b.dateOut}); 
+            echo "<script> tempAnnouncements.sort(function(a,b) {return a.dateOut - b.dateOut});
+                let recentContainer = document.querySelector('#remindercontainer');
+                for(element of tempAnnouncements)
+                {
+                    if (element.dateOut <= 5 && element.dateOut >= -5)
+                    {
+                        let html = `<div class='reminder-row'>
+                                <p>`+ element.description + `</p>
+                           </div>`;
+                        recentContainer.insertAdjacentHTML('beforeend', html);
+                    }
+                }
     
             </script>";
 
             ?>
-        <div class="reminder-row">
-            <p>this is a place holder</p>
-        </div>
-
-        <div class="reminder-row">
-            <p>this is a place holder</p>
-        </div>
-
-        <div class="reminder-row">
-            <p>this is a place holder</p>
-        </div>
-        <div class="reminder-row">
-            <p>this is a place holder</p>
-        </div>
-        <div class="reminder-row">
-            <p>this is a place holder</p>
-        </div>
-        <div class="reminder-row">
-            <p>this is a place holder</p>
-        </div>
     </div>
 </div>
 
