@@ -269,7 +269,7 @@
                 <table class="users">
                     <?php
                     require '/home/teambeet/dbConnect.php';
-                    $sql = "SELECT * FROM user_data ORDER BY uid DESC";
+                    $sql = "SELECT * FROM test_user_data ORDER BY uid DESC";
                     $result = @mysqli_query($cnxn, $sql);
                     while ($row = mysqli_fetch_assoc($result))
                     {
@@ -281,6 +281,13 @@
                         $user_seeking_job = $row['user_seeking_job'];
                         $user_not_seeking = $row['user_not_seeking'];
                         $user_interest = $row['user_interest'];
+                        $user_admin_status = $row['user_admin_status'];
+
+                        if ($user_admin_status == 0) {
+                            $user_admin_status = 'User';
+                        } else if ($user_admin_status == 1) {
+                            $user_admin_status = 'Admin';
+                        }
 
 
                         echo "
@@ -289,7 +296,7 @@
                                             <td class='student-name'>$name </td>
                                             <td class='student-email'>$email</td>
                                             <td class='student-cohort'>$cohort</td>
-
+                                            <td class='admin-status'>$user_admin_status</td>
                                         <td>
                                             <div class='view-info'>
                                                 <button>View</button>
@@ -315,28 +322,28 @@
 
                 <div class="row user-grid">
                     <div class="user-row col-md-6">
-                        <div class="category category-title">User-ID: </div>
+                        <div class="category category-title">User-ID:</div>
                         <p class="category category-value category-user-id">[NULL]</p>
                     </div>
                     <div class="user-row col-md-6">
-                        <div class="category category-title">User-name: </div>
+                        <div class="category category-title">User-name:</div>
                         <p class="category category-value category-user-name">[NULL]</p>
                     </div>
                     <div class="user-row col-md-6">
-                        <div class="category category-title">User-email: </div>
+                        <div class="category category-title">User-email:</div>
                         <p class="category category-value category-user-email">[NULL]</p>
                     </div>
                     <div class="user-row col-md-6">
-                        <div class="category category-title">Last-Login Date: </div>
+                        <div class="category category-title">Cohort:</div>
+                        <p class="category category-value category-user-cohort">[NULL]</p>
+                    </div>
+                    <div class="user-row col-md-6">
+                        <div class="category category-title">Account Created:</div>
                         <p class="category category-value">[NULL]</p>
                     </div>
                     <div class="user-row col-md-6">
-                        <div class="category category-title">Account Created: </div>
-                        <p class="category category-value">[NULL]</p>
-                    </div>
-                    <div class="user-row col-md-6">
-                        <div class="category category-title">Number of Applications: </div>
-                        <p class="category category-value">[NULL]</p>
+                        <div class="category category-title">Permission-level</div>
+                        <p class="category category-value category-permission-level">[NULL]</p>
                     </div>
 
                     <div class="buttons col-md-12">
