@@ -154,7 +154,7 @@ li:hover{
 
 .main-display
 {
-    width: 70%;
+    width: 100%;
 }
 
 .user-display {
@@ -204,25 +204,15 @@ td,tr,.announcement-row
     font-size: 30px;
 }
 
+.category-user-email {
+    overflow: auto;
+}
+
 .user-details .buttons {
     display: flex;
     flex-direction: row;
     grid-gap: 30px;
-    margin-top: 30px;
-}
-
-.user-details .info-button-message {
-    border: green solid 1px;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-}
-
-.user-details .info-button-delete {
-    border: #ff0000 solid 1px;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
+    margin: 10px 0;
 }
 
 .user-details p {
@@ -235,7 +225,6 @@ td,tr,.announcement-row
 }
 
 .user-details .user-grid {
-    height: 200px;
     font-size: 20px;
 }
 
@@ -785,7 +774,7 @@ span.error
 }
 /* Delete button end styles */
 
-/* delete message for softdelete.php page */
+/*message for softdelete.php page and change admin page*/
 .delete-message {
     width:100%;
     display: flex;

@@ -420,3 +420,18 @@ userTableRows.forEach(function(row) {
 /****************************************************************************\
  END view user info button script
  \****************************************************************************/
+
+/****************************************************************************\
+ change user permissions script
+ \****************************************************************************/
+let changeAdminStatusButton = document.querySelector('.change-permission-button');
+
+changeAdminStatusButton.addEventListener('click', function() {
+    let userInfoIDValue = document.querySelector('.category-user-id').innerText;
+
+    let changeUserIDValue = document.querySelector('.change-permission-level');
+    changeUserIDValue.value = userInfoIDValue;
+});
+/****************************************************************************\
+ END change user permissions script
+ \****************************************************************************/

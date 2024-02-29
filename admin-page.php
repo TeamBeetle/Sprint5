@@ -323,36 +323,42 @@
                 <div class="row user-grid">
                     <div class="user-row col-md-6">
                         <div class="category category-title">User-ID:</div>
-                        <p class="category category-value category-user-id">[NULL]</p>
+                        <p class="category category-value category-user-id"> </p>
                     </div>
                     <div class="user-row col-md-6">
                         <div class="category category-title">User-name:</div>
-                        <p class="category category-value category-user-name">[NULL]</p>
+                        <p class="category category-value category-user-name"> </p>
                     </div>
                     <div class="user-row col-md-6">
                         <div class="category category-title">User-email:</div>
-                        <p class="category category-value category-user-email">[NULL]</p>
+                        <p class="category category-value category-user-email"> </p>
                     </div>
                     <div class="user-row col-md-6">
                         <div class="category category-title">Cohort:</div>
-                        <p class="category category-value category-user-cohort">[NULL]</p>
+                        <p class="category category-value category-user-cohort"> </p>
                     </div>
                     <div class="user-row col-md-6">
                         <div class="category category-title">Account Created:</div>
-                        <p class="category category-value">[NULL]</p>
+                        <p class="category category-value">2/29/2024</p>
                     </div>
                     <div class="user-row col-md-6">
                         <div class="category category-title">Permission-level</div>
-                        <p class="category category-value category-permission-level">[NULL]</p>
+                        <p class="category category-value category-permission-level"> </p>
                     </div>
 
                     <div class="buttons col-md-12">
-                        <div class="info-button-message">
-                            MESSAGE
+                        <div class="info-button-change-permission">
+                            <form action='user-permission-level.php' method='post'>
+                                <input type='hidden' class='change-permission-level' name='hidden-value' value=''>
+                                <button class='change-permission-button' type='submit'>CHANGE PERMISSIONS</button>
+                            </form>
                         </div>
 
                         <div class="info-button-delete">
-                            DELETE
+                            <form action='softdelete.php' method='post'>
+                                <input type='hidden' name='hidden-value' value=''>
+                                <button class='change-permission-button' type='submit'>DELETE</button>
+                            </form>
                         </div>
                     </div>
                 </div>
