@@ -26,12 +26,14 @@ if (mail($to, $subject,$message, $headers))
     $seeking = $_POST['app-status'];
     $url = $_POST['app-link'];
     $notes = $_POST['app-info'];
+    $target = $_POST['app-target'];
+    $cohort = $_POST['app-cohort'];
     //define insert query
     // Define insert query with placeholders
-    $sql = "INSERT INTO `announcement_data` (`TimeOfUpload`,`aid`, `position`, `employer`, `seeking`, `url`, `notes`, `Targeted`, `cohort`) VALUES (CURRENT_DATE(), NULL, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO `announcement_data` (`TimeOfUpload`,`aid`, `position`, `employer`, `seeking`, `url`, `notes`, `targeted`, `cohort`) VALUES (CURRENT_DATE(), NULL, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($cnxn, $sql);
 
-    mysqli_stmt_bind_param($stmt, "sssss", $position, $employer, $seeking, $url, $notes);
+    mysqli_stmt_bind_param($stmt, "ssssssi", $position, $employer, $seeking, $url, $notes, $target, $cohort);
 
     $result = mysqli_stmt_execute($stmt);
 
@@ -95,6 +97,14 @@ if (mail($to, $subject,$message, $headers))
        <tr class='receiptPageRow'>
       <td class='receiptPageData'>Notes</td>
       <td class='receiptPageData'> $notes</td>
+    </tr>
+     <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Target</td>
+      <td class='receiptPageData'> $target</td>
+    </tr>
+     <tr class='receiptPageRow'>
+      <td class='receiptPageData'>Cohort</td>
+      <td class='receiptPageData'> $cohort</td>
     </tr>
     </table>
         </div>
