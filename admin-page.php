@@ -98,6 +98,18 @@
                     <input id="app-recipient" placeholder="Enter Recipient" name="app-recipient">
                     <span id="app-recipient-error" class="error">Please enter a valid email.</span>
                 </div>
+                <div>
+                    <label for="app-target" class="col-12">Target Audience</label>
+                    <select id="app-target" class="col-12">
+                        <option value="users">All Users</option>
+                        <option value="cohort">Specific Cohort</option>
+                        <option value="admins">Admins Only</option>
+                    </select>
+                </div>
+                <div class="hidden" id="cohort-specific">
+                    <label for="app-cohort" class="col-12">Specific Cohort</label>
+                    <input id="app-cohort" class="col-12" type="number">
+                </div>
                 <div class="col-12 add-app-input">
                     <label for="app-info" class="col-12">Notes</label>
                     <textarea id="app-info" placeholder="Additional information" name="app-info" cols="20" rows="3"></textarea>
