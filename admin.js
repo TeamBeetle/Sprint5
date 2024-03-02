@@ -398,19 +398,40 @@ userTableRows.forEach(function(row) {
     let userId = row.querySelector('.student-id').innerText;
     let userName = row.querySelector('.student-name').innerText;
     let userEmail = row.querySelector('.student-email').innerText;
+    let userCohort = row.querySelector('.student-cohort').innerHTML;
+    let permissionLevel = row.querySelector('.admin-status').innerText;
 
     let userIdInfo = document.querySelector('.category-user-id');
     let userNameInfo = document.querySelector('.category-user-name');
     let userEmailInfo = document.querySelector('.category-user-email');
+    let userCohortInfo = document.querySelector('.category-user-cohort');
+    let userPermissionLevelInfo = document.querySelector('.category-permission-level');
 
 
     viewInfoButton.addEventListener('click', function() {
         userIdInfo.innerText = userId;
         userNameInfo.innerText = userName;
         userEmailInfo.innerText = userEmail;
+        userCohortInfo.innerText = userCohort;
+        userPermissionLevelInfo.innerText = permissionLevel;
     });
 });
 
 /****************************************************************************\
  END view user info button script
+ \****************************************************************************/
+
+/****************************************************************************\
+ change user permissions script
+ \****************************************************************************/
+let changeAdminStatusButton = document.querySelector('.change-permission-button');
+
+changeAdminStatusButton.addEventListener('click', function() {
+    let userInfoIDValue = document.querySelector('.category-user-id').innerText;
+
+    let changeUserIDValue = document.querySelector('.change-permission-level');
+    changeUserIDValue.value = userInfoIDValue;
+});
+/****************************************************************************\
+ END change user permissions script
  \****************************************************************************/
