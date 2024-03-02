@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-12">
                     <label for="app-target">Target Audience</label>
-                    <select id="app-target">
+                    <select id="app-target" name="app-target">
                         <option value="users">All Users</option>
                         <option value="cohort">Specific Cohort</option>
                         <option value="admins">Admins Only</option>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="col-12" id="cohort-specific">
                     <label for="app-cohort" >Specific Cohort</label>
-                    <input id="app-cohort" type="number">
+                    <input id="app-cohort" name="app-cohort" type="number">
                     <span id="app-cohort-error" class="error">Please enter a cohort number (1-100)</span>
                 </div>
                 <div class="col-12 add-app-input">
