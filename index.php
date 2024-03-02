@@ -407,7 +407,7 @@
                 //per loop in while loop we fill out the array given above.
             echo "
                 <script> tempAnnouncements.push({
-                description: '$employer + $jobDesc + $role + $status + $notes + $dateFollowUp',
+                description: '$employer $jobDesc, $role $status $notes $dateFollowUp',
                 dateOut: (new Date('$dateFollowUp').getTime() - date.getTime())/miliToDay 
                 });
                 </script>";
