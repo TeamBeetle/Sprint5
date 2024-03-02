@@ -42,6 +42,12 @@
             <li class="nav-item">
                 <a class="nav-link contact-anchor contact" href="#">Contact</a>
             </li>
+            <li>
+                <a class="nav-link update-account-settings" href="#">Update Account Settings</a>
+            </li>
+            <li>
+                <a class="nav-link admin-login" href="#">Admin Login</a>
+            </li>
         </ul>
     </div>
     <div id="toggleContainer" class="col-2">
@@ -459,10 +465,12 @@
     </div>
 
     <div>
+        <!--
         <button type="button" class="btn btn-outline-primary">ADD NEW APP</button>
 
         <button type="button" class="btn btn-outline-success">UPDATE ACCOUNT SETTINGS</button>
-        <button type="button" class="btn btn-outline-danger admin-login">ADMIN LOGIN</button>
+        <button type="button" class="btn btn-outline-primary admin-login">ADMIN LOGIN</button>
+        -->
     </div>
 
     <div>
