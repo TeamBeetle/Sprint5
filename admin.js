@@ -8,6 +8,8 @@ const page = document.querySelector('HTML');
 window.onload = () =>
 {
     document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
+    document.getElementById("cohort-specific").style.visibility = "hidden";
+    document.getElementById("cohort-specific").style.display = "none";
 };
 
 toggleContainer.addEventListener('click', function(e)
@@ -163,12 +165,17 @@ appSubmitButton.addEventListener("click", function (event)
     let announceStatus = document.getElementsByName("app-status"); //buttons
     let appLink = document.querySelector("#app-link").value; //string
     let recipientEmail = document.querySelector("#app-recipient").value;
+    let target = document.getElementById("app-target").value;
 
     error += positionNameValidation(positionName);
     error += employerTitleValidation(employerTitle);
     error += announcementStatusValidation(announceStatus);
     error += appLinkValidation(appLink);
     error += recipientEmailValidation(recipientEmail);
+    if (target == "cohort")
+    {
+        error += cohortsubmission()
+    }
 
     //resume if okay
     if (error === 0)
@@ -257,6 +264,10 @@ function recipientEmailValidation(recipientEmail)
         document.querySelector('#app-recipient-error').style.display = "inline";
         return 1;
     }
+}
+function cohortsubmission(cohortSub)
+{
+
 }
 
 /*********************** end application script *****************************/
@@ -435,3 +446,21 @@ changeAdminStatusButton.addEventListener('click', function() {
 /****************************************************************************\
  END change user permissions script
  \****************************************************************************/
+
+
+/****************************************************************************
+ Beginning of target audience for announcements
+ **************************************************************************/
+
+document.getElementById("app-target").addEventListener("focusout", function (){
+    if (document.getElementById("app-target").value == "cohort")
+    {
+        document.getElementById("cohort-specific").style.visibility = "visible";
+        document.getElementById("cohort-specific").style.display = "inline";
+    }
+    else
+    {
+        document.getElementById("cohort-specific").style.visibility = "hidden";
+        document.getElementById("cohort-specific").style.display = "none";
+    }
+});

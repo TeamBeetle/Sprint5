@@ -98,17 +98,17 @@
                     <input id="app-recipient" placeholder="Enter Recipient" name="app-recipient">
                     <span id="app-recipient-error" class="error">Please enter a valid email.</span>
                 </div>
-                <div>
-                    <label for="app-target" class="col-12">Target Audience</label>
-                    <select id="app-target" class="col-12">
+                <div class="col-12">
+                    <label for="app-target">Target Audience</label>
+                    <select id="app-target">
                         <option value="users">All Users</option>
                         <option value="cohort">Specific Cohort</option>
                         <option value="admins">Admins Only</option>
                     </select>
                 </div>
-                <div class="hidden" id="cohort-specific">
-                    <label for="app-cohort" class="col-12">Specific Cohort</label>
-                    <input id="app-cohort" class="col-12" type="number">
+                <div class="col-12" id="cohort-specific">
+                    <label for="app-cohort" >Specific Cohort</label>
+                    <input id="app-cohort" type="number">
                 </div>
                 <div class="col-12 add-app-input">
                     <label for="app-info" class="col-12">Notes</label>
@@ -416,6 +416,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-<script src="admin.js?v=14"></script>
+<script src="admin.js?v=17"></script>
 </body>
 </html>
