@@ -338,6 +338,12 @@
             <th colspan = "5">
                 Recent Applications
             </th>
+            <tr>
+                <th data-sortable="true" data-sorter="alphanum">Date Applied</th>
+                <th>Employer</th>
+                <th>Job Description</th>
+                <th>Status</th>
+            </tr>
             <?php
             require '/home/teambeet/dbConnect.php';
             echo "<script> let tempApplications = {}; </script>";
@@ -368,9 +374,12 @@
           followDate: `$dateFollowUp`,
           notes: `$notes`
       };</script>
+       
+ 
       <tr>
           <td class='appinfo'>$dateApplied</td>
-          <td class='appinfo'>$employer $jobDesc</td>
+          <td class='appinfo'>$employer</td>
+          <td class='appinfo'>$jobDesc</td>
           <td class='appinfo'>$status</td>
           <td id='recentApplication_$aid' class='appinfo button update'>Update</td>
           <td class='appinfo'>delete</td>
@@ -513,6 +522,6 @@
 
 
 <script src="user.js?v=9"> </script>
+<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/extensions/natural-sorting/bootstrap-table-natural-sorting.min.js"></script>
 </body>
-
 </html>
