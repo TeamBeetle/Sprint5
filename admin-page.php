@@ -109,6 +109,7 @@
                 <div class="col-12" id="cohort-specific">
                     <label for="app-cohort" >Specific Cohort</label>
                     <input id="app-cohort" type="number">
+                    <span id="app-cohort-error" class="error">Please enter a cohort number (1-100)</span>
                 </div>
                 <div class="col-12 add-app-input">
                     <label for="app-info" class="col-12">Notes</label>

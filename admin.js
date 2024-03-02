@@ -166,6 +166,7 @@ appSubmitButton.addEventListener("click", function (event)
     let appLink = document.querySelector("#app-link").value; //string
     let recipientEmail = document.querySelector("#app-recipient").value;
     let target = document.getElementById("app-target").value;
+    let cohortNum = document.getElementById("app-cohort").value;
 
     error += positionNameValidation(positionName);
     error += employerTitleValidation(employerTitle);
@@ -174,7 +175,7 @@ appSubmitButton.addEventListener("click", function (event)
     error += recipientEmailValidation(recipientEmail);
     if (target == "cohort")
     {
-        error += cohortsubmission()
+        error += cohortsubmission(cohortNum);
     }
 
     //resume if okay
@@ -267,7 +268,16 @@ function recipientEmailValidation(recipientEmail)
 }
 function cohortsubmission(cohortSub)
 {
-
+    if (cohortSub > 0 && cohortSub <= 100)
+    {
+        document.querySelector('#app-cohort-error').style.display = "none";
+        return 0;
+    }
+    else
+    {
+        document.querySelector('#app-cohort-error').style.display = "inline";
+        return 1;
+    }
 }
 
 /*********************** end application script *****************************/
