@@ -425,7 +425,7 @@
 
 
             //BEGINNING OF LOOP 2 ELECTRIC BOOGALOO :)
-            $sql2 = "SELECT * FROM announcement_data ORDER BY aid DESC";
+            $sql2 = "SELECT * FROM announcement_data WHERE targeted = 'users' OR cohort = 19 AND NOT targeted = 'admins'  ORDER BY aid DESC"; //cohort 19 is hardcoded when we enter sessions change it to users cohort :)
             $result2 = @mysqli_query($cnxn, $sql2);
 
         while($row = mysqli_fetch_assoc($result2))

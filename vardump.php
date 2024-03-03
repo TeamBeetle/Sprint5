@@ -16,11 +16,11 @@ if ($target == "users")
 }
 else if ($target == "admins")
 {
-    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `test_user_data` WHERE user_admin_status == 1");
+    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `test_user_data` WHERE user_admin_status = 1");
 }
 else if ($target == "cohort")
 {
-    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `test_user_data` WHERE user_cohort == $cohort");
+    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `test_user_data` WHERE user_cohort = $cohort");
 }
 
 while ($row = mysqli_fetch_assoc($user_email_query))
@@ -34,11 +34,12 @@ $subject = $_POST['app-position'] . " : ". $_POST['app-employer'];
 $message = "NEW OPPORTUNITIES FOUND AT " . $_POST['app-employer'] . " Looking for a " . $_POST['app-position'] . " This is a " . $_POST['app-status'] . " position. " . "\n"
  . $_POST['app-info'] . " Apply here : " . $_POST['app-link'] . " , " . $_POST['app-date'];
 
-$headers = 'From: ' . $subject . "\r\n" .
+//header is junk data for now
+$headers ='From: ' . $subject . "\r\n" .
     'Reply-To : ' . $subject . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
-if (mail($to, $subject,$message, $headers))
+if (mail($to, $subject, $message)) //removed header
 {
     //connect to db
     $position = $_POST['app-position'];
