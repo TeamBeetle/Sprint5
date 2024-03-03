@@ -12,17 +12,24 @@ $to = "";
 $user_email_query = null;
 if ($target == "users")
 {
-    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `user_data`");
+    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `test_user_data`");
 }
 else if ($target == "admins")
 {
-    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `user_data` WHERE targeted == admins");
+    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `test_user_data` WHERE user_admin_status == 1");
+}
+else if ($target == "cohort")
+{
+    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `test_user_data` WHERE user_cohort == $cohort");
 }
 
 while ($row = mysqli_fetch_assoc($user_email_query))
 {
     $to .= $row["user_email"].", ";
 }
+//cutting off the last ", "
+$to = substr($to,0,-2);
+
 $subject = $_POST['app-position'] . " : ". $_POST['app-employer'];
 $message = "NEW OPPORTUNITIES FOUND AT " . $_POST['app-employer'] . " Looking for a " . $_POST['app-position'] . " This is a " . $_POST['app-status'] . " position. " . "\n"
  . $_POST['app-info'] . " Apply here : " . $_POST['app-link'] . " , " . $_POST['app-date'];
