@@ -3,9 +3,22 @@
 <?php
 error_reporting(0);
 require '/home/teambeet/dbConnect.php';
+
+$target = $_POST['app-target'];
+$cohort = $_POST['app-cohort'];
+
 //to will later redirect to Tyler Email.
 $to = "";
-$user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `user_data`");
+$user_email_query = null;
+if ($target == "users")
+{
+    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `user_data`");
+}
+else if ($target == "admins")
+{
+    $user_email_query = mysqli_query($cnxn, "SELECT `user_email` FROM `user_data` WHERE targeted == admins");
+}
+
 while ($row = mysqli_fetch_assoc($user_email_query))
 {
     $to .= $row["user_email"].", ";
@@ -26,8 +39,7 @@ if (mail($to, $subject,$message, $headers))
     $seeking = $_POST['app-status'];
     $url = $_POST['app-link'];
     $notes = $_POST['app-info'];
-    $target = $_POST['app-target'];
-    $cohort = $_POST['app-cohort'];
+
     //define insert query
     // Define insert query with placeholders
     $sql = "INSERT INTO `announcement_data` (`TimeOfUpload`,`aid`, `position`, `employer`, `seeking`, `url`, `notes`, `targeted`, `cohort`) VALUES (CURRENT_DATE(), NULL, ?, ?, ?, ?, ?, ?, ?)";

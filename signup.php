@@ -121,7 +121,7 @@ if($nameCheck == 0 || $emailCheck == 0 || $cohortCheck == 0 || $checkboxSum < 1)
     //connect to db
     require '/home/teambeet/dbConnect.php';
     //define insert query
-    $sql = "INSERT INTO `user_data` (`uid`, `user_name`, `user_email`, `user_cohort`, `user_seeking_internship`, `user_seeking_job`, `user_not_seeking`, `user_interest`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO `test_user_data` (`uid`, `user_name`, `user_email`, `user_cohort`, `user_seeking_internship`, `user_seeking_job`, `user_not_seeking`, `user_interest`, `user_admin_status`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 0)";
 
     $stmt = mysqli_prepare($cnxn, $sql);
     mysqli_stmt_bind_param($stmt,"ssissss",$userName,$userEmail ,$userCohort,$seekingInternship,
