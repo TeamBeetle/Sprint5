@@ -59,6 +59,9 @@ if ($current_permission_level == 1) {
                                 <li class='nav-item'>
                                     <a class='nav-link' href='index.php'>Dashboard</a>
                                 </li>
+                                <li class='navbar-nav links'>
+                                    <a class='nav-link' href='admin-page.php'>Admin</a>
+                                </li>
                             </ul>
                         </div>
                         <div id='toggleContainer' class='col-2'>

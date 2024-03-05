@@ -290,15 +290,17 @@ function validateMessage(inputMessage)
  delete button script
  \****************************************************************************/
 
-let deleteButton = document.querySelectorAll('.delete-account');
-let deleteConfirmationOverlay = document.querySelector('.delete-account-overlay');
-let deleteInput = document.querySelector('#delete-input');
-let cancelButton = document.querySelector('.cancel-button');
+let userID = '';
 
 function deleteUser(userId) {
-    console.log("userId: " + userId);
-    deleteInput.value = userId;
+    userID = userId;
+    deleteInput.value = userID;
 }
+
+let deleteButton = document.querySelectorAll('.delete-account');
+let deleteConfirmationOverlay = document.querySelector('.delete-account-overlay');
+let deleteInput = document.querySelector('.delete-input');
+let cancelButton = document.querySelector('.cancel-button');
 
 
 for (let i = 0; i < deleteButton.length; i++) {
@@ -319,7 +321,11 @@ cancelButton.addEventListener('click', function() {
     deleteConfirmationOverlay.style.opacity = '0';
 });
 
-
+function infoBoxDelete() {
+    let infoContainerDelete = document.querySelector('.info-box-delete');
+    let userIdInfoValue = document.querySelector('.category-user-id');
+    infoContainerDelete.value = userIdInfoValue.innerText;
+}
 
 
 /****************************************************************************\

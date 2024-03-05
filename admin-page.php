@@ -371,9 +371,9 @@
                         </div>
 
                         <div class="info-button-delete">
-                            <form action='softdelete.php' method='post'>
-                                <input type='hidden' name='hidden-value' value=''>
-                                <button class='change-permission-button' type='submit'>DELETE</button>
+                            <form action='softdelete.php' method='POST'>
+                                <input class='info-box-delete' type='hidden' name='hidden-value' value=''>
+                                <button class="delete-button" onClick='infoBoxDelete()'>DELETE</button>
                             </form>
                         </div>
                     </div>
