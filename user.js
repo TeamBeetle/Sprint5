@@ -9,6 +9,8 @@ window.onload = () =>
 {
     if(localStorage.getItem("lightMode") === "dark")
     {
+        document.getElementById("light-btn").classList.remove("active-mode");
+        document.getElementById("dark-btn").classList.add("active-mode");
         document.querySelectorAll(".appinfo").forEach(element =>
         {
             element.style.backgroundColor = "#555";
@@ -39,13 +41,16 @@ toggleContainer.addEventListener('click', function(e)
     {
         return 0;
     }
-    //change active toggle
-    lightButtons.forEach( b => b.classList.remove('active-mode'));
-    clicked.classList.add('active-mode');
-    console.log("button was clicked");
-    //preform actions.
-    //Note: page.attributes[1].value refers to data-bs-theme in <html>
-    lightDark();
+    else
+    {
+        //change active toggle
+        lightButtons.forEach( b => b.classList.remove('active-mode'));
+        clicked.classList.add('active-mode');
+        console.log("button was clicked");
+        //preform actions.
+        //Note: page.attributes[1].value refers to data-bs-theme in <html>
+        lightDark();
+    }
 });
 /************************ end light-mode script *****************************/
 

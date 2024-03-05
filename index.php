@@ -51,8 +51,8 @@
         </ul>
     </div>
     <div id="toggleContainer" class="col-2">
-        <button type="button" class="btn toggle active-mode btn-light">Light</button>
-        <button type="button" class="btn toggle btn-dark">Dark</button>
+        <button id="light-btn" type="button" class="btn toggle active-mode btn-light">Light</button>
+        <button id="dark-btn" type="button" class="btn toggle btn-dark">Dark</button>
     </div>
 </nav>
 
