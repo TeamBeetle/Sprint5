@@ -9,6 +9,8 @@ window.onload = () =>
 {
     if(localStorage.getItem("lightMode") === "dark")
     {
+        localStorage.clear();
+        localStorage.setItem(("lightMode"), "dark");
         document.getElementById("light-btn").classList.remove("active-mode");
         document.getElementById("dark-btn").classList.add("active-mode");
         document.querySelector("body").style.backgroundColor = "#333";
