@@ -327,7 +327,7 @@ function deleteUser(userId) {
 
 let deleteButton = document.querySelectorAll('.delete-account');
 let deleteConfirmationOverlay = document.querySelector('.delete-account-overlay');
-let deleteInput = document.querySelector('#delete-input');
+let deleteInput = document.querySelector('.delete-input');
 let cancelButton = document.querySelector('.cancel-button');
 
 
@@ -349,7 +349,11 @@ cancelButton.addEventListener('click', function() {
     deleteConfirmationOverlay.style.opacity = '0';
 });
 
-
+function infoBoxDelete() {
+    let infoContainerDelete = document.querySelector('.info-box-delete');
+    let userIdInfoValue = document.querySelector('.category-user-id');
+    infoContainerDelete.value = userIdInfoValue.innerText;
+}
 
 
 /****************************************************************************\

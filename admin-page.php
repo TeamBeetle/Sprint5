@@ -165,7 +165,10 @@
         <h3>Are you sure you want to delete this account?</h3>
         <p class="delete-description text-center">This action is permanent and will result in the account being removed from the database and all records</p>
         <div class="delete-buttons">
-            <button class="delete-button">DELETE</button>
+            <form action='softdelete.php' method='post'>
+                <input id='delete-input' type='hidden' name='hidden-value' value=''>
+                <button class="delete-button" type='submit'>DELETE</button>
+            </form>
             <button class="cancel-button">CANCEL</button>
         </div>
     </div>
@@ -368,9 +371,9 @@
                         </div>
 
                         <div class="info-button-delete">
-                            <form action='softdelete.php' method='post'>
-                                <input type='hidden' name='hidden-value' value=''>
-                                <button class='change-permission-button' type='submit'>DELETE</button>
+                            <form action='softdelete.php' method='POST'>
+                                <input class='info-box-delete' type='hidden' name='hidden-value' value=''>
+                                <button class="delete-button" onClick='infoBoxDelete()'>DELETE</button>
                             </form>
                         </div>
                     </div>

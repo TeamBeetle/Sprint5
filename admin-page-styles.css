@@ -714,16 +714,20 @@ span.error
 
 .delete-container {
     background: white;
-    width: 35vh;
-    height: 30vh;
+    width: 400px;
+    height: 350px;
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 110%;
+    font-size: 100%;
     border-radius: 5px;
     grid-row-gap: 10px;
+}
+
+.delete-container h3 {
+    text-align: center;
 }
 
 .delete-container h2 {
