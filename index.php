@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang='en' data-bs-theme="light">
+<html lang='en'>
 <!-- Meta data -->
 <head>
     <meta charset="utf-8" >
     <meta name="viewport" content="width=device-width">
     <title>User Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="style.css?v=1" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=14" rel="stylesheet" type="text/css" />
     <!--extra for nav-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
@@ -57,6 +57,18 @@
 </nav>
 
 <!-- Sign up form -->
+
+<!-- Reminder Review Screen -->
+<div class="review-reminder-form d-flex align-items-center justify-content-center">
+    <div class="review-reminder-close-button">
+        <p>X</p>
+    </div>
+    <div id="review-reminder-content">
+        <h1 id="review-reminder-header"></h1>
+        <div>Description: <span id="review-reminder-description"></span></div>
+    </div>
+</div>
+<!-- End Reminder Review -->
 <!-- this container will remain hidden until the user clicks the sign-up button. -->
 
 
@@ -331,166 +343,148 @@
 <!--end contact form-->
 
 <!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
-<div id="maindisplay" class="">
-    <div class="appsdisplay">
-
-        <table id="apps-table" class="apps">
-            <th colspan = "5">
-                Recent Applications
-            </th>
-            <tr>
-                <th data-sortable="true" data-sorter="alphanum">Date Applied</th>
-                <th>Employer</th>
-                <th>Job Description</th>
-                <th>Status</th>
-            </tr>
-            <?php
-            require '/home/teambeet/dbConnect.php';
-            echo "<script> let tempApplications = {}; </script>";
-            $sql = "SELECT * FROM application_data WHERE user = 'Default User' ORDER BY date_applied DESC";
-            $result = @mysqli_query($cnxn, $sql);
-            //for($i = 0; $i < 5; $i++) //remove 4 loop later and add sliding scroll wheel
-            //{
-            while ($row = mysqli_fetch_assoc($result)) //while loop this instead of if and stop the for loop for all results -Everett
-            {
-                $aid = $row['aid'];
-                $user = $row['user'];
-                $employer = $row['employer_name'];
-                $jobDesc = $row['job_description'];
-                $role = $row['role'];
-                $status = $row['status'];
-                $dateApplied = $row['date_applied'];
-                $dateFollowUp = $row['date_followup'];
-                $notes = $row['notes'];
-                echo "
-      <script>tempApplications[`recentApplication_$aid`] = {
-          id: `$aid`,
-          user: `$user`,
-          employer: `$employer`,
-          job: `$jobDesc`,
-          role: `$role`,
-          status: `$status`,
-          appDate: `$dateApplied`,
-          followDate: `$dateFollowUp`,
-          notes: `$notes`
-      };</script>
-       
- 
-      <tr>
-          <td class='appinfo'>$dateApplied</td>
-          <td class='appinfo'>$employer</td>
-          <td class='appinfo'>$jobDesc</td>
-          <td class='appinfo'>$status</td>
-          <td id='recentApplication_$aid' class='appinfo button update'>Update</td>
-          <td class='appinfo'>delete</td>
-      </tr>";
-            }
-            echo "<script>const recentApplications= tempApplications</script>";
-            //}
-            ?>
-        </table>
-    </div>
-
+<div id="maindisplay">
+            <table id="apps-table" class="apps">
+                <tr class="table-header">
+                    <td id="recent-application-title" colspan = "6">
+                        Recent Applications
+                    </td>
+                </tr>
+                <tr id="recent-application-columns" class="table-header">
+                    <td data-sortable="true" data-sorter="alphanum">Date Applied</td>
+                    <td>Employer</td>
+                    <td>Job Description</td>
+                    <td>Status</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <?php
+                require '/home/teambeet/dbConnect.php';
+                echo "<script> let tempApplications = {}; </script>";
+                $sql = "SELECT * FROM application_data WHERE user = 'Default User' ORDER BY date_applied DESC";
+                $result = @mysqli_query($cnxn, $sql);
+                //for($i = 0; $i < 5; $i++) //remove 4 loop later and add sliding scroll wheel
+                //{
+                while ($row = mysqli_fetch_assoc($result)) //while loop this instead of if and stop the for loop for all results -Everett
+                {
+                    $aid = $row['aid'];
+                    $user = $row['user'];
+                    $employer = $row['employer_name'];
+                    $jobDesc = $row['job_description'];
+                    $role = $row['role'];
+                    $status = $row['status'];
+                    $dateApplied = $row['date_applied'];
+                    $dateFollowUp = $row['date_followup'];
+                    $notes = $row['notes'];
+                    echo "
+          <script>tempApplications[`recentApplication_$aid`] = {
+              id: `$aid`,
+              user: `$user`,
+              employer: `$employer`,
+              job: `$jobDesc`,
+              role: `$role`,
+              status: `$status`,
+              appDate: `$dateApplied`,
+              followDate: `$dateFollowUp`,
+              notes: `$notes`
+          };</script>
+           
+     
+          <tr class='entry'>
+              <td class='appinfo'>$dateApplied</td>
+              <td class='appinfo'>$employer</td>
+              <td class='appinfo'>$jobDesc</td>
+              <td class='appinfo'>$status</td>
+              <td id='recentApplication_$aid' class='appinfo button update'>Update</td>
+              <td class='appinfo'>delete</td>
+          </tr>";
+                }
+                echo "<script>const recentApplications= tempApplications</script>";
+                //}
+                ?>
+            </table>
     <!-- Reminder Container -->
-    <div id="remindercontainer" class="remindercontrol">
-        <div class="container-title">REMINDERS</div>
-        <?php
-            require '/home/teambeet/dbConnect.php';
-            //create initial script which instantiates an array and a variable for today's date.
-            echo "<script> let tempAnnouncements = []; const date = new Date(); const miliToDay = 86400000; </script>";
-            $sql1 = "SELECT * FROM application_data WHERE user = 'Default User' ORDER BY date_followup DESC";
-            $result1 = @mysqli_query($cnxn, $sql1);
-            //run while loop for application data
-            while($row = mysqli_fetch_assoc($result1))
+    <div class="apps">
+        <div id="remindercontainer" class="remindercontrol">
+            <div class="container-title">REMINDERS</div>
+            <?php
+                require '/home/teambeet/dbConnect.php';
+                //create initial script which instantiates an array and a variable for today's date.
+                echo "<script> let tempAnnouncements = []; const date = new Date(); const miliToDay = 86400000; </script>";
+                $sql1 = "SELECT * FROM application_data WHERE user = 'Default User' ORDER BY date_followup DESC";
+                $result1 = @mysqli_query($cnxn, $sql1);
+                //run while loop for application data
+                while($row = mysqli_fetch_assoc($result1))
+                {
+                    $aid = $row['aid'];
+                    $user = $row['user'];
+                    $employer = $row['employer_name'];
+                    $jobDesc = $row['job_description'];
+                    $role = $row['role'];
+                    $status = $row['status'];
+                    $dateApplied = $row['date_applied'];
+                    $dateFollowUp = $row['date_followup'];
+                    $notes = $row['notes'];
+
+                    //per loop in while loop we fill out the array given above.
+                echo "
+                    <script> tempAnnouncements.push({
+                    title: 'Application: follow up with $employer in $dateFollowUp.',
+                    description: '$employer $jobDesc, $role $status $notes $dateFollowUp',
+                    dateOut: (new Date('$dateFollowUp').getTime() - date.getTime())/miliToDay 
+                    });
+                    </script>";
+
+                } //end of while loop
+
+
+                //BEGINNING OF LOOP 2 ELECTRIC BOOGALOO :)
+                $sql2 = "SELECT * FROM announcement_data ORDER BY aid DESC";
+                $result2 = @mysqli_query($cnxn, $sql2);
+
+            while($row = mysqli_fetch_assoc($result2))
             {
-                $aid = $row['aid'];
-                $user = $row['user'];
-                $employer = $row['employer_name'];
-                $jobDesc = $row['job_description'];
-                $role = $row['role'];
-                $status = $row['status'];
-                $dateApplied = $row['date_applied'];
-                $dateFollowUp = $row['date_followup'];
+                //time of upload needs to be not NAN at the moment. must convert
+                $timeOfUpload = $row['TimeOfUpload'];
+                $aid = $row['position'];
+                $position = $row['position'];
+                $employer = $row['employer'];
+                $seeking = $row['seeking'];
+                $url = $row['url'];
                 $notes = $row['notes'];
 
                 //per loop in while loop we fill out the array given above.
-            echo "
-                <script> tempAnnouncements.push({
-                description: '$employer $jobDesc, $role $status $notes $dateFollowUp',
-                dateOut: (new Date('$dateFollowUp').getTime() - date.getTime())/miliToDay 
-                });
-                </script>";
+                echo "
+                    <script> tempAnnouncements.push({
+                    title: 'Recent announcement: $position with $employer posted on $timeOfUpload.',
+                    description: '$employer $position, $seeking $url $notes',
+                    dateOut: (new Date('$timeOfUpload').getTime() - date.getTime())/miliToDay 
+                    });
+                    </script>";
 
             } //end of while loop
-
-
-            //BEGINNING OF LOOP 2 ELECTRIC BOOGALOO :)
-            $sql2 = "SELECT * FROM announcement_data ORDER BY aid DESC";
-            $result2 = @mysqli_query($cnxn, $sql2);
-
-        while($row = mysqli_fetch_assoc($result2))
-        {
-            //time of upload needs to be not NAN at the moment. must convert
-            $timeOfUpload = $row['TimeOfUpload'];
-            $aid = $row['position'];
-            $position = $row['position'];
-            $employer = $row['employer'];
-            $seeking = $row['seeking'];
-            $url = $row['url'];
-            $notes = $row['notes'];
-
-            //per loop in while loop we fill out the array given above.
-            echo "
-                <script> tempAnnouncements.push({
-                description: '$employer $position, $seeking $url $notes',
-                dateOut: (new Date('$timeOfUpload').getTime() - date.getTime())/miliToDay 
-                });
+                echo "<script> tempAnnouncements.sort(function(a,b) {return a.dateOut - b.dateOut});
+                    let recentContainer = document.querySelector('#remindercontainer');
+                    for(let i = 0; i < tempAnnouncements.length; i++)
+                    {                
+                        if (tempAnnouncements[i].dateOut <= 5 && tempAnnouncements[i].dateOut >= -5)
+                        {
+                            console.log('In if');
+                            let html = `<div id='reminder` + i + `' class='reminder-row entry'>
+                                    <p>`+ tempAnnouncements[i].title + `</p>
+                               </div>`;
+                            recentContainer.insertAdjacentHTML('beforeend', html);
+                        }
+                    }
+        
                 </script>";
 
-        } //end of while loop
-            echo "<script> tempAnnouncements.sort(function(a,b) {return a.dateOut - b.dateOut});
-                let recentContainer = document.querySelector('#remindercontainer');
-                for(element of tempAnnouncements)
-                {
-                    if (element.dateOut <= 5 && element.dateOut >= -5)
-                    {
-                        let html = `<div class='reminder-row'>
-                                <p>`+ element.description + `</p>
-                           </div>`;
-                        recentContainer.insertAdjacentHTML('beforeend', html);
-                    }
-                }
-    
-            </script>";
-
-            ?>
+                ?>
+        </div>
     </div>
 </div>
 
-
-
-<div id="bottombuttons">
-    <div>
-    </div>
-
-    <div>
-        <!--
-        <button type="button" class="btn btn-outline-primary">ADD NEW APP</button>
-
-        <button type="button" class="btn btn-outline-success">UPDATE ACCOUNT SETTINGS</button>
-        <button type="button" class="btn btn-outline-primary admin-login">ADMIN LOGIN</button>
-        -->
-    </div>
-
-    <div>
-    </div>
-</div>
-
-<div class="spacing">
-
-</div>
-
-<footer>
+<div id="footer">
     <div class="container-fluid">
         <h1>Green River College Application Tracking Tool</h1>
         <div class="row welcome-text">
@@ -518,10 +512,10 @@
             </div>
         </div>
     </div>
-</footer>
+</div>
 
 
-<script src="user.js?v=9"> </script>
+<script src="user.js?v=45"> </script>
 <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/extensions/natural-sorting/bootstrap-table-natural-sorting.min.js"></script>
 </body>
 </html>

@@ -123,17 +123,15 @@ table
 }
 td,tr,.reminder-row
 {
+  background-color: white;
   color: #111;
   border-top: solid black 1px;
   border-bottom: solid black 1px;
 }
-.apps, #remindercontainer
-{
-  width: 100%;
-  height: 92%;
-}
 .apps
 {
+  width: 100%;
+  height: 100%;
   text-align:center;
 }
 .appsdisplay
@@ -157,6 +155,21 @@ td,tr,.reminder-row
 th, .container-title
 {
   font-size: 2em;
+  text-align: center;
+  color: white;
+  background-color: #333333;
+}
+#recent-application-title
+{
+  font-size: 2em;
+  height: 10%;
+}
+#recent-application-columns
+{
+  height: 5%;
+}
+.table-header>td
+{
   text-align: center;
   color: white;
   background-color: #333333;
@@ -612,8 +625,7 @@ span.error
 
 /* Footer CSS */
 
-footer {
-  margin-top: 200px;
+#footer {
   background-color: #333333;
   color: white;
   padding: 10px;
@@ -624,16 +636,16 @@ footer {
   width: 100%;
 }
 
-footer h1 {
+#footer h1 {
 }
 
 
-footer ul {
+#footer ul {
   list-style-type: none;
   padding-left: 0;
 }
 
-footer a {
+#footer a {
   text-decoration: none;
   color: white;
 }
@@ -652,7 +664,7 @@ footer a {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-footer p {
+#footer p {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -668,7 +680,7 @@ footer p {
 .spacing {
   flex: 1;
 }
-/* end footer css */
+/* end #footer css */
 /* styles for receipt page*/
 .receiptPageBody{
   background-color:#006225;
@@ -694,3 +706,53 @@ footer p {
 .receiptPageRow:nth-child(even) {
   background-color: #dddddd;
 }
+/*-------------------------------------------------------------------------------------------------------------*/
+/* Beginning of Review Application CSS Form */
+/*-------------------------------------------------------------------------------------------------------------*/
+.review-reminder-close-button{
+  position: absolute;
+  left: 95%;
+  width: 30px;
+  height: 29px;
+  border: black solid 1px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  background-color: white;
+  top: 5%;
+  cursor: pointer;
+}
+.review-reminder-form {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  overflow-x: hidden;
+  overflow-y: visible;
+  backdrop-filter: blur(5px);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+#review-reminder-content{
+  background: white;
+  height: 55%;
+  width: 30%;
+  z-index: 2;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/* Beginning of Add Application CSS Form */
+/*-------------------------------------------------------------------------------------------------------------*/

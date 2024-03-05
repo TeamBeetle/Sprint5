@@ -7,6 +7,7 @@ const toggleContainer = document.querySelector('#toggleContainer');
 const page = document.querySelector('HTML');
 window.onload = () =>
 {
+    lightDark()
     document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
 }
 
@@ -24,37 +25,7 @@ toggleContainer.addEventListener('click', function(e)
     console.log("button was clicked");
     //preform actions.
     //Note: page.attributes[1].value refers to data-bs-theme in <html>
-    if(page.attributes[1].value === 'light')
-    {
-        page.attributes[1].value = 'dark';
-        document.querySelectorAll(".reminder-row > p").forEach(element => element.style.color = "white");
-        document.querySelectorAll(".appinfo").forEach(element => element.style.color = "white");
-        document.querySelector("body").style.backgroundColor = "#333";
-        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#222");
-        document.querySelector(".apps").style.backgroundColor = "#555";
-        document.querySelector("#remindercontainer").style.backgroundColor = "#555";
-        document.querySelectorAll(".pop-up").forEach((element) =>
-        {
-            element.style.backgroundColor= "#555";
-            element.style.color = "#fff";
-        });
-    }
-    else
-    {
-        page.attributes[1].value = 'light';
-        document.querySelectorAll(".reminder-row > p").forEach(element => element.style.color = "black");
-        document.querySelectorAll(".appinfo ").forEach(element => element.style.color = "black");
-        document.querySelector("body").style.backgroundColor = "white";
-        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
-        document.querySelector(".apps").style.backgroundColor = "#fff";
-        document.querySelector("#remindercontainer").style.backgroundColor = "#fff";
-        document.querySelectorAll(".pop-up").forEach((element) =>
-        {
-            element.style.backgroundColor= "#fff";
-            element.style.color = "#000";
-        });
-
-    }
+    lightDark();
 });
 /************************ end light-mode script *****************************/
 
@@ -158,6 +129,42 @@ addAppAnchor.addEventListener("click", function()
 });
 
 /*********************** end application script *****************************/
+
+/****************************************************************************\
+ Reminder view script
+ \****************************************************************************/
+let reminderBox = document.getElementById("remindercontainer");
+let reminderReviewWindow = document.querySelector(".review-reminder-form");
+let closeReviewButton = document.querySelector(".review-reminder-close-button");
+
+reminderBox.addEventListener("click", function(e)
+{
+    let clicked = e.target;
+    if (clicked.parentNode.classList.contains("reminder-row"))
+    {
+        clicked = clicked.parentNode;
+    }
+    if(clicked.classList.contains('reminder-row'))
+    {
+        //We take the event target get the Id and remove the "reminder" part to get index
+        //we then parseInt() to get a number
+        let index = parseInt(clicked.id.substring(8));
+
+        //Populate view window and show it.
+        document.getElementById("review-reminder-header").innerText = tempAnnouncements[index].title;
+        document.getElementById("review-reminder-description").innerText = tempAnnouncements[index].description;
+        reminderReviewWindow.style.visibility = "visible";
+        reminderReviewWindow.style.opacity = 1;
+    }
+
+    closeReviewButton.addEventListener("click", function()
+    {
+        reminderReviewWindow.style.visibility = "hidden";
+        reminderReviewWindow.style.opacity = "0";
+    });
+});
+
+/*********************** end reminder view script ****************************/
 
 /****************************************************************************\
  contact form script
@@ -320,6 +327,7 @@ updateAppSubmission.addEventListener("click", function (event)
 });
 
 /*************************** end update application script *****************************/
+
 /****************************************************************************\
  Add Application Script
  \****************************************************************************/
@@ -438,5 +446,54 @@ function dateFollowedValidation(dateFollowed, errorMessage)
     {
         errorMessage.style.display = "none";
         return 0;
+    }
+}
+function lightDark()
+{
+    if(localStorage.getItem("lightMode") === "light" || localStorage.getItem("lightMode") === null)
+    {
+        localStorage.clear();
+        localStorage.setItem(("lightMode"), "dark");
+        document.querySelectorAll(".appinfo").forEach(element =>
+        {
+            element.style.backgroundColor = "#555";
+            element.style.color = "#fff";
+        });
+        document.querySelector("body").style.backgroundColor = "#333";
+        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#222");
+        document.querySelectorAll(".entry").forEach((element) =>
+        {
+            element.style.backgroundColor = "#555";
+            element.style.color = "#fff";
+        })
+        document.querySelector("#remindercontainer").style.backgroundColor = "#555";
+        document.querySelectorAll(".pop-up").forEach((element) =>
+        {
+            element.style.backgroundColor= "#555";
+            element.style.color = "#fff";
+        });
+    }
+    else
+    {
+        localStorage.clear();
+        localStorage.setItem(("lightMode"), "light");
+        document.querySelectorAll(".appinfo ").forEach(element =>
+        {
+            element.style.color = "#000";
+            element.style.backgroundColor = "#fff";
+        });
+        document.querySelector("body").style.backgroundColor = "#fff";
+        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll(".entry").forEach((element) =>
+        {
+            element.style.backgroundColor = "#fff";
+            element.style.color = "#000";
+        })
+        document.querySelector("#remindercontainer").style.backgroundColor = "#fff";
+        document.querySelectorAll(".pop-up").forEach((element) =>
+        {
+            element.style.backgroundColor= "#fff";
+            element.style.color = "#000";
+        });
     }
 }

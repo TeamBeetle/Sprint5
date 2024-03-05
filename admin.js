@@ -7,6 +7,7 @@ const toggleContainer = document.querySelector('#toggleContainer');
 const page = document.querySelector('HTML');
 window.onload = () =>
 {
+    lightDark();
     document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
     document.getElementById("cohort-specific").style.visibility = "hidden";
     document.getElementById("cohort-specific").style.display = "none";
@@ -16,86 +17,7 @@ toggleContainer.addEventListener('click', function(e)
 {
     const clicked = e.target.closest('.toggle');
     console.log("clicked");
-    if(!clicked || clicked.classList.contains('active-mode'))
-    {
-        return 0;
-    }
-    //change active toggle
-    lightButtons.forEach( b => b.classList.remove('active-mode'));
-    clicked.classList.add('active-mode');
-    console.log("button was clicked");
-    //preform actions.
-    //Note: page.attributes[1].value refers to data-bs-theme in <html>
-    if(page.attributes[1].value === 'light')
-    {
-        page.attributes[1].value = 'dark';
-        document.querySelector("body").style.backgroundColor = "#333";
-        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#222");
-        document.querySelector(".apps").style.backgroundColor = "#555";
-        document.querySelectorAll("tr").forEach((element)=> element.style.color = "#000");
-        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.color = "#fff");
-        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.backgroundColor = "#555");
-        document.querySelectorAll("td").forEach((element)=> element.style.color = "#fff");
-        document.querySelectorAll(".table-user-info").forEach((element)=> element.style.backgroundColor = "#555");
-        document.querySelectorAll(".student-name").forEach((element)=> element.style.color = "#fff");
-        document.querySelectorAll(".student-email").forEach((element)=> element.style.color = "#fff");
-        document.querySelectorAll(".view-info").forEach((element)=>
-        {
-            element.style.backgroundColor= "#333";
-            element.style.color = "#fff";
-        });
-        document.querySelectorAll(".delete-account").forEach((element)=>
-        {
-            element.style.backgroundColor= "#333";
-            element.style.color = "#fff";
-        });
-        document.querySelector(".user-details").style.backgroundColor = "#555";
-        document.querySelectorAll(".category").forEach((element) =>
-        {
-            element.style.backgroundColor= "#555";
-            element.style.color = "#fff";
-        });
-        document.querySelectorAll(".pop-up").forEach((element) =>
-        {
-            element.style.backgroundColor= "#555";
-            element.style.color = "#fff";
-        });
-    }
-    else
-    {
-        page.attributes[1].value = 'light';
-        document.querySelector("body").style.backgroundColor = "white";
-        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
-        document.querySelector(".apps").style.backgroundColor = "#fff";
-        document.querySelectorAll("tr").forEach((element)=> element.style.color = "#fff");
-        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.color = "#000");
-        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.backgroundColor = "#fff");
-        document.querySelectorAll("td").forEach((element)=> element.style.color = "#000");
-        document.querySelectorAll(".table-user-info").forEach((element)=> element.style.backgroundColor = "#fff");
-        document.querySelectorAll(".student-name").forEach((element)=> element.style.color = "#000");
-        document.querySelectorAll(".student-email").forEach((element)=> element.style.color = "#000");
-        document.querySelectorAll(".view-info").forEach((element)=>
-        {
-            element.style.backgroundColor= "#fff";
-            element.style.color = "#000";
-        });
-        document.querySelectorAll(".delete-account").forEach((element)=>
-        {
-            element.style.backgroundColor= "#fff";
-            element.style.color = "#000";
-        });
-        document.querySelector(".user-details").style.backgroundColor = "#fff";
-        document.querySelectorAll(".category").forEach((element) =>
-        {
-            element.style.backgroundColor= "#fff";
-            element.style.color = "#000";
-        });
-        document.querySelectorAll(".pop-up").forEach((element) =>
-        {
-            element.style.backgroundColor= "#fff";
-            element.style.color = "#000";
-        });
-    }
+    lightDark();
 });
 /************************ end light-mode script *****************************/
 /****************************************************************************\
@@ -474,3 +396,79 @@ document.getElementById("app-target").addEventListener("focusout", function (){
         document.getElementById("cohort-specific").style.display = "none";
     }
 });
+
+function lightDark()
+{
+    if(localStorage.getItem("lightMode") === "light" || localStorage.getItem("lightMode") === null)
+    {
+        localStorage.clear();
+        localStorage.setItem(("lightMode"), "dark");
+        document.querySelector("body").style.backgroundColor = "#333";
+        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#222");
+        document.querySelector(".apps").style.backgroundColor = "#555";
+        document.querySelectorAll("tr").forEach((element)=> element.style.color = "#000");
+        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.backgroundColor = "#555");
+        document.querySelectorAll("td").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll(".table-user-info").forEach((element)=> element.style.backgroundColor = "#555");
+        document.querySelectorAll(".student-name").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll(".student-email").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll(".view-info").forEach((element)=>
+        {
+            element.style.backgroundColor= "#333";
+            element.style.color = "#fff";
+        });
+        document.querySelectorAll(".delete-account").forEach((element)=>
+        {
+            element.style.backgroundColor= "#333";
+            element.style.color = "#fff";
+        });
+        document.querySelector(".user-details").style.backgroundColor = "#555";
+        document.querySelectorAll(".category").forEach((element) =>
+        {
+            element.style.backgroundColor= "#555";
+            element.style.color = "#fff";
+        });
+        document.querySelectorAll(".pop-up").forEach((element) =>
+        {
+            element.style.backgroundColor= "#555";
+            element.style.color = "#fff";
+        });
+    }
+    else
+    {
+        localStorage.clear();
+        localStorage.setItem(("lightMode"), "light");
+        document.querySelector("body").style.backgroundColor = "white";
+        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
+        document.querySelector(".apps").style.backgroundColor = "#fff";
+        document.querySelectorAll("tr").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.color = "#000");
+        document.querySelectorAll(".announcement-row").forEach((element)=> element.style.backgroundColor = "#fff");
+        document.querySelectorAll("td").forEach((element)=> element.style.color = "#000");
+        document.querySelectorAll(".table-user-info").forEach((element)=> element.style.backgroundColor = "#fff");
+        document.querySelectorAll(".student-name").forEach((element)=> element.style.color = "#000");
+        document.querySelectorAll(".student-email").forEach((element)=> element.style.color = "#000");
+        document.querySelectorAll(".view-info").forEach((element)=>
+        {
+            element.style.backgroundColor= "#fff";
+            element.style.color = "#000";
+        });
+        document.querySelectorAll(".delete-account").forEach((element)=>
+        {
+            element.style.backgroundColor= "#fff";
+            element.style.color = "#000";
+        });
+        document.querySelector(".user-details").style.backgroundColor = "#fff";
+        document.querySelectorAll(".category").forEach((element) =>
+        {
+            element.style.backgroundColor= "#fff";
+            element.style.color = "#000";
+        });
+        document.querySelectorAll(".pop-up").forEach((element) =>
+        {
+            element.style.backgroundColor= "#fff";
+            element.style.color = "#000";
+        });
+    }
+}
