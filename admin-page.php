@@ -282,7 +282,7 @@
                 <table class="users">
                     <?php
                     require '/home/teambeet/dbConnect.php';
-                    $sql = "SELECT * FROM test_user_data ORDER BY uid DESC";
+                    $sql = "SELECT * FROM user_data ORDER BY uid DESC";
                     $result = @mysqli_query($cnxn, $sql);
                     while ($row = mysqli_fetch_assoc($result))
                     {

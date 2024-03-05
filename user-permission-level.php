@@ -156,10 +156,10 @@
     }
 
     // Queries
-    $sql_check_permission_level = "SELECT user_admin_status FROM test_user_data WHERE uid = $receivedValue;";
-    $sql_get_user_data = "SELECT * FROM test_user_data WHERE uid=$receivedValue;";
-    $sql_make_admin = "UPDATE test_user_data SET user_admin_status = 1 WHERE uid = $receivedValue;";
-    $sql_remove_admin = "UPDATE test_user_data SET user_admin_status = 0 WHERE uid = $receivedValue;";
+    $sql_check_permission_level = "SELECT user_admin_status FROM user_data WHERE uid = $receivedValue;";
+    $sql_get_user_data = "SELECT * FROM user_data WHERE uid=$receivedValue;";
+    $sql_make_admin = "UPDATE user_data SET user_admin_status = 1 WHERE uid = $receivedValue;";
+    $sql_remove_admin = "UPDATE user_data SET user_admin_status = 0 WHERE uid = $receivedValue;";
 
     // query to check and save the current admin status
     $current_permission_query = @mysqli_query($cnxn, $sql_check_permission_level);
