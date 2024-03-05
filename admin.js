@@ -7,8 +7,36 @@ const toggleContainer = document.querySelector('#toggleContainer');
 const page = document.querySelector('HTML');
 window.onload = () =>
 {
-    lightDark();
-    document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
+    if(localStorage.getItem("lightMode") === "dark") {
+        document.querySelector("body").style.backgroundColor = "#333";
+        document.querySelectorAll(".nav-link").forEach((element) => element.style.color = "#222");
+        document.querySelector(".apps").style.backgroundColor = "#555";
+        document.querySelectorAll("tr").forEach((element) => element.style.color = "#000");
+        document.querySelectorAll(".announcement-row").forEach((element) => element.style.color = "#fff");
+        document.querySelectorAll(".announcement-row").forEach((element) => element.style.backgroundColor = "#555");
+        document.querySelectorAll("td").forEach((element) => element.style.color = "#fff");
+        document.querySelectorAll(".table-user-info").forEach((element) => element.style.backgroundColor = "#555");
+        document.querySelectorAll(".student-name").forEach((element) => element.style.color = "#fff");
+        document.querySelectorAll(".student-email").forEach((element) => element.style.color = "#fff");
+        document.querySelectorAll(".view-info").forEach((element) => {
+            element.style.backgroundColor = "#333";
+            element.style.color = "#fff";
+        });
+        document.querySelectorAll(".delete-account").forEach((element) => {
+            element.style.backgroundColor = "#333";
+            element.style.color = "#fff";
+        });
+        document.querySelector(".user-details").style.backgroundColor = "#555";
+        document.querySelectorAll(".category").forEach((element) => {
+            element.style.backgroundColor = "#555";
+            element.style.color = "#fff";
+        });
+        document.querySelectorAll(".pop-up").forEach((element) => {
+            element.style.backgroundColor = "#555";
+            element.style.color = "#fff";
+        });
+        document.querySelectorAll(".nav-link").forEach((element) => element.style.color = "#fff");
+    }
     document.getElementById("cohort-specific").style.visibility = "hidden";
     document.getElementById("cohort-specific").style.display = "none";
 };

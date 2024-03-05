@@ -7,8 +7,28 @@ const toggleContainer = document.querySelector('#toggleContainer');
 const page = document.querySelector('HTML');
 window.onload = () =>
 {
-    lightDark()
-    document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
+    if(localStorage.getItem("lightMode") === "dark")
+    {
+        document.querySelectorAll(".appinfo").forEach(element =>
+        {
+            element.style.backgroundColor = "#555";
+            element.style.color = "#fff";
+        });
+        document.querySelector("body").style.backgroundColor = "#333";
+        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#222");
+        document.querySelectorAll(".entry").forEach((element) =>
+        {
+            element.style.backgroundColor = "#555";
+            element.style.color = "#fff";
+        });
+        document.querySelector("#remindercontainer").style.backgroundColor = "#555";
+        document.querySelectorAll(".pop-up").forEach((element) =>
+        {
+            element.style.backgroundColor= "#555";
+            element.style.color = "#fff";
+        });
+        document.querySelectorAll(".nav-link").forEach((element)=> element.style.color = "#fff");
+    }
 }
 
 toggleContainer.addEventListener('click', function(e)
@@ -465,7 +485,7 @@ function lightDark()
         {
             element.style.backgroundColor = "#555";
             element.style.color = "#fff";
-        })
+        });
         document.querySelector("#remindercontainer").style.backgroundColor = "#555";
         document.querySelectorAll(".pop-up").forEach((element) =>
         {
@@ -488,7 +508,7 @@ function lightDark()
         {
             element.style.backgroundColor = "#fff";
             element.style.color = "#000";
-        })
+        });
         document.querySelector("#remindercontainer").style.backgroundColor = "#fff";
         document.querySelectorAll(".pop-up").forEach((element) =>
         {
