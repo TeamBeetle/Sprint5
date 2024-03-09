@@ -9,19 +9,28 @@ if (isset($_POST["user-name"]) && isset($_POST["password"])) {
 //check if username is present in DB
     $sql = mysqli_query($cnxn, "SELECT `password-hash` FROM `user_data` WHERE `username` = $userName");
     $hash = mysqli_fetch_assoc($sql);
-    password_verify($password, $hash);
+    if (password_verify($password, $hash)) {
 //assign session variable
-    $sql = mysqli_query($cnxn, "SELECT `uid` FROM `user_data` WHERE `username` = $userName");
-    $id = mysqli_fetch_assoc($sql);
-    $_SESSION['id'] = $id;
-//redirect to dashboard
-    echo"
+        $sql = mysqli_query($cnxn, "SELECT `uid` FROM `user_data` WHERE `username` = $userName");
+        $id = mysqli_fetch_assoc($sql);
+        $_SESSION['id'] = $id;
+//get user roles with SQL
+        $sql = mysqli_query($cnxn, "SELECT `user_admin_status` FROM `user_data` WHERE `username` = $userName");
+        $status = mysqli_fetch_assoc($sql);
+//redirect to dashboard or admin page
+        if($status == 0) {
+            echo "
         <script>window.location = 'index.php'</script>
     ";
-
+    }else{
+            echo "
+        <script>window.location = 'admin-page.php'</script>
+    ";
+        }
+    }
+}
 
 //display login screen
-} else {
 echo"
 <!DOCTYPE html>
 <html lang='en'>
@@ -41,4 +50,3 @@ echo"
 </div>
 </body>
 </html>";
-}
