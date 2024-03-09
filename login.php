@@ -11,8 +11,16 @@ $userName = $password = "";
 if (isset($_POST["user-name"]) && isset($_POST["password"])) {
     $userName = $_POST["user-name"];
     $password = $_POST["password"];
-
+//check if username is present in DB
+    $sql = mysqli_query($cnxn, "SELECT `password-hash` FROM `user_data` WHERE `username` = $userName");
+    $hash = mysqli_fetch_assoc($sql);
     password_verify($password, $hash);
+//assign session variable
+    $_SESSION['id'] = '';
+//redirect to dashboard
+
+
+
 //display login screen
 } else {
 echo"
