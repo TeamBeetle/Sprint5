@@ -2,11 +2,6 @@
 session_start();
 $userName = $password = "";
 
-//check if username and password are in DB
-//if true redirect to dashboard page(index.php)
-//if false re-display login
-
-
 //check and set userName and password
 if (isset($_POST["user-name"]) && isset($_POST["password"])) {
     $userName = $_POST["user-name"];
@@ -16,9 +11,13 @@ if (isset($_POST["user-name"]) && isset($_POST["password"])) {
     $hash = mysqli_fetch_assoc($sql);
     password_verify($password, $hash);
 //assign session variable
-    $_SESSION['id'] = '';
+    $sql = mysqli_query($cnxn, "SELECT `uid` FROM `user_data` WHERE `username` = $userName");
+    $id = mysqli_fetch_assoc($sql);
+    $_SESSION['id'] = $id;
 //redirect to dashboard
-
+    echo"
+        <script>window.location = 'index.php'</script>
+    ";
 
 
 //display login screen
