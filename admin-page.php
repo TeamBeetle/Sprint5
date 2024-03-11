@@ -67,7 +67,7 @@
     </div>
     <div id="add-app-content" class="pop-up form-content form-content-app d-flex align-items-center justify-content-center">
         <h1>Create Announcement</h1>
-        <form name="app-announcement-form" method="post" action="vardump.php">
+        <form name="app-announcement-form" method="post" action="announcement.php">
             <div>
                 <div class="col-12 add-app-input">
                     <label for="app-position">Position</label>
