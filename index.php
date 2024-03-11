@@ -121,7 +121,7 @@
         </div>
     </div>
 </div>
-<!-- End sign up form html -->
+<!-- End sign up form -->
 
 
 <!-- ADD APPLICATION FORM BEGINNING -->
