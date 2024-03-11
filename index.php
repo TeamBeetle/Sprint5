@@ -77,9 +77,6 @@
         <p>X</p>
     </div>
     <div class="d-flex flex-row  row align-items-center justify-content-center img-form-container">
-        <div class="sign-up-image col-lg-6">
-            <img src="images/code-820275_1920.jpg" alt="computer screen with code">
-        </div>
         <div class="pop-up form-content col-lg-6">
             <h2>Sign up for ATT</h2>
             <p>Create a free account or <a href="#">log in</a></p>
@@ -90,6 +87,10 @@
                         <span id="signup-name-error" class="error"> Please enter a name.*</span>
                     </label>
                     <input placeholder="Name" name="user-name" id="user-name">
+                    <label for="user-password">Password*
+                        <span id="signup-password-error" class="error"> Please enter a password.*</span>
+                    </label>
+                    <input placeholder="Password" name="user-password" id="user-password">
                     <label for="user-email">Email*
                         <span id="signup-email-error" class="error"> Please enter an email.</span>
                     </label>

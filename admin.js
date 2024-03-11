@@ -521,3 +521,5 @@ function lightDark()
         });
     }
 }
+
+new DataTable('.users');

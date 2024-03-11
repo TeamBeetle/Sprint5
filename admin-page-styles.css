@@ -160,7 +160,6 @@ li:hover{
 .user-display {
     padding: 0;
     overflow: auto;
-    height: 350px;
 }
 
 td,tr,.announcement-row
@@ -196,7 +195,6 @@ td,tr,.announcement-row
 .user-details
 {
     overflow: auto;
-    height: 350px;
     border: none;
 }
 
