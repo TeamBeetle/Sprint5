@@ -90,7 +90,7 @@
                     <label for="user-password">Password*
                         <span id="signup-password-error" class="error"> Please enter a password.*</span>
                     </label>
-                    <input placeholder="Password" name="user-password" id="user-password">
+                    <input placeholder="Password" name="user-password" id="user-password" type="password">
                     <label for="user-email">Email*
                         <span id="signup-email-error" class="error"> Please enter an email.</span>
                     </label>
