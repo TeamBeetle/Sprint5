@@ -183,122 +183,81 @@
 </div>
 
 <!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
-<!--MAIN DISPLAY WINDOWS(RECENT APPLICATIONS & REMINDERS)-->
-<div class="container-fluid p-4 main-display">
+<div id="maindisplay" class="">
+    <div class="appsdisplay">
+        <table id="apps-table" class="apps">
+            <th colspan = "5">
+                Recent Applications
+            </th>
+            <?php
+            require '/home/teambeet/dbConnect.php';
+            echo "<script> let tempApplications = {}; </script>";
+            $sql = "SELECT * FROM application_data ORDER BY date_applied DESC";
+            $result = @mysqli_query($cnxn, $sql);
+            //for($i = 0; $i < 5; $i++) //remove 4 loop later and add sliding scroll wheel
+            //{
+            while ($row = mysqli_fetch_assoc($result)) //while loop this instead of if and stop the for loop for all results -Everett
+            {
+                $aid = $row['aid'];
+                $user = $row['user'];
+                $employer = $row['employer_name'];
+                $jobDesc = $row['job_description'];
+                $role = $row['role'];
+                $status = $row['status'];
+                $dateApplied = $row['date_applied'];
+                $dateFollowUp = $row['date_followup'];
+                $notes = $row['notes'];
+                echo "
+      <script>tempApplications[`recentApplication_$aid`] = {
+          id: `$aid`,
+          user: `$user`,
+          employer: `$employer`,
+          job: `$jobDesc`,
+          role: `$role`,
+          status: `$status`,
+          appDate: `$dateApplied`,
+          followDate: `$dateFollowUp`,
+          notes: `$notes`
+      };</script>
+      <tr>
+          <td class='appinfo'>$dateApplied</td>
+          <td class='appinfo'>$employer $jobDesc</td>
+          <td class='appinfo'>$status</td>
+          <td id='recentApplication_$aid' class='appinfo button view'>view</td>
+          <td class='appinfo'>delete</td>
+      </tr>";
+            }
+            echo "<script>const recentApplications= tempApplications</script>";
+            //}
+            ?>
+        </table>
+    </div>
 
-    <div class="row gy-5 gx-5">
-        <div class="col-xl-8">
-            <div class="table-title">USERS</div>
-            <div class="user-display">
-                <table class="users table table-striped" style="width:100%">
-                    <thead>
-                    <tr>
-                        <th>UserID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Cohort</th>
-                        <th>Permission Level</th>
-                        <th>Delete</th>
-                        <th>View</th>
-                    </tr>
-                    </thead>
-                    <?php
-                    require '/home/teambeet/dbConnect.php';
-                    $sql = "SELECT * FROM user_data ORDER BY uid DESC";
-                    $result = @mysqli_query($cnxn, $sql);
-                    while ($row = mysqli_fetch_assoc($result))
-                    {
-                        $uid = $row['uid'];
-                        $name = $row['user_name'];
-                        $email = $row['user_email'];
-                        $cohort = $row['user_cohort'];
-                        $user_seeking_internship = $row['user_seeking_internship'];
-                        $user_seeking_job = $row['user_seeking_job'];
-                        $user_not_seeking = $row['user_not_seeking'];
-                        $user_interest = $row['user_interest'];
-                        $user_admin_status = $row['user_admin_status'];
-
-                        if ($user_admin_status == 0) {
-                            $user_admin_status = 'User';
-                        } else if ($user_admin_status == 1) {
-                            $user_admin_status = 'Admin';
-                        }
-
-
-                        echo "
-                                       <tr class='table-user-info'>
-                                            <td class='student-id'>$uid</td>
-                                            <td class='student-name'>$name </td>
-                                            <td class='student-email'>$email</td>
-                                            <td class='student-cohort'>$cohort</td>
-                                            <td class='admin-status'>$user_admin_status</td>
-                                        <td>
-                                            <div class='view-info'>
-                                                <button>View</button>
-                                            </div>
-                                        </td>
-                                         <td>
-                                            <div class='delete-account'>
-                                                <button class='delete-button' type='button' onClick='deleteUser($uid)'>Delete</button>
-                                            </div>
-                                         </td>
-                                    </tr>";
-                    }
-                    ?>
-                </table>
-            </div>
-        </div>
-
-
-        <div class="col-xl-4">
-            <div class="table-title">USER INFO</div>
-            <div class="user-details p-3">
-                <img class="col-md-6" src="images/user-profile.png" alt="empty-user-icon">
-
-                <div class="row user-grid">
-                    <div class="user-row col-md-6">
-                        <div class="category category-title">User-ID:</div>
-                        <p class="category category-value category-user-id"> </p>
+    <!-- Reminder Container -->
+    <div id="announcementcontainer" class="announcmentcontrol">
+        <div class="container-title">RECENT ANNOUNCEMENTS</div>
+        <?php
+        require '/home/teambeet/dbConnect.php';
+        $sql = "SELECT * FROM announcement_data ORDER BY aid DESC";
+        $result = @mysqli_query($cnxn, $sql);
+        //for($i = 0; $i < 5; $i++) //remove 4 loop later and add sliding scroll wheel
+        //{
+        while ($row = mysqli_fetch_assoc($result)) //while loop this instead of if and stop the for loop for all results -Everett
+        {
+            $aid = $row['aid'];
+            $position = $row['position'];
+            $employer = $row['employer'];
+            $seeking = $row['seeking'];
+            $url = $row['url'];
+            $notes = $row['notes'];
+            echo "
+                    <div class='announcement-row'>
+                        <p>New $position position at $employer : $notes. Apply here: $url</p>
                     </div>
-                    <div class="user-row col-md-6">
-                        <div class="category category-title">User-name:</div>
-                        <p class="category category-value category-user-name"> </p>
-                    </div>
-                    <div class="user-row col-md-6">
-                        <div class="category category-title">User-email:</div>
-                        <p class="category category-value category-user-email"> </p>
-                    </div>
-                    <div class="user-row col-md-6">
-                        <div class="category category-title">Cohort:</div>
-                        <p class="category category-value category-user-cohort"> </p>
-                    </div>
-                    <div class="user-row col-md-6">
-                        <div class="category category-title">Account Created:</div>
-                        <p class="category category-value">2/29/2024</p>
-                    </div>
-                    <div class="user-row col-md-6">
-                        <div class="category category-title">Permission-level</div>
-                        <p class="category category-value category-permission-level"> </p>
-                    </div>
-
-                    <div class="buttons col-md-12">
-                        <div class="info-button-change-permission">
-                            <form action='user-permission-level.php' method='post'>
-                                <input type='hidden' class='change-permission-level' name='hidden-value' value=''>
-                                <button class='change-permission-button' type='submit'>CHANGE PERMISSIONS</button>
-                            </form>
-                        </div>
-
-                        <div class="info-button-delete">
-                            <form action='softdelete.php' method='POST'>
-                                <input class='info-box-delete' type='hidden' name='hidden-value' value=''>
-                                <button class="delete-button" onClick='infoBoxDelete()'>DELETE</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    ";
+        }
+        //}
+        ?>
     </div>
 </div>
 
@@ -331,7 +290,18 @@
         <div class="col-xl-8">
             <div class="table-title">USERS</div>
             <div class="user-display">
-                <table class="users">
+                <table class="users table table-striped" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>UserID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Cohort</th>
+                        <th>Permission Level</th>
+                        <th>Delete</th>
+                        <th>View</th>
+                    </tr>
+                    </thead>
                     <?php
                     require '/home/teambeet/dbConnect.php';
                     $sql = "SELECT * FROM user_data ORDER BY uid DESC";
