@@ -38,7 +38,6 @@ window.onload = () =>
 toggleContainer.addEventListener('click', function(e)
 {
     const clicked = e.target.closest('.toggle');
-    console.log("clicked");
     if(!clicked || clicked.classList.contains('active-mode'))
     {
         return 0;
@@ -48,7 +47,6 @@ toggleContainer.addEventListener('click', function(e)
         //change active toggle
         lightButtons.forEach( b => b.classList.remove('active-mode'));
         clicked.classList.add('active-mode');
-        console.log("button was clicked");
         //preform actions.
         //Note: page.attributes[1].value refers to data-bs-theme in <html>
         lightDark();
@@ -259,7 +257,6 @@ function validateEmail(inputEmail, errorMessage)
 function validateMessage(inputMessage)
 {
     inputMessage = inputMessage.replace(/\s+/g,'');
-    console.log(inputMessage);
     if(inputMessage === "" || inputMessage.length > 250)
     {
         document.querySelector('#message-error').style.display = "inline";
@@ -270,7 +267,6 @@ function validateMessage(inputMessage)
         document.querySelector('#message-error').style.display = "inline";
         return 1;
     }
-    console.log('this ran');
     document.querySelector('#message-error').style.display = "none";
     return 0;
 }
