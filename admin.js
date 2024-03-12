@@ -333,17 +333,15 @@ function validateMessage(inputMessage)
  \****************************************************************************/
 
 let userID = '';
+let deleteButton = document.querySelectorAll('.delete-account');
+let deleteConfirmationOverlay = document.querySelector('.delete-account-overlay');
+let deleteInput = document.querySelector('#delete-input');
+let cancelButton = document.querySelector('.cancel-button');
 
 function deleteUser(userId) {
     userID = userId;
     deleteInput.value = userID;
 }
-
-let deleteButton = document.querySelectorAll('.delete-account');
-let deleteConfirmationOverlay = document.querySelector('.delete-account-overlay');
-let deleteInput = document.querySelector('.delete-input');
-let cancelButton = document.querySelector('.cancel-button');
-
 
 for (let i = 0; i < deleteButton.length; i++) {
     deleteButton[i].addEventListener('click', function() {
