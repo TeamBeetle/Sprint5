@@ -1,5 +1,6 @@
 <?php
 session_start();
+require '/home/teambeet/dbConnect.php';
 $userEmail = $password = "";
 
 //check and set userName and password
@@ -7,16 +8,17 @@ if (isset($_POST["user-email"]) && isset($_POST["password"])) {
     $userEmail = $_POST["user-email"];
     $password = $_POST["password"];
 //check if username is present in DB
-    $sql = mysqli_query($cnxn, "SELECT `passwordhash` FROM `login_info` WHERE `useremail` = $userEmail");
+    $temp = 'SELECT `passwordhash` FROM `login_info` WHERE `useremail` = "'.$userEmail.'"';
+    $sql = mysqli_query($cnxn, $temp);
     $hash = mysqli_fetch_assoc($sql);
-    if (password_verify($password, $hash)) {
+    if (password_verify($password, $hash['passwordhash'])) {
 //assign session variable
         $sql = mysqli_query($cnxn, "SELECT `uid` FROM `user_data` WHERE `user_email` = $userEmail");
         $id = mysqli_fetch_assoc($sql);
         $_SESSION['id'] = $id;
 //get user roles with SQL
         $sql = mysqli_query($cnxn, "SELECT `admin_status` FROM `login_info` WHERE `useremail` = $userEmail");
-        $status = mysqli_fetch_assoc($sql);
+        $status = mysqli_fetch_row($sql);
         $_SESSION['admin_status'] = $status;
 //redirect to dashboard or admin page
         if($status == 0) {
