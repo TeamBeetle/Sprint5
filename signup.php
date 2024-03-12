@@ -79,11 +79,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $userInerest = $_POST['field-interests'];
     }
 //validate
-    if(empty($_POST['password'])){
+    if(empty($_POST['user-password'])){
         $passwordCheck = 0;
     }
+    else{
+        $passwordCheck = 1;
+    }
 }
-$checkboxSum = ($InterncheckBoxCount + $jobCheckBoxCount + $searchingCheckBoxCount + $passwordCheck);
+$checkboxSum = ($InterncheckBoxCount + $jobCheckBoxCount + $searchingCheckBoxCount);
 $userNameCap = ucfirst("$userName");
 
 //displays "incomplete" form page
@@ -137,7 +140,7 @@ if($passwordCheck == 0 || $nameCheck == 0 || $emailCheck == 0 || $cohortCheck ==
         $result = mysqli_stmt_execute($stmt);
 
 if($result) {
-    $password = $_POST['password'];
+    $password = $_POST['user-password'];
     //create hash, assin it to local varaible
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     //add user to Password DB
