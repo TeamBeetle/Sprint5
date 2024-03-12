@@ -81,17 +81,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 //validate
     if(empty($_POST['password'])){
         $passwordCheck = 0;
-    }else{
-        $password = $_POST['password'];
-        //create hash, assin it to local varaible
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     }
 }
 $checkboxSum = ($InterncheckBoxCount + $jobCheckBoxCount + $searchingCheckBoxCount + $passwordCheck);
 $userNameCap = ucfirst("$userName");
 
 //displays "incomplete" form page
-if($nameCheck == 0 || $emailCheck == 0 || $cohortCheck == 0 || $checkboxSum < 1){
+if($passwordCheck == 0 || $nameCheck == 0 || $emailCheck == 0 || $cohortCheck == 0 || $checkboxSum < 1){
     echo"
  <html lang='en'>
     <head>
@@ -141,6 +137,9 @@ if($nameCheck == 0 || $emailCheck == 0 || $cohortCheck == 0 || $checkboxSum < 1)
         $result = mysqli_stmt_execute($stmt);
 
 if($result) {
+    $password = $_POST['password'];
+    //create hash, assin it to local varaible
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     //add user to Password DB
     $sql = "INSERT INTO `login_info` (`useremail`, `passwordhash`, `admin_status`) 
             VALUES (?, ?, 0)";
