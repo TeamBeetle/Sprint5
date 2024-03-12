@@ -18,7 +18,8 @@ $password = $passwordCheck="";
 $passwordHash="";
 
 //validates name
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
     if (empty($_POST['user-name'])){
         $nameCheck = 0;
 
@@ -85,12 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //create hash, assin it to local varaible
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     }
- //check if email is in db
-//add user to DB
-    $sql = "INSERT INTO `login_info` (`useremail`, `passwordhash`, `admin_status`) 
-            VALUES (?, ?, 0)";
-    $stmt = mysqli_prepare($cnxn, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $userEmail, $passwordHash);
 }
 $checkboxSum = ($InterncheckBoxCount + $jobCheckBoxCount + $searchingCheckBoxCount + $passwordCheck);
 $userNameCap = ucfirst("$userName");
@@ -136,17 +131,27 @@ if($nameCheck == 0 || $emailCheck == 0 || $cohortCheck == 0 || $checkboxSum < 1)
 //displays "complete" form page
     //connect to db
     require '/home/teambeet/dbConnect.php';
-    //define insert query
-    $sql = "INSERT INTO `user_data` (`uid`, `user_name`, `user_email`, `user_cohort`, `user_seeking_internship`, `user_seeking_job`, `user_not_seeking`, `user_interest`, `user_admin_status`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 0)";
 
+        //define insert query
+        $sql = "INSERT INTO `user_data` (`uid`, `user_name`, `user_email`, `user_cohort`, `user_seeking_internship`, `user_seeking_job`, `user_not_seeking`, `user_interest`, `user_admin_status`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 0)";
+
+        $stmt = mysqli_prepare($cnxn, $sql);
+        mysqli_stmt_bind_param($stmt, "ssissss", $userName, $userEmail, $userCohort, $seekingInternship,
+            $seekingJob, $notSearching, $userInerest);
+        $result = mysqli_stmt_execute($stmt);
+
+if($result) {
+    //add user to Password DB
+    $sql = "INSERT INTO `login_info` (`useremail`, `passwordhash`, `admin_status`) 
+            VALUES (?, ?, 0)";
     $stmt = mysqli_prepare($cnxn, $sql);
-    mysqli_stmt_bind_param($stmt,"ssissss",$userName,$userEmail ,$userCohort,$seekingInternship,
-        $seekingJob,$notSearching,$userInerest);
+    mysqli_stmt_bind_param($stmt, "ss", $userEmail, $passwordHash);
+
     $result = mysqli_stmt_execute($stmt);
+    if ($result)
+    {
 
-if($result){
-
-    echo"
+        echo "
     <html lang='en'>
     <head>
     <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
@@ -215,8 +220,13 @@ if($result){
 </body>
 </html> 
     ";
-}else {
-    echo "Error: " . mysqli_error($cnxn);
+    } else
+    {
+        echo "Error: " . mysqli_error($cnxn);
+    }
+}
+else{
+    echo "Email already taken.";
 }
     mysqli_close($cnxn);
 }
