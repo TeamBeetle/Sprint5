@@ -14,6 +14,9 @@ $InterncheckBoxCount=$jobCheckBoxCount=$searchingCheckBoxCount="";
 $checkboxSum="";
 $userInerest=$userInerestCheck="";
 
+$password = $passwordCheck="";
+$passwordHash="";
+
 //validates name
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST['user-name'])){
@@ -74,9 +77,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userInerestCheck = 1;
         $userInerest = $_POST['field-interests'];
     }
-
+//validate
+    if(empty($_POST['password'])){
+        $passwordCheck = 0;
+    }else{
+        $password = $_POST['password'];
+        //create hash, assin it to local varaible
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    }
+ //check if email is in db
+//add user to DB
+    $sql = "INSERT INTO `login_info` (`useremail`, `passwordhash`, `admin_status`) 
+            VALUES (?, ?, 0)";
+    $stmt = mysqli_prepare($cnxn, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $userEmail, $passwordHash);
 }
-$checkboxSum = ($InterncheckBoxCount + $jobCheckBoxCount + $searchingCheckBoxCount);
+$checkboxSum = ($InterncheckBoxCount + $jobCheckBoxCount + $searchingCheckBoxCount + $passwordCheck);
 $userNameCap = ucfirst("$userName");
 
 //displays "incomplete" form page

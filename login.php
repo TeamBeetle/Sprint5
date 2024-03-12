@@ -7,15 +7,15 @@ if (isset($_POST["user-name"]) && isset($_POST["password"])) {
     $userName = $_POST["user-name"];
     $password = $_POST["password"];
 //check if username is present in DB
-    $sql = mysqli_query($cnxn, "SELECT `password-hash` FROM `user_data` WHERE `username` = $userName");
+    $sql = mysqli_query($cnxn, "SELECT `password-hash` FROM `login_info` WHERE `username` = $userName");
     $hash = mysqli_fetch_assoc($sql);
     if (password_verify($password, $hash)) {
 //assign session variable
-        $sql = mysqli_query($cnxn, "SELECT `uid` FROM `user_data` WHERE `username` = $userName");
+        $sql = mysqli_query($cnxn, "SELECT `uid` FROM `login_info` WHERE `username` = $userName");
         $id = mysqli_fetch_assoc($sql);
         $_SESSION['id'] = $id;
 //get user roles with SQL
-        $sql = mysqli_query($cnxn, "SELECT `user_admin_status` FROM `user_data` WHERE `username` = $userName");
+        $sql = mysqli_query($cnxn, "SELECT `user_admin_status` FROM `login_info` WHERE `username` = $userName");
         $status = mysqli_fetch_assoc($sql);
 //redirect to dashboard or admin page
         if($status == 0) {
