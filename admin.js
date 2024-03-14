@@ -517,4 +517,12 @@ function lightDark()
     }
 }
 
-new DataTable('.users');
+/* code regarding data table styles */
+$('.users').dataTable( {
+    "columnDefs": [
+        {
+            "targets": [5],
+            orderable: false
+        },
+    ]
+} );

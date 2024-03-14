@@ -71,9 +71,12 @@ table
 }
 
 .users {
-    text-align: center;
     width: 100%;
     margin: 0;
+}
+
+.users th {
+    font-size: 100%;
 }
 
 .appsdisplay
@@ -169,7 +172,6 @@ td,tr,.announcement-row
 }
 
 .users tr {
-    height: 100px;
     width: 100%;
 }
 
@@ -186,6 +188,10 @@ td,tr,.announcement-row
 
 .view-info {
     cursor: pointer;
+}
+
+.view-button {
+    width: 80%;
 }
 
 .delete-account {

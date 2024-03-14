@@ -179,6 +179,9 @@
             </form>
             <button class="cancel-button">CANCEL</button>
         </div>
+        <!--<div class='delete-account'>-->
+        <!--    <button class='delete-button' type='button' onClick='deleteUser($uid)'>Delete</button>-->
+        <!--</div>-->
     </div>
 </div>
 
@@ -293,13 +296,12 @@
                 <table class="users table table-striped" style="width:100%">
                     <thead>
                     <tr>
-                        <th>UserID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Cohort</th>
-                        <th>Permission Level</th>
-                        <th>Delete</th>
-                        <th>View</th>
+                        <th class="text-center">UserID</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Cohort</th>
+                        <th class="text-center">Permission</th>
+                        <th class="text-center no-sort"></th>
                     </tr>
                     </thead>
                     <?php
@@ -327,21 +329,16 @@
 
                         echo "
                                        <tr class='table-user-info'>
-                                            <td class='student-id'>$uid</td>
-                                            <td class='student-name'>$name </td>
-                                            <td class='student-email'>$email</td>
-                                            <td class='student-cohort'>$cohort</td>
-                                            <td class='admin-status'>$user_admin_status</td>
-                                        <td>
-                                            <div class='view-info'>
-                                                <button>View</button>
+                                            <td class='student-id text-right'>$uid</td>
+                                            <td class='student-name text-right'>$name </td>
+                                            <td class='student-email text-right'>$email</td>
+                                            <td class='student-cohort text-right'>$cohort</td>
+                                            <td class='admin-status text-right'>$user_admin_status</td>
+                                        <td class='no-sort'>
+                                            <div class='view-info text-center bg-transparent'>
+                                                <button class='view-button'>View</button>
                                             </div>
                                         </td>
-                                         <td>
-                                            <div class='delete-account'>
-                                                <button class='delete-button' type='button' onClick='deleteUser($uid)'>Delete</button>
-                                            </div>
-                                         </td>
                                     </tr>";
                     }
                     ?>
