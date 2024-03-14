@@ -79,7 +79,10 @@ if (mail($to, $subject, $message)) //removed header
 
     <ul class='navbar-nav links'>
       <li class='nav-item'>
-        <a class='nav-link' href='#'>Dashboard</a>
+        <a class='nav-link' href='index.php'>Dashboard</a>
+      </li>
+      <li class='navbar-nav links'>
+        <a class='nav-link' href='admin-page.php'>Admin</a>
       </li>
       
     </ul>

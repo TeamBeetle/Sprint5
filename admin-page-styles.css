@@ -783,3 +783,8 @@ span.error
     align-items: center;
     justify-content: center;
 }
+
+.dt-column-order
+{
+    margin: 2px;
+}
