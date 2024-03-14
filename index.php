@@ -404,6 +404,9 @@
                 //}
                 ?>
             </table>
+    <!-- END OF RECENT APPS AND ANNOUNCEMENTS TABLE-->
+
+    <!-- REMINDER CONTAINER BELOW-->
     <!-- Reminder Container -->
     <div class="apps">
         <div id="remindercontainer" class="remindercontrol">
@@ -481,6 +484,7 @@
                 </script>";
 
                 ?>
+            <!-- END OF RECENT APPS AND ANNOUNCEMENTS CONTAINER -->
         </div>
     </div>
 </div>
