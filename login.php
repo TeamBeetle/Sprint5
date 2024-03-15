@@ -39,16 +39,37 @@ echo"
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
-    <title>Title</title>
+    <title>GRC ATT Login Page</title>
+    <link rel='stylesheet' href='loginStyle.css?v=1'>
 </head>
 <body>
+<div class='title'>
+    <img src='images/GRC%20Logo.png' alt='GRC Logo'>
+    <h>Green River College ATT</h>
+</div>
 <div class='container'>
     <form action='login.php' method='POST'>
-        <label>User Email</label>
-        <input type='text' name='user-email'>
-        <label>Password</label>
-        <input type='password' name='password'>
-        <button type='submit' value='Submit'>Submit</button>
+        <div>
+            <h1>Login Here</h1>
+        </div>
+        <div>
+            <label>User Email</label>
+            <br>
+            <input type='text' name='user-email'>
+        </div>
+        <br>
+        <div>
+            <label>Password</label>
+            <br>
+            <input type='password' name='password'>
+        </div>
+        <br>
+        <div>
+            <button type='submit' value='Submit'>Submit</button>
+        </div>
+        <div>
+            <p>Don't have an account with us? <a href='#'>Sign up here</a></p>
+        </div>
     </form>
 </div>
 </body>

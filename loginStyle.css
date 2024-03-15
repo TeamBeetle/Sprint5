@@ -1,0 +1,54 @@
+body
+{
+    margin: auto;
+    background-color: white;
+    width: 50%;
+    align-content: center;
+    border-color: black;
+    border-style: solid;
+}
+form
+{
+    /*Style the border of form*/
+    border-style: solid;
+    border-radius: 10px;
+    border-color: black;
+    /*aligning content to center*/
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container
+{
+    padding-top: 10%;
+    margin: auto;
+    width: 50%;
+
+}
+.title
+{
+    /*our little title header thingy*/
+    background-color: green;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h
+{
+    font-size: 45px;
+}
+
+html
+{
+    background-image: url("images/GRCBackground.webp");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+html, body
+{
+    height: 100%;
+}
