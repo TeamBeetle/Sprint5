@@ -16,7 +16,13 @@ $userInerest=$userInerestCheck="";
 
 $password = $passwordCheck="";
 $passwordHash="";
-
+//sanitize data
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 //validates name
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -25,18 +31,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     } else {
         $nameCheck = 1;
-        $userName = $_POST['user-name'];
-
+        $userName = test_input($_POST['user-name']);
+        if (!preg_match("/^[a-zA-Z-' ]*$/",$userName)) {
+            $nameCheck = 0;
+        }
     }
 //validates email
     if(empty($_POST['user-email'])){
         $emailCheck = 0;
     }else{
         $emailCheck = 1;
-        $userEmail = $_POST['user-email'];
+        $userEmail = test_input(['user-email']);
+        if (!filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
+            $emailCheck = 0;
+        }
     }
 //validates cohort
-
     if(empty($_POST['user-cohort'])){
         $cohortCheck = 0;
     }else{
@@ -76,14 +86,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $userInerest = "null";
     }else{
         $userInerestCheck = 1;
-        $userInerest = $_POST['field-interests'];
+        $userInerest = test_input($_POST['field-interests']);
     }
-//validate
+//validate password
     if(empty($_POST['user-password'])){
         $passwordCheck = 0;
     }
     else{
-        $passwordCheck = 1;
+        $password = $_POST['user-password'];
+        if(preg_match('/^[a-zA-Z0-9!@#$]{6,12}$/',$password)) {
+            $passwordCheck = 1;
+        }
+        $passwordCheck = 0;
     }
 }
 $checkboxSum = ($InterncheckBoxCount + $jobCheckBoxCount + $searchingCheckBoxCount);
