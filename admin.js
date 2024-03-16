@@ -332,26 +332,23 @@ function validateMessage(inputMessage)
  delete button script
  \****************************************************************************/
 
-let userID = '';
-let deleteButton = document.querySelectorAll('.delete-account');
+let deleteButton = document.querySelector('.delete-account');
 let deleteConfirmationOverlay = document.querySelector('.delete-account-overlay');
 let deleteInput = document.querySelector('#delete-input');
 let cancelButton = document.querySelector('.cancel-button');
 
-function deleteUser(userId) {
-    userID = userId;
-    deleteInput.value = userID;
+function deleteUser() {
+    let userID = document.querySelector('.category-user-id').innerText;
+    if (userID == "") {
+        alert("No user selected, please view a user");
+    } else {
+        deleteInput.value = userID;
+        deleteButton.addEventListener('click', function() {
+            deleteConfirmationOverlay.style.visibility = 'visible';
+            deleteConfirmationOverlay.style.opacity = '1';
+        });
+    }
 }
-
-for (let i = 0; i < deleteButton.length; i++) {
-    deleteButton[i].addEventListener('click', function() {
-        deleteConfirmationOverlay.style.visibility = 'visible';
-        deleteConfirmationOverlay.style.opacity = '1';
-    });
-
-
-}
-
 
 
 
@@ -414,10 +411,29 @@ userTableRows.forEach(function(row) {
 let changeAdminStatusButton = document.querySelector('.change-permission-button');
 
 changeAdminStatusButton.addEventListener('click', function() {
-    let userInfoIDValue = document.querySelector('.category-user-id').innerText;
-
-    let changeUserIDValue = document.querySelector('.change-permission-level');
+    userInfoIDValue = document.querySelector('.category-user-id').innerText;
+    changeUserIDValue = document.querySelector('.change-permission-level');
     changeUserIDValue.value = userInfoIDValue;
+});
+
+let changePermissionsButton = document.querySelector('.permissions-button');
+let changePermissionsOverlay = document.querySelector('.change-permissions-overlay');
+let permissionsCancelButton = document.querySelector('.permissions-cancel-button');
+
+changePermissionsButton.addEventListener('click', function() {
+    userInfoIDValue = document.querySelector('.category-user-id').innerText;
+
+    if (userInfoIDValue == "") {
+        alert("No user selected. Please view a user!");
+    } else {
+        changePermissionsOverlay.style.visibility = 'visible';
+        changePermissionsOverlay.style.opacity = '1';
+    }
+});
+
+permissionsCancelButton.addEventListener('click', function() {
+    changePermissionsOverlay.style.visibility = 'hidden';
+    changePermissionsOverlay.style.opacity = '0';
 });
 /****************************************************************************\
  END change user permissions script

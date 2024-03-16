@@ -7,7 +7,7 @@
     <title>GRC ATT - Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link href="admin-page-styles.css?v=6" rel="stylesheet" type="text/css" />
+    <link href="admin-page-styles.css?v=24" rel="stylesheet" type="text/css" />
 
     <!-- links and scripts related to the table functions -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
@@ -179,9 +179,21 @@
             </form>
             <button class="cancel-button">CANCEL</button>
         </div>
-        <!--<div class='delete-account'>-->
-        <!--    <button class='delete-button' type='button' onClick='deleteUser($uid)'>Delete</button>-->
-        <!--</div>-->
+    </div>
+</div>
+
+<div class="change-permissions-overlay d-flex align-items-center justify-content-center">
+    <div class="change-permissions-container">
+        <h2>Change Permissions</h2>
+        <h3>Are you sure you want to change the permission for this account?</h3>
+        <p class="delete-description text-center">Changing user permissions may or may not negatively affect the system</p>
+        <div class="change-permission-buttons">
+            <form action='user-permission-level.php' method='post'>
+                <input type='hidden' class='change-permission-level' name='hidden-value' value=''>
+                <button class='change-permission-button' type='submit'>CHANGE PERMISSIONS</button>
+            </form>
+            <button class="permissions-cancel-button">CANCEL</button>
+        </div>
     </div>
 </div>
 
@@ -380,16 +392,15 @@
 
                     <div class="buttons col-md-12">
                         <div class="info-button-change-permission">
-                            <form action='user-permission-level.php' method='post'>
-                                <input type='hidden' class='change-permission-level' name='hidden-value' value=''>
-                                <button class='change-permission-button' type='submit'>CHANGE PERMISSIONS</button>
-                            </form>
+                            <button class='permissions-button'>CHANGE PERMISSIONS</button>
                         </div>
 
                         <div class="info-button-delete">
                             <form action='softdelete.php' method='POST'>
                                 <input class='info-box-delete' type='hidden' name='hidden-value' value=''>
-                                <button class="delete-button" onClick='infoBoxDelete()'>DELETE</button>
+                                <div class='delete-account'>
+                                    <button class='delete-button' type='button' onClick='deleteUser()'>Delete</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -436,6 +447,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-<script src="admin.js?v=24"></script>
+<script src="admin.js?v=49"></script>
 </body>
 </html>
