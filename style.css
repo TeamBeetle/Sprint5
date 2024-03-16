@@ -104,9 +104,23 @@ li:hover{
 #maindisplay
 {
   background-color: #006225;
-  display: grid;
-  grid-template-columns: 60% 40%;
+  height: 30vh;
+  min-height: 450px;
+  margin-bottom: 43vh;
+  display: flex;
+  flex-direction: row;
+  grid-gap: 5px;
+  padding: 5px;
 }
+
+@media (max-width: 991.98px) {
+  #maindisplay {
+    flex-direction: column;
+    height: 60vh;
+    margin-bottom: 20vh;
+  }
+}
+
 #bottombuttons
 {
   display: grid;
@@ -128,28 +142,70 @@ td,tr,.reminder-row
   border-top: solid black 1px;
   border-bottom: solid black 1px;
 }
+
+.reminder-row {
+  height: 5vh;
+}
+
+.entry {
+  height: 5vh;
+}
+
 .apps
 {
-  width: 100%;
-  height: 100%;
   text-align:center;
+  width: 50%;
+  height: 100%;
+  overflow: auto;
 }
+
+.apps::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  .apps {
+    width: 100%;
+  }
+}
+
+.recent-app-container {
+  width: 50%;
+  height: 100%;
+  overflow: auto;
+}
+
+@media (max-width: 991.98px) {
+  .recent-app-container {
+    width: 100%;
+  }
+}
+
+.recent-app-container::-webkit-scrollbar {
+  display: none;
+}
+
+#apps-table {
+  width: 100%;
+  text-align:center;
+  height: 100%;
+}
+
 .appsdisplay
 {
-  padding-right: 3%;
-  padding-left: 3%;
+
 }
 
 #remindercontainer
 {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 70%;
 }
 #remindercontainer, table
 {
   background-color: white;
   border: 1px solid black;
-  margin: 20px 10px 10px;
 }
 
 th, .container-title
