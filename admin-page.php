@@ -383,10 +383,6 @@
                         <div class="category category-title">Account Created:</div>
                         <p class="category category-value">2/29/2024</p>
                     </div>
-                    <div class="user-row col-md-6">
-                        <div class="category category-title">Permission-level</div>
-                        <p class="category category-value category-permission-level"> </p>
-                    </div>
 
                     <div class="buttons col-md-12">
                         <div class="info-button-change-permission">
