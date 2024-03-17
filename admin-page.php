@@ -362,8 +362,6 @@
         <div class="col-xl-4">
             <div class="table-title">USER INFO</div>
             <div class="user-details p-3">
-                <img class="col-md-6" src="images/user-profile.png" alt="empty-user-icon">
-
                 <div class="row user-grid">
                     <div class="user-row col-md-6">
                         <div class="category category-title">User-ID:</div>
