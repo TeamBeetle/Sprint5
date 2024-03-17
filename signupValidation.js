@@ -2,22 +2,10 @@
  Sign-up form script
  \****************************************************************************/
 // for opening and closing the sign up form
-let signupAnchor = document.querySelector(".sign-up");
 let signupForm = document.querySelector(".signup-form");
-let closeButton = document.querySelector(".form-close-button");
 let signupSubmitButton = document.querySelector("#signup-submit");
 
-signupAnchor.addEventListener("click", function(){
-    signupForm.style.visibility = "visible";
-    signupForm.style.opacity = "1";
 
-});
-
-closeButton.addEventListener("click", function()
-{
-    signupForm.style.visibility = "hidden";
-    signupForm.style.opacity = "0";
-});
 signupSubmitButton.addEventListener("click", function(event)
 {
     //stop regular behavior
@@ -74,5 +62,16 @@ function validateCohort(inputNumber)
     }
     document.querySelector("#signup-cohort-error").style.display = "none";
     return 0;
+}
+
+function validateEmail(inputEmail, errorMessage)
+{
+    if(inputEmail.match(/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)])/i))
+    {
+        errorMessage.style.display = "none";
+        return 0;
+    }
+    errorMessage.style.display = "inline";
+    return 1;
 }
 /*************************** end sign-up script *****************************/
