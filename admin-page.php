@@ -155,7 +155,7 @@
                 <label for="contact-message">Message
                     <span id="message-error" class="error"> Please avoid < > ; and enter no more than 250 characters.</span>
                 </label>
-                <textarea id="contact-message" name="Message" placeholder="Message Us."
+                <textarea id="contact-message" name="Message" placeholder="Message Us." maxlength="250"
                 ></textarea>
 
                 <button id="contact-submit" type="submit">Submit</button>
