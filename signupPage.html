@@ -13,37 +13,43 @@
     </div>
     <div class='container'>
         <form name="signup-form" method="post" action="signup.php">
-            <div class="form-user-info">
-                <label for="user-name">Name*
-                    <span id="signup-name-error" class="error"> Please enter a name.*</span>
-                </label>
-                <input placeholder="Name" name="user-name" id="user-name">
-                <label for="user-password">Password*
-                    <span id="signup-password-error" class="error"> Please enter a password.*</span>
-                </label>
-                <input placeholder="Password" name="user-password" id="user-password" type="password">
-                <label for="user-email">Email*
-                    <span id="signup-email-error" class="error"> Please enter an email.</span>
-                </label>
-                <input placeholder="Email" name="user-email" id="user-email">
-                <label for="user-name">Cohort*
-                    <span id="signup-cohort-error" class="error"> Number between 1-100.</span>
-                </label>
-                <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
-            </div>
-            <div class="form-checkboxes">
-                <input type="checkbox" id = "internship" name="internship" value = "seeking-internship">
-                <label for="internship">Seeking Internship</label>
-                <input type="checkbox" id = "job" name="job" value = "seeking-internship">
-                <label for="job">Seeking Job</label>
-                <input type="checkbox" id = "searching" name="searching" value = "seeking-internship">
-                <label for="searching">Not Actively Searching</label>
-            </div>
+
+            <label for="user-name">Name*
+                <span id="signup-name-error" class="error"> Please enter a name.*</span>
+            </label>
+
+            <input placeholder="Name" name="user-name" id="user-name">
+
+            <label for="user-password">Password*
+                <span id="signup-password-error" class="error"> Please enter a password.*</span>
+            </label>
+
+            <input placeholder="Password" name="user-password" id="user-password" type="password">
+            <label for="user-email">Email*
+                <span id="signup-email-error" class="error"> Please enter an email.</span>
+            </label>
+            <input placeholder="Email" name="user-email" id="user-email">
+            <label for="user-name">Cohort*
+                <span id="signup-cohort-error" class="error"> Number between 1-100.</span>
+            </label>
+            <input type="number" placeholder="Cohort Number (1-100)" name="user-cohort" id="user-cohort-number">
+
+        <div class="form-checkboxes">
+            <input type="checkbox" id = "internship" name="internship" value = "seeking-internship">
+            <label for="internship">Seeking Internship</label>
+            <input type="checkbox" id = "job" name="job" value = "seeking-internship">
+            <label for="job">Seeking Job</label>
+            <input type="checkbox" id = "searching" name="searching" value = "seeking-internship">
+            <label for="searching">Not Actively Searching</label>
+        </div>
             <label for="interests">Fields of Interest*
                 <span id="signup-interest-error" class="error"> Please enter at least one field.</span>
             </label>
             <input placeholder="Type fields followed by a comma" id="interests" name="field-interests">
             <button id="signup-submit" type="submit">Create account</button>
+            <div>
+                <p>Back to Login Screen: <a href='login.php'>Login here</a></p>
+            </div>
         </form>
     </div>
 </div>
