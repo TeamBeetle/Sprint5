@@ -37,7 +37,7 @@ form
     justify-content: center;
     align-items: center;
 }
-h
+h1
 {
     font-size: 45px;
 }
@@ -48,7 +48,78 @@ html
     background-repeat: no-repeat;
     background-size: auto;
 }
-html, body
+.form-content
 {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-content h1 {
+    font-size: 60px;
+    margin-top: 15px;
+}
+
+/*
+ - all elements within the form displayed as a column
+ - width set to 80%
+*/
+.form-content form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 70%;
+}
+
+.form-checkboxes label {
+    font-size: 20px;
+}
+
+/*
+ - input height adjusted to 30px;
+*/
+.form-content input {
+    height: 30px;
+}
+
+/*
+ - div container to evenly space out the checkboxes and labels
+*/
+.form-checkboxes {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    margin: 15px 0 15px 0;
+}
+
+/*
+ - changes the width of the checkboxes
+*/
+.form-checkboxes input {
+    width: 70%;
+}
+
+/*
+ - checkboxes labels centered
+*/
+.form-checkboxes label {
+    align-self: center;
+}
+
+/*
+ CSS for the submit button
+*/
+.form-content button {
+    height: 40px;
+    width: 60%;
+    align-self: center;
+    margin-top: 30px;
+    border: none;
+    background-color: #2eb05d;
+    color: white;
+    border-radius: 5px;
+}
+
+span.error
+{
+    color: #f44;
+    display: none;
 }
