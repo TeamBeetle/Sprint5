@@ -333,7 +333,6 @@
                                     $user_seeking_job = $row['user_seeking_job'];
                                     $user_not_seeking = $row['user_not_seeking'];
                                     $user_interest = $row['user_interest'];
-                                    $user_admin_status = $row['user_admin_status'];
 
                                     $sql1 = "SELECT * FROM `login_info` WHERE `useremail` ='".$email."'";
                                     $result1 = mysqli_query($cnxn, $sql1);

@@ -12,38 +12,33 @@ if(isset($_SESSION['id']) && isset($_SESSION['admin_status']))
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $receivedValue = $_POST['hidden-value'];
         }
-
-        $sql3 = "SELECT * FROM user_data WHERE uid = '$receivedValue'";
-        $result = @mysqli_query($cnxn, $sql3);
-        while ($row = mysqli_fetch_assoc($result))
-        {
-            $uid = $row['uid'];
-            $name = $row['user_name'];
-            $email = $row['user_email'];
-            $cohort = $row['user_cohort'];
-            $user_seeking_internship = $row['user_seeking_internship'];
-            $user_seeking_job = $row['user_seeking_job'];
-            $user_not_seeking = $row['user_not_seeking'];
-            $user_interest = $row['user_interest'];
-            $user_admin_status = $row['user_admin_status'];
-        }
-
+        $sql_get_user_data = "SELECT * FROM user_data WHERE uid=".$receivedValue.";";
+        $temp = mysqli_query($cnxn, $sql_get_user_data);
+        $temp = mysqli_fetch_assoc($temp);
+        $uid = $temp['uid'];
+        $name = $temp['user_name'];
+        $email = $temp['user_email'];
+        $cohort = $temp['user_cohort'];
+        $user_seeking_internship = $temp['user_seeking_internship'];
+        $user_seeking_job = $temp['user_seeking_job'];
+        $user_not_seeking = $temp['user_not_seeking'];
+        $user_interest = $temp['user_interest'];
 
         // Queries
-        $sql_check_permission_level = "SELECT user_admin_status FROM user_data WHERE uid = $receivedValue;";
-        $sql_get_user_data = "SELECT * FROM user_data WHERE uid=$receivedValue;";
-        $sql_make_admin = "UPDATE user_data SET user_admin_status = 1 WHERE uid = $receivedValue;";
-        $sql_remove_admin = "UPDATE user_data SET user_admin_status = 0 WHERE uid = $receivedValue;";
+        $sql_check_permission_level = "SELECT admin_status FROM login_info WHERE useremail = ".$email.";";
+        $sql_make_admin = "UPDATE login_info SET admin_status = 1 WHERE useremail = ".$email.";";
+        $sql_remove_admin = "UPDATE login_info SET admin_status = 0 WHERE useremail = ".$email.";";
 
         // query to check and save the current admin status
-        $current_permission_query = @mysqli_query($cnxn, $sql_check_permission_level);
+        $current_permission_query = mysqli_query($cnxn, $sql_check_permission_level);
 
-        $permission_column = @mysqli_fetch_assoc($current_permission_query);
+        $permission_column = mysqli_fetch_assoc($current_permission_query);
 
         $current_permission_level = $permission_column['user_admin_status'];
 
-        if ($current_permission_level == 1) {
-            @mysqli_query($cnxn, $sql_remove_admin);
+        if ($current_permission_level['admin_status'] == 1) {
+            $execute = mysqli_prepare($cnxn, $sql_remove_admin);
+            mysqli_stmt_execute($execute);
             echo "
                     <html lang='en'>
                         <head>
@@ -119,8 +114,9 @@ if(isset($_SESSION['id']) && isset($_SESSION['admin_status']))
                         </body>
                     </html> 
                 ";
-        } elseif ($current_permission_level == 0) {
-            @mysqli_query($cnxn, $sql_make_admin);
+        } elseif ($current_permission_level['admin_status'] == 0) {
+            $execute = mysqli_prepare($cnxn, $sql_make_admin);
+            mysqli_stmt_execute($execute);
             echo "
                     <html lang='en'>
                         <head>
