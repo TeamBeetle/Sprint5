@@ -136,17 +136,17 @@
             <div class="">
                 <div class="col-12 add-app-input">
                     <label for="app-employer">Employer*</label>
-                    <input id="app-employer" placeholder="Employers Name" name="app-employer">
+                    <input id="app-employer" placeholder="Employers Name" name="app-employer" maxlength="255">
                     <span id="app-employer-error" class="error">Please enter a name.</span>
                 </div>
                 <div class="col-12 add-app-input">
                     <label for="app-job-desc">Job Description*</label>
-                    <input id="app-job-desc" placeholder="Job Description" name="app-job-desc">
+                    <input id="app-job-desc" placeholder="Job Description" name="app-job-desc" maxlength="255">
                     <span id="app-job-error" class="error">Please enter a job description.</span>
                 </div>
                 <div class="col-12 add-app-input">
                     <label for="app-role">Role*</label>
-                    <input id="app-role" placeholder="Name of Role" name="app-role">
+                    <input id="app-role" placeholder="Name of Role" name="app-role" maxlength="255">
                     <span id="app-role-error" class="error">Please enter a role description.</span>
                 </div>
 
@@ -201,7 +201,7 @@
                         <label for="app-notes">Additional Notes</label>
                     </div>
                     <div class="col-12">
-                        <textarea id="app-notes" name="appNotes" rows="2" cols="30"></textarea>
+                        <textarea id="app-notes" name="appNotes" rows="2" cols="30" maxlength="255"></textarea>
                     </div>
                 </div>
             </div>
@@ -227,17 +227,17 @@
             <div class="">
                 <div class="col-12 update-app-input">
                     <label for="update-app-employer">Employer*</label>
-                    <input id="update-app-employer" placeholder="Employers Name" name="app-employer">
+                    <input id="update-app-employer" placeholder="Employers Name" name="app-employer" maxlength="255">
                     <span id="update-app-employer-error" class="error">Please enter a name.</span>
                 </div>
                 <div class="col-12 update-app-input">
                     <label for="update-app-job-desc">Job Description*</label>
-                    <input id="update-app-job-desc" placeholder="Job Description" name="app-job-desc">
+                    <input id="update-app-job-desc" placeholder="Job Description" name="app-job-desc" maxlength="255">
                     <span id="update-app-job-error" class="error">Please enter a job description.</span>
                 </div>
                 <div class="col-12 update-app-input">
                     <label for="update-app-role">Role*</label>
-                    <input id="update-app-role" placeholder="Name of Role" name="app-role">
+                    <input id="update-app-role" placeholder="Name of Role" name="app-role" maxlength="255">
                     <span id="update-app-role-error" class="error">Please enter a role description.</span>
                 </div>
 
@@ -292,7 +292,7 @@
                         <label for="update-app-notes">Additional Notes</label>
                     </div>
                     <div class="col-12">
-                        <textarea id="update-app-notes" name="updateNotes" rows="2" cols="30"></textarea>
+                        <textarea id="update-app-notes" name="updateNotes" rows="2" cols="30" maxlength="255"></textarea>
                     </div>
                 </div>
             </div>

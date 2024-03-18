@@ -68,7 +68,7 @@
 </div>
 <!-- End Application Review -->
 
-<!-- ADD APPLICATION FORM BEGINNING -->
+<!-- ADD ANNOUNCEMENT FORM BEGINNING -->
 <div class="add-app-form d-flex align-items-center justify-content-center">
     <div class="app-close-button">
         <p>X</p>
@@ -79,12 +79,12 @@
             <div>
                 <div class="col-12 add-app-input">
                     <label for="app-position">Position</label>
-                    <input id="app-position" placeholder="Position Title" name="app-position">
+                    <input id="app-position" placeholder="Position Title" name="app-position" maxlength="255">
                     <span id="app-position-error" class="error">Please enter Applications Position.</span>
                 </div>
                 <div class="col-12 add-app-input">
                     <label for="app-employer">Employer</label>
-                    <input id="app-employer" placeholder="Employer Title" name="app-employer">
+                    <input id="app-employer" placeholder="Employer Title" name="app-employer" maxlength="255">
                     <span id="app-employer-error" class="error">Please enter the Employer.</span>
                 </div>
                 <div class="col-12 add-app-input">
@@ -98,7 +98,7 @@
                 </div>
                 <div class="col-12 add-app-input">
                     <label for="app-link">Job URL</label>
-                    <input id="app-link" placeholder="Link to job opportunity" name="app-link">
+                    <input id="app-link" placeholder="Link to job opportunity" name="app-link" maxlength="255">
                     <span id="app-link-error" class="error">Please enter a valid link to the application here.</span>
                 </div>
                 <div class="col-12 add-app-input">
@@ -121,7 +121,7 @@
                 </div>
                 <div class="col-12 add-app-input">
                     <label for="app-info" class="col-12">Notes</label>
-                    <textarea id="app-info" placeholder="Additional information" name="app-info" cols="20" rows="3"></textarea>
+                    <textarea id="app-info" placeholder="Additional information" name="app-info" cols="20" rows="3" maxlength="600"></textarea>
                 </div>
             </div>
             <button type="submit" id="app-announce-button">Add Announcement</button>
