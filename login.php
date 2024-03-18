@@ -68,7 +68,7 @@ echo"
             <button type='submit' value='Submit'>Submit</button>
         </div>
         <div>
-            <p>Don't have an account with us? <a href='#'>Sign up here</a></p>
+            <p>Don't have an account with us? <a href='signupPage.html'>Sign up here</a></p>
         </div>
     </form>
 </div>

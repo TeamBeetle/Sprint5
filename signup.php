@@ -245,7 +245,42 @@ if($result) {
     }
 }
 else{
-    echo "Email already taken.";
+    echo "<html lang='en'>
+    <head>
+    <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity = 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'crossorigin='anonymous'>
+    <link href='style.css' rel='stylesheet' type='text/css'/>
+    </head>
+    <body class='receiptPageBody'>
+    <nav id='background' class='navbar navbar-expand-md  navbar-dark'>
+
+  <img id='grc-logo' class='navbar-brand'  src='images/GRC Logo.png'>
+  <button class='navbar-toggler' type='button' data-toggle='collapse'
+          data-target='#collapsibleNavbar'>
+    <span class='navbar-toggler-icon'></span>
+  </button>
+    
+  <div class='collapse navbar-collapse links' id='collapsibleNavbar'>
+
+    <ul class='navbar-nav links'>
+      <li class='nav-item'>
+        <a class='nav-link' href='login.php'>Back to Login</a>
+      </li>
+      
+    </ul>
+  </div>
+  <div id='toggleContainer' class='col-2'>
+    <button type='button' class='btn toggle active-mode btn-light'>Light</button>
+    <button type='button' class='btn toggle btn-dark'>Dark</button>
+  </div>
+</nav>  
+<div class='receiptPage'>
+<h1>ERROR!</h1>
+ <p>An account with your email is already in use!</p>
+
+ </div>
+</body>
+</html> 
+    ";
 }
     mysqli_close($cnxn);
 }
