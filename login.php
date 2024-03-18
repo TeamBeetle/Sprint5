@@ -13,22 +13,24 @@ if (isset($_POST["user-email"]) && isset($_POST["password"])) {
     $hash = mysqli_fetch_assoc($sql);
     if (password_verify($password, $hash['passwordhash'])) {
 //assign session variable
-        $sql = mysqli_query($cnxn, "SELECT `uid` FROM `user_data` WHERE `user_email` = $userEmail");
+        $temp = 'SELECT `uid` FROM `user_data` WHERE `user_email` ="'.$userEmail.'"';
+        $sql = mysqli_query($cnxn, $temp);
         $id = mysqli_fetch_assoc($sql);
-        $_SESSION['id'] = $id;
+        $_SESSION['id'] = $id['uid'];
 //get user roles with SQL
-        $sql = mysqli_query($cnxn, "SELECT `admin_status` FROM `login_info` WHERE `useremail` = $userEmail");
-        $status = mysqli_fetch_row($sql);
-        $_SESSION['admin_status'] = $status;
+        $temp = 'SELECT `admin_status` FROM `login_info` WHERE `useremail` ="'.$userEmail.'"';
+        $sql = mysqli_query($cnxn, $temp);
+        $status = mysqli_fetch_assoc($sql);
+        $_SESSION['admin_status'] = $status['admin_status'];
 //redirect to dashboard or admin page
-        if($status == 0) {
+        if($status['admin_status'] == 0) {
             echo "
-        <script>window.location = 'index.php'</script>
-    ";
-    }else{
+            <script>window.location = 'index.php'</script>
+            ";
+        }else{
             echo "
-        <script>window.location = 'admin-page.php'</script>
-    ";
+            <script>window.location = 'admin-page.php'</script>
+            ";
         }
     }
 }
