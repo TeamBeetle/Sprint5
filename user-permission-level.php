@@ -25,9 +25,9 @@ if(isset($_SESSION['id']) && isset($_SESSION['admin_status']))
         $user_interest = $temp['user_interest'];
 
         // Queries
-        $sql_check_permission_level = "SELECT admin_status FROM login_info WHERE useremail = ".$email.";";
-        $sql_make_admin = "UPDATE login_info SET admin_status = 1 WHERE useremail = ".$email.";";
-        $sql_remove_admin = "UPDATE login_info SET admin_status = 0 WHERE useremail = ".$email.";";
+        $sql_check_permission_level = "SELECT `admin_status` FROM `login_info` WHERE `useremail` = ".$email.";";
+        $sql_make_admin = "UPDATE `login_info` SET `admin_status` = 1 WHERE `useremail` = ?";
+        $sql_remove_admin = "UPDATE `login_info` SET `admin_status` = 0 WHERE `useremail` = ?";
 
         // query to check and save the current admin status
         $current_permission_query = mysqli_query($cnxn, $sql_check_permission_level);
@@ -38,7 +38,8 @@ if(isset($_SESSION['id']) && isset($_SESSION['admin_status']))
 
         if ($current_permission_level['admin_status'] == 1) {
             $execute = mysqli_prepare($cnxn, $sql_remove_admin);
-            mysqli_stmt_execute($execute);
+            mysqli_stmt_bind_param($execute, "s", $email);
+            $result = mysqli_stmt_execute($execute);
             echo "
                     <html lang='en'>
                         <head>
@@ -116,7 +117,8 @@ if(isset($_SESSION['id']) && isset($_SESSION['admin_status']))
                 ";
         } elseif ($current_permission_level['admin_status'] == 0) {
             $execute = mysqli_prepare($cnxn, $sql_make_admin);
-            mysqli_stmt_execute($execute);
+            mysqli_stmt_bind_param($execute, "s", $email);
+            $result = mysqli_stmt_execute($execute);
             echo "
                     <html lang='en'>
                         <head>
