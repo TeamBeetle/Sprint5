@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $emailCheck = 0;
     }else{
         $emailCheck = 1;
-        $userEmail = test_input(['user-email']);
+        $userEmail = test_input($_POST['user-email']);
         if (!filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
             $emailCheck = 0;
         }
