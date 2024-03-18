@@ -48,9 +48,6 @@
                             <li class="nav-item">
                                 <a class="contact-anchor contact nav-link">Contact</a>
                             </li>
-                            <li class="Account-settings">
-                                <a class="contact-anchor contact nav-link">Update Account Settings</a>
-                            </li>
                         </ul>
                     </div>
                     <div id="toggleContainer">
