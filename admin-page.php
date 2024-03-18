@@ -216,7 +216,7 @@
                         require '/home/teambeet/dbConnect.php';
                         echo "<script> let tempApplications = {}; </script>";
                         $sql = "SELECT * FROM application_data ORDER BY date_applied DESC";
-                        $result = @mysqli_query($cnxn, $sql);
+                        $result = mysqli_query($cnxn, $sql);
                         //for($i = 0; $i < 5; $i++) //remove 4 loop later and add sliding scroll wheel
                         //{
                         while ($row = mysqli_fetch_assoc($result)) //while loop this instead of if and stop the for loop for all results -Everett
@@ -259,7 +259,7 @@
                 <div id="announcementcontainer" class="announcmentcontrol">
                     <div class="container-title">RECENT ANNOUNCEMENTS</div>';
                     $sql = "SELECT * FROM announcement_data ORDER BY aid DESC";
-                    $result = @mysqli_query($cnxn, $sql);
+                    $result = mysqli_query($cnxn, $sql);
                     //for($i = 0; $i < 5; $i++) //remove 4 loop later and add sliding scroll wheel
                     //{
                     while ($row = mysqli_fetch_assoc($result)) //while loop this instead of if and stop the for loop for all results -Everett
@@ -322,7 +322,7 @@
                                 </thead>';
                                                                 
                                 $sql = "SELECT * FROM user_data ORDER BY uid DESC";
-                                $result = @mysqli_query($cnxn, $sql);
+                                $result = mysqli_query($cnxn, $sql);
                                 while ($row = mysqli_fetch_assoc($result))
                                 {
                                     $uid = $row['uid'];
@@ -334,11 +334,15 @@
                                     $user_not_seeking = $row['user_not_seeking'];
                                     $user_interest = $row['user_interest'];
                                     $user_admin_status = $row['user_admin_status'];
-            
-                                    if ($user_admin_status == 0) {
-                                        $user_admin_status = 'User';
-                                    } else if ($user_admin_status == 1) {
-                                        $user_admin_status = 'Admin';
+
+                                    $sql1 = "SELECT * FROM `login_info` WHERE `useremail` ='".$email."'";
+                                    $result1 = mysqli_query($cnxn, $sql1);
+                                    if($row1 = mysqli_fetch_assoc($result1)) {
+                                        if ($row1['admin_status'] == 0) {
+                                            $user_admin_status = 'User';
+                                        } else if ($row1['admin_status'] == 1) {
+                                            $user_admin_status = 'Admin';
+                                        }
                                     }
             
             

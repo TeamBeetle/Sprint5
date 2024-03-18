@@ -375,7 +375,7 @@
         require '/home/teambeet/dbConnect.php';
         echo "<script> let tempApplications = {}; </script>";
         $sql = "SELECT * FROM application_data WHERE user = 'Default User' ORDER BY date_applied DESC";
-        $result = @mysqli_query($cnxn, $sql);
+        $result = mysqli_query($cnxn, $sql);
         //for($i = 0; $i < 5; $i++) //remove 4 loop later and add sliding scroll wheel
         //{
         while ($row = mysqli_fetch_assoc($result)) //while loop this instead of if and stop the for loop for all results -Everett
@@ -425,7 +425,7 @@
         //create initial script which instantiates an array and a variable for today's date.
         echo "<script> let tempAnnouncements = []; const date = new Date(); const miliToDay = 86400000; </script>";
         $sql1 = "SELECT * FROM application_data WHERE user = 'Default User' ORDER BY date_followup DESC";
-        $result1 = @mysqli_query($cnxn, $sql1);
+        $result1 = mysqli_query($cnxn, $sql1);
         //run while loop for application data
         while ($row = mysqli_fetch_assoc($result1)) {
             $aid = $row['aid'];
@@ -452,7 +452,7 @@
 
         //BEGINNING OF LOOP 2 ELECTRIC BOOGALOO :)
         $sql2 = "SELECT * FROM announcement_data ORDER BY aid DESC";
-        $result2 = @mysqli_query($cnxn, $sql2);
+        $result2 = mysqli_query($cnxn, $sql2);
 
         while ($row = mysqli_fetch_assoc($result2)) {
             //time of upload needs to be not NAN at the moment. must convert
