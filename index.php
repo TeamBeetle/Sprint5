@@ -472,7 +472,6 @@
                         {                
                             if (tempAnnouncements[i].dateOut <= 5 && tempAnnouncements[i].dateOut >= -5)
                             {
-                                console.log('In if');
                                 let html = `<div id='reminder` + i + `' class='reminder-row entry'>
                                         <p>`+ tempAnnouncements[i].title + `</p>
                                    </div>`;
