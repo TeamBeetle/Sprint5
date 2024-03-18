@@ -408,8 +408,8 @@
                               <td class='appinfo'>$employer</td>
                               <td class='appinfo'>$jobDesc</td>
                               <td class='appinfo'>$status</td>
-                              <td id='recentApplication_$aid' class='appinfo button update'>Update</td>
-                              <td class='appinfo'>delete</td>
+                              <td id='recentApplication_$aid' class='appinfo button update btn btn-info'>Update</td>
+                              <td class='appinfo btn btn-danger'>delete</td>
                           </tr>";
         }
         echo "<script>const recentApplications= tempApplications</script>";
