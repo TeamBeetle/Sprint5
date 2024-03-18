@@ -530,8 +530,7 @@
             </body>
             </html>';
     }
-    //else //not logged in
-    //{
-    //    echo '<script>window.location = "https://teambeetle.greenriverdev.com/SPRINT5/login.php"</script>';
-    //}
-?>
+    else //not logged in
+    {
+        echo '<script>window.location = "https://teambeetle.greenriverdev.com/SPRINT5/login.php"</script>';
+    }

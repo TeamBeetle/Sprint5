@@ -457,5 +457,3 @@
     {
         echo '<script>window.location = "https://teambeetle.greenriverdev.com/SPRINT5/login.php"</script>';
     }
-
-?>
