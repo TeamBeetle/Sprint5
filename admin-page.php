@@ -247,7 +247,6 @@
                               <td class='appinfo'>$employer $jobDesc</td>
                               <td class='appinfo'>$status</td>
                               <td id='recentApplication_$aid' class='appinfo button view'>view</td>
-                              <td class='appinfo'>delete</td>
                           </tr>";
                         }
                         echo "<script>const recentApplications= tempApplications</script>";
