@@ -12,7 +12,7 @@
                 <meta name="viewport" content="width=device-width">
                 <title>User Dashboard</title>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-                <link href="style.css?v=15" rel="stylesheet" type="text/css" />
+                <link href="style.css?v=18" rel="stylesheet" type="text/css" />
                 <!--extra for nav-->
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
                 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
@@ -39,9 +39,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Dashboard</a>
                         </li>
+                        <!--
                         <li class="nav-item">
                             <a class="nav-link sign-up" href="#">Sign Up</a>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link add-application" href="#">Add Application</a>
                         </li>
@@ -408,8 +409,12 @@
                               <td class='appinfo'>$employer</td>
                               <td class='appinfo'>$jobDesc</td>
                               <td class='appinfo'>$status</td>
-                              <td id='recentApplication_$aid' class='appinfo button update btn btn-info'>Update</td>
-                              <td class='appinfo btn btn-danger'>delete</td>
+                              <td class='appinfo'>
+                                    <button id='recentApplication_$aid' class=' button update view-button'>Update</button>
+                              </td>
+                              <td class='appinfo'>
+                                    <button class=' delete-button'>delete</button>
+                              </td>
                           </tr>";
         }
         echo "<script>const recentApplications= tempApplications</script>";
@@ -525,7 +530,7 @@
             </div>
             
             
-            <script src="user.js?v=47"> </script>
+            <script src="user.js?v=48"> </script>
             <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/extensions/natural-sorting/bootstrap-table-natural-sorting.min.js"></script>
             </body>
             </html>';

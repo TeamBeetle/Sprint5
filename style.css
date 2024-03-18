@@ -825,3 +825,23 @@ span.error
   display: grid;
   grid-gap: 10px;
 }
+
+/*
+Button Styles
+ */
+.view-button {
+  width: 100%;
+}
+.delete-button {
+  color: #ab0000;
+  border: solid #ab0000 2px;
+}
+
+td
+{
+  border-right: 1px solid #aaa;
+}
+td:nth-last-child
+{
+  border-right: none;
+}

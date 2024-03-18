@@ -57,6 +57,7 @@ toggleContainer.addEventListener('click', function(e)
 /****************************************************************************\
  Sign-up form script
  \****************************************************************************/
+/*
 // for opening and closing the sign up form
 let signupAnchor = document.querySelector(".sign-up");
 let signupForm = document.querySelector(".signup-form");
@@ -131,6 +132,8 @@ function validateCohort(inputNumber)
     document.querySelector("#signup-cohort-error").style.display = "none";
     return 0;
 }
+
+ */
 /*************************** end sign-up script *****************************/
 
 /****************************************************************************\
