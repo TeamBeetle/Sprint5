@@ -424,7 +424,7 @@
 
         //create initial script which instantiates an array and a variable for today's date.
         echo "<script> let tempAnnouncements = []; const date = new Date(); const miliToDay = 86400000; </script>";
-        $sql1 = "SELECT * FROM application_data WHERE user = 'Default User' ORDER BY date_followup DESC";
+        $sql1 = "SELECT * FROM application_data WHERE user =".$_SESSION['id']." ORDER BY date_followup DESC";
         $result1 = mysqli_query($cnxn, $sql1);
         //run while loop for application data
         while ($row = mysqli_fetch_assoc($result1)) {
