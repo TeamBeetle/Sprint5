@@ -48,6 +48,9 @@
                             <li class="nav-item">
                                 <a class="contact-anchor contact nav-link">Contact</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="logout.php">Log out</a>
+                            </li>
                         </ul>
                     </div>
                     <div id="toggleContainer">

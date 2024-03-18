@@ -48,7 +48,9 @@
                         <li class="nav-item">
                             <a class="nav-link contact-anchor contact" href="#">Contact</a>
                         </li>
-                        ';
+                        <li>
+                            <a class="nav-link" href="logout.php">Log out</a>
+                        </li>';
             if($_SESSION['admin_status'] == 1)
             {
                 echo'   <li>
