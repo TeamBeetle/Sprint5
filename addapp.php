@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 error_reporting(0);
 
 $employerName = $employerNameCheck = 0;
@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //connect to db
         require '/home/teambeet/dbConnect.php';
         //define insert query
-        $sql = "INSERT INTO `application_data` (`aid`, `user`, `employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`) VALUES (NULL, 'Default User' , ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `application_data` (`aid`, `user`, `employer_name`, `job_description`, `role`, `status`, `date_applied`, `date_followup`, `notes`) VALUES (NULL, ".$_SESSION['id'].", ?, ?, ?, ?, ?, ?, ?)";
         //gather notes + sanitizing notes
 
         //$notes = isset($_POST['Additional Notes Here']) ? $_POST['Additional Notes Here'] : '';

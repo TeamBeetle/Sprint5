@@ -374,7 +374,7 @@
 
         require '/home/teambeet/dbConnect.php';
         echo "<script> let tempApplications = {}; </script>";
-        $sql = "SELECT * FROM application_data WHERE user = 'Default User' ORDER BY date_applied DESC";
+        $sql = "SELECT * FROM application_data WHERE user = ".$_SESSION['id']." ORDER BY date_applied DESC";
         $result = mysqli_query($cnxn, $sql);
         //for($i = 0; $i < 5; $i++) //remove 4 loop later and add sliding scroll wheel
         //{
