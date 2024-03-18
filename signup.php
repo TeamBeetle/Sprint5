@@ -97,7 +97,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         if(preg_match('/^[a-zA-Z0-9!@#$]{6,12}$/',$password)) {
             $passwordCheck = 1;
         }
-        $passwordCheck = 0;
+        else
+        {
+            $passwordCheck = 0;
+        }
     }
 }
 $checkboxSum = ($InterncheckBoxCount + $jobCheckBoxCount + $searchingCheckBoxCount);
