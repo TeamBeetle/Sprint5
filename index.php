@@ -413,7 +413,7 @@
                                     <button id='recentApplication_$aid' class=' button update view-button'>Update</button>
                               </td>
                               <td class='appinfo'>
-                                    <button class=' delete-button'>delete</button>
+                                    <button id='Application_$aid' class=' delete-button'>delete</button>
                               </td>
                           </tr>";
         }
@@ -530,7 +530,7 @@
             </div>
             
             
-            <script src="user.js?v=48"> </script>
+            <script src="user.js?v=49"> </script>
             <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/extensions/natural-sorting/bootstrap-table-natural-sorting.min.js"></script>
             </body>
             </html>';

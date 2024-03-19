@@ -315,6 +315,12 @@ applicationTable.addEventListener('click', function(e)
         updateAppForm.style.opacity = "1";
 
     }
+    else if (e.target.classList.contains('delete-button'))
+    {
+        let tableIndex ='recent' + e.target.id;
+        window.location = 'https://teambeetle.greenriverdev.com/SPRINT5/deleteApplication.php?aid=' + parseInt(recentApplications[tableIndex]['id']);
+
+    }
 });
 
 updateAppSubmission.addEventListener("click", function (event)
@@ -523,3 +529,9 @@ function lightDark()
         });
     }
 }
+
+
+/*********************************************************\
+ * delete application script
+ \********************************************************/
+
