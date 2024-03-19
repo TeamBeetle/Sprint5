@@ -34,9 +34,10 @@ if(isset($_SESSION['id']) && isset($_SESSION['admin_status']))
 
         $permission_column = mysqli_fetch_assoc($current_permission_query);
 
-        $current_permission_level = $permission_column['user_admin_status'];
+        $current_permission_level = $permission_column['admin_status'];
 
-        if ($current_permission_level['admin_status'] == 1) {
+        if ($current_permission_level == 1)
+        {
             $execute = mysqli_prepare($cnxn, $sql_remove_admin);
             mysqli_stmt_bind_param($execute, "s", $email);
             $result = mysqli_stmt_execute($execute);
@@ -115,7 +116,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['admin_status']))
                         </body>
                     </html> 
                 ";
-        } elseif ($current_permission_level['admin_status'] == 0) {
+        } else if ($current_permission_level == 0) {
             $execute = mysqli_prepare($cnxn, $sql_make_admin);
             mysqli_stmt_bind_param($execute, "s", $email);
             $result = mysqli_stmt_execute($execute);
