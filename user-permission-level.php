@@ -25,16 +25,18 @@ if(isset($_SESSION['id']) && isset($_SESSION['admin_status']))
         $user_interest = $temp['user_interest'];
 
         // Queries
-        $sql_check_permission_level = "SELECT `admin_status` FROM `login_info` WHERE `useremail` = ".$email.";";
+        $sql_check_permission_level = "SELECT `admin_status` FROM `login_info` WHERE `useremail` = '".$email."';";
         $sql_make_admin = "UPDATE `login_info` SET `admin_status` = 1 WHERE `useremail` = ?";
         $sql_remove_admin = "UPDATE `login_info` SET `admin_status` = 0 WHERE `useremail` = ?";
 
+        echo $sql_check_permission_level;
         // query to check and save the current admin status
         $current_permission_query = mysqli_query($cnxn, $sql_check_permission_level);
 
         $permission_column = mysqli_fetch_assoc($current_permission_query);
 
         $current_permission_level = $permission_column['admin_status'];
+        echo "  ".$current_permission_level;
 
         if ($current_permission_level == 1)
         {
