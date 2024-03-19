@@ -16,7 +16,7 @@
                 <title>GRC ATT - Admin</title>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-                <link href="admin-page-styles.css?v=32" rel="stylesheet" type="text/css" />
+                <link href="admin-page-styles.css?v=34" rel="stylesheet" type="text/css" />
             
                 <!-- links and scripts related to the table functions -->
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
@@ -313,11 +313,11 @@
                             <table class="users table table-striped" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th class="text-center">UserID</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Email</th>
-                                    <th class="text-center">Cohort</th>
-                                    <th class="text-center">Permission</th>
+                                    <th class="text-center user-header">UserID</th>
+                                    <th class="text-center user-header">Name</th>
+                                    <th class="text-center user-header">Email</th>
+                                    <th class="text-center user-header">Cohort</th>
+                                    <th class="text-center user-header">Permission</th>
                                     <th class="text-center no-sort"></th>
                                 </tr>
                                 </thead>';
@@ -443,7 +443,7 @@
             
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
             
-            <script src="admin.js?v=49"></script>
+            <script src="admin.js?v=52"></script>
             </body>
             </html>';
 

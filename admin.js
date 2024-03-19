@@ -19,7 +19,7 @@ window.onload = () =>
         document.querySelectorAll("tr").forEach((element) => element.style.color = "#000");
         document.querySelectorAll(".announcement-row").forEach((element) => element.style.color = "#fff");
         document.querySelectorAll(".announcement-row").forEach((element) => element.style.backgroundColor = "#555");
-        document.querySelectorAll("td").forEach((element) => element.style.color = "#fff");
+        document.querySelectorAll("td, .user-header").forEach((element) => element.style.color = "#fff");
         document.querySelectorAll(".table-user-info").forEach((element) => element.style.backgroundColor = "#555");
         document.querySelectorAll(".student-name").forEach((element) => element.style.color = "#fff");
         document.querySelectorAll(".student-email").forEach((element) => element.style.color = "#fff");
@@ -469,7 +469,7 @@ function lightDark()
         document.querySelectorAll("tr").forEach((element)=> element.style.color = "#000");
         document.querySelectorAll(".announcement-row").forEach((element)=> element.style.color = "#fff");
         document.querySelectorAll(".announcement-row").forEach((element)=> element.style.backgroundColor = "#555");
-        document.querySelectorAll("td").forEach((element)=> element.style.color = "#fff");
+        document.querySelectorAll("td, .user-header").forEach((element)=> element.style.color = "#fff");
         document.querySelectorAll(".table-user-info").forEach((element)=> element.style.backgroundColor = "#555");
         document.querySelectorAll(".student-name").forEach((element)=> element.style.color = "#fff");
         document.querySelectorAll(".student-email").forEach((element)=> element.style.color = "#fff");
@@ -505,7 +505,7 @@ function lightDark()
         document.querySelectorAll("tr").forEach((element)=> element.style.color = "#fff");
         document.querySelectorAll(".announcement-row").forEach((element)=> element.style.color = "#000");
         document.querySelectorAll(".announcement-row").forEach((element)=> element.style.backgroundColor = "#fff");
-        document.querySelectorAll("td").forEach((element)=> element.style.color = "#000");
+        document.querySelectorAll("td, .user-header").forEach((element)=> element.style.color = "#000");
         document.querySelectorAll(".table-user-info").forEach((element)=> element.style.backgroundColor = "#fff");
         document.querySelectorAll(".student-name").forEach((element)=> element.style.color = "#000");
         document.querySelectorAll(".student-email").forEach((element)=> element.style.color = "#000");
